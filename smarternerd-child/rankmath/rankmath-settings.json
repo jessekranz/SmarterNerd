@@ -1,0 +1,194 @@
+{
+  "_version": "1.0",
+  "_note": "Import via Rank Math > Status & Tools > Import/Export. Review all values before importing to live site.",
+
+  "modules": {
+    "schema": true,
+    "sitemap": true,
+    "instant-indexing": true,
+    "local-seo": true,
+    "redirections": true,
+    "image-seo": true,
+    "analytics": false,
+    "404-monitor": false,
+    "llms-txt": true,
+    "ai-search-tracker": true
+  },
+
+  "general": {
+    "breadcrumbs": true,
+    "breadcrumb_separator": "›",
+    "breadcrumb_home_label": "Home",
+    "noindex_empty_taxonomies": true,
+    "noindex_archive_subpages": true,
+    "attachment_redirect_urls": true,
+    "redirect_on_delete": "301",
+    "link_builder": true,
+    "internal_links_per_post": 3
+  },
+
+  "titles": {
+    "separator": "—",
+    "capitalize_titles": false,
+
+    "homepage": {
+      "title": "Web Designer Fort Lauderdale | AI & SEO — SmarterNerd",
+      "description": "Fort Lauderdale's AI-powered web designer. Custom WordPress sites, local SEO & AI chatbots for South Florida small businesses. Free consultation.",
+      "robots": "index,follow"
+    },
+
+    "pages": {
+      "title": "%title% — SmarterNerd | Fort Lauderdale Web Designer",
+      "description": "%excerpt%",
+      "robots": "index,follow"
+    },
+
+    "posts": {
+      "title": "%title% — SmarterNerd Blog",
+      "description": "%excerpt%",
+      "robots": "index,follow"
+    },
+
+    "page_meta": {
+      "portfolio": {
+        "title": "Web Design Portfolio Fort Lauderdale — SmarterNerd | Real Projects",
+        "description": "Explore SmarterNerd's Fort Lauderdale web design portfolio — 8 live South Florida business websites. Custom WordPress, WooCommerce & AI builds. View work.",
+        "focus_keyword": "web design portfolio Fort Lauderdale",
+        "og_image": "/wp-content/uploads/og-portfolio-fort-lauderdale-web-design.jpg"
+      },
+      "ai-services": {
+        "title": "AI Services Fort Lauderdale — Chatbots, Automation & GEO | SmarterNerd",
+        "description": "Fort Lauderdale AI services: ChatGPT chatbots, workflow automation, AI content & GEO search visibility for South Florida small businesses. Free strategy call.",
+        "focus_keyword": "AI services Fort Lauderdale",
+        "og_image": "/wp-content/uploads/og-ai-services-fort-lauderdale.jpg"
+      },
+      "seo-services": {
+        "title": "SEO Services Fort Lauderdale — Local SEO & Google Maps | SmarterNerd",
+        "description": "Fort Lauderdale SEO services that rank. Local SEO, Google Maps optimization & GEO/AI search visibility for South Florida businesses. Free SEO audit.",
+        "focus_keyword": "SEO services Fort Lauderdale",
+        "og_image": "/wp-content/uploads/og-seo-services-fort-lauderdale.jpg"
+      },
+      "about": {
+        "title": "Fort Lauderdale Web Designer — Jesse | USAF Veteran & AI Expert",
+        "description": "Meet Jesse — Fort Lauderdale web designer, former USAF Captain, Oracle DBA & AI specialist. $32M systems engineered. Now serving South Florida businesses.",
+        "focus_keyword": "Fort Lauderdale web designer",
+        "og_image": "/wp-content/uploads/og-about-fort-lauderdale-web-designer.jpg"
+      },
+      "contact": {
+        "title": "Contact Fort Lauderdale Web Designer — Free Consultation | SmarterNerd",
+        "description": "Contact SmarterNerd — Fort Lauderdale's AI-powered web designer. Free consultation for South Florida small businesses. Responds within 1 business day.",
+        "focus_keyword": "contact Fort Lauderdale web designer",
+        "og_image": "/wp-content/uploads/og-contact-fort-lauderdale-web-designer.jpg"
+      }
+    }
+  },
+
+  "sitemap": {
+    "sitemap_blogs_images": true,
+    "sitemap_role": "1",
+    "items_per_page": 200,
+    "include_images": true,
+    "ping_engines": true,
+
+    "post_types": {
+      "post": { "include": true, "priority": "0.6", "frequency": "weekly" },
+      "page": { "include": true, "priority": "0.8", "frequency": "monthly" }
+    },
+
+    "taxonomies": {
+      "category": { "include": true },
+      "post_tag": { "include": false }
+    }
+  },
+
+  "local_seo": {
+    "name": "SmarterNerd",
+    "type": "LocalBusiness",
+    "url": "https://www.smarternerd.com",
+    "email": "Jesse@SmarterNerd.com",
+    "phone": "",
+    "address": {
+      "street": "Fort Lauderdale",
+      "city": "Fort Lauderdale",
+      "state": "FL",
+      "zip": "33301",
+      "country": "US"
+    },
+    "geo": {
+      "latitude": "26.1224",
+      "longitude": "-80.1373"
+    },
+    "opening_hours": {
+      "Monday":    { "open": "09:00", "close": "18:00" },
+      "Tuesday":   { "open": "09:00", "close": "18:00" },
+      "Wednesday": { "open": "09:00", "close": "18:00" },
+      "Thursday":  { "open": "09:00", "close": "18:00" },
+      "Friday":    { "open": "09:00", "close": "18:00" }
+    },
+    "price_range": "$$",
+    "show_opening_hours": true,
+    "map_style": "roadmap"
+  },
+
+  "schema": {
+    "global": {
+      "local_business": true,
+      "website_schema": true,
+      "breadcrumbs": true
+    },
+    "page_defaults": {
+      "homepage":     ["WebSite", "LocalBusiness", "FAQPage", "SearchAction"],
+      "portfolio":    ["ItemList", "Review", "FAQPage", "LocalBusiness"],
+      "ai-services":  ["Service", "FAQPage", "LocalBusiness"],
+      "seo-services": ["Service", "HowTo", "FAQPage", "LocalBusiness"],
+      "about":        ["Person", "FAQPage", "LocalBusiness"],
+      "contact":      ["LocalBusiness", "GeoCoordinates", "FAQPage"]
+    }
+  },
+
+  "image_seo": {
+    "add_missing_alt": true,
+    "alt_format": "%title% %sep% Fort Lauderdale",
+    "title_format": "%title%",
+    "capitalize_titles": false
+  },
+
+  "instant_indexing": {
+    "enabled": true,
+    "provider": "google",
+    "auto_submit_on_publish": true,
+    "auto_submit_on_update": true,
+    "post_types": ["post", "page"]
+  },
+
+  "redirections": {
+    "fallback_redirect": "/",
+    "redirect_debug": false,
+    "auto_post_redirect": true
+  },
+
+  "advanced": {
+    "canonical_url": true,
+    "clean_permalink": true,
+    "remove_category_base": false,
+    "nofollow_external_links": false,
+    "add_img_alt": true,
+    "add_img_title": true
+  },
+
+  "post_instructions": {
+    "every_post_must_have": [
+      "Focus keyword front-loaded in H1",
+      "Fort Lauderdale in H1 and at least 2 H2s",
+      "Focus keyword in first 100 words",
+      "Minimum 3 internal links",
+      "1 external authority link (opens new tab)",
+      "FAQPage section with minimum 3 Q&As",
+      "All images: alt text with keyword + Fort Lauderdale",
+      "Meta title 50-65 chars with power word",
+      "Meta description 120-155 chars with CTA",
+      "OG image 1200x630px, filename includes keyword",
+      "Rank Math target score: 85+ (aim for 95+)"
+    ]
+  }
+}

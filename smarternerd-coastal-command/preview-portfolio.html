@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Design Portfolio Fort Lauderdale — SmarterNerd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .site-header { display: flex; align-items: center; justify-content: space-between; padding: 0 var(--sp-6); }
+  .site-logo { display: flex; align-items: center; gap: var(--sp-3); text-decoration: none; }
+  .site-logo__mark { width: 48px; height: 48px; border-radius: 50%; background: var(--sn-grad-sunset); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: var(--sn-glow-cyan); flex-shrink: 0; }
+  .site-logo__name { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: var(--fs-lg); color: var(--sn-text); letter-spacing: -0.02em; }
+  .site-logo__name span { color: var(--sn-teal); }
+  .primary-nav { display: flex; align-items: center; gap: var(--sp-2); }
+  .primary-nav a { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: var(--fs-sm); color: var(--sn-text-2); padding: var(--sp-2) var(--sp-4); border-radius: var(--r-sm); transition: color var(--t-fast); text-decoration: none; }
+  .primary-nav a:hover { color: var(--sn-teal); }
+  .primary-nav a.active { color: var(--sn-teal); }
+  .primary-nav .nav-cta { background: var(--sn-teal) !important; color: #FDF8F2 !important; padding: var(--sp-2) var(--sp-5) !important; font-weight: 600 !important; border-radius: var(--r-sm) !important; }
+  .primary-nav .nav-cta:hover { background: var(--sn-teal-dark) !important; color: #FDF8F2 !important; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--sp-8); margin-bottom: var(--sp-7); }
+  .footer-col h4 { color: var(--sn-gold) !important; font-family: 'JetBrains Mono', monospace; font-size: var(--fs-xs); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: var(--sp-4); }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); }
+  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--sp-3); padding-top: var(--sp-5); border-top: 1px solid rgba(248,243,234,0.10); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(248,243,234,0.38); }
+  .footer-brand p { color: rgba(248,243,234,0.65) !important; }
+  @media (max-width: 768px) {
+    .primary-nav a:not(.nav-cta) { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body class="sn-coastal">
+
+<div class="sn-scroll-progress" id="scrollProgress"></div>
+
+<div class="sn-ticker">
+  <div class="sn-ticker__inner">
+    <span class="sn-ticker__item">SOUTH FLORIDA AI AGENCY<span>◆</span></span>
+    <span class="sn-ticker__item">AI CHATBOTS &amp; AUTOMATION<span>◆</span></span>
+    <span class="sn-ticker__item">WEB DESIGN &amp; DEVELOPMENT<span>◆</span></span>
+    <span class="sn-ticker__item">LOCAL SEO &amp; RANK MATH<span>◆</span></span>
+    <span class="sn-ticker__item">3D VIRTUAL TOURS<span>◆</span></span>
+    <span class="sn-ticker__item">GOOGLE MAPS OPTIMIZATION<span>◆</span></span>
+    <span class="sn-ticker__item">FORMER USAF CAPTAIN<span>◆</span></span>
+    <span class="sn-ticker__item">TOP SECRET / SCI CLEARANCE<span>◆</span></span>
+    <span class="sn-ticker__item">62+ TECH INSTALLS<span>◆</span></span>
+    <span class="sn-ticker__item">$32M SYSTEMS ENGINEERED<span>◆</span></span>
+    <span class="sn-ticker__item">SOUTH FLORIDA AI AGENCY<span>◆</span></span>
+    <span class="sn-ticker__item">AI CHATBOTS &amp; AUTOMATION<span>◆</span></span>
+    <span class="sn-ticker__item">WEB DESIGN &amp; DEVELOPMENT<span>◆</span></span>
+    <span class="sn-ticker__item">LOCAL SEO &amp; RANK MATH<span>◆</span></span>
+    <span class="sn-ticker__item">3D VIRTUAL TOURS<span>◆</span></span>
+    <span class="sn-ticker__item">GOOGLE MAPS OPTIMIZATION<span>◆</span></span>
+    <span class="sn-ticker__item">FORMER USAF CAPTAIN<span>◆</span></span>
+    <span class="sn-ticker__item">TOP SECRET / SCI CLEARANCE<span>◆</span></span>
+    <span class="sn-ticker__item">62+ TECH INSTALLS<span>◆</span></span>
+    <span class="sn-ticker__item">$32M SYSTEMS ENGINEERED<span>◆</span></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <a href="preview.html" class="site-logo">
+    <div class="site-logo__mark">🤓</div>
+    <span class="site-logo__name">Smarter<span>Nerd</span></span>
+  </a>
+  <nav class="primary-nav" aria-label="Main navigation">
+    <a href="preview.html">Home</a>
+    <a href="preview-ai-services.html">AI Services</a>
+    <a href="preview-seo-services.html">SEO</a>
+    <a href="preview-portfolio.html" class="active">Portfolio</a>
+    <a href="preview-about.html">About</a>
+    <a href="preview-contact.html" class="nav-cta">Free AI Audit</a>
+  </nav>
+</header>
+
+<!-- ════ HERO ════ -->
+<section class="sn-hero" aria-label="Web Design Portfolio Fort Lauderdale">
+  <div class="sn-hero__bg" aria-hidden="true"></div>
+  <div class="sn-container">
+    <div class="sn-hero__content" style="max-width:780px;">
+      <div class="sn-hero__eyebrow sn-reveal">
+        <span class="sn-badge sn-badge--mag sn-badge--dot">Web Design Portfolio — Fort Lauderdale, FL</span>
+      </div>
+      <h1 class="sn-hero__title sn-reveal sn-reveal-delay-1">
+        Fort Lauderdale <span class="accent--mag">Web Design Portfolio</span>
+      </h1>
+      <p class="sn-hero__body sn-reveal sn-reveal-delay-2">
+        Real websites built for real South Florida businesses — hand-coded, mobile-first, conversion-focused, and SEO-ready from day one. Every project below is live and ranking.
+      </p>
+      <div class="sn-btn-group sn-reveal sn-reveal-delay-3">
+        <a href="preview-contact.html" class="sn-btn sn-btn--primary">Start Your Project →</a>
+        <a href="preview-ai-services.html" class="sn-btn sn-btn--secondary">Add AI to Your Site</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PORTFOLIO GRID ════ -->
+<section class="sn-section" aria-labelledby="portfolio-grid-heading"
+  itemscope itemtype="https://schema.org/ItemList">
+  <div class="sn-container">
+    <div class="text-center mb-8">
+      <p class="sn-eyebrow sn-reveal" style="justify-content:center;">8 Live Projects</p>
+      <h2 class="sn-section-title sn-reveal sn-reveal-delay-1" id="portfolio-grid-heading" itemprop="name">
+        South Florida <span class="accent">Web Design Work</span>
+      </h2>
+    </div>
+
+    <div class="sn-portfolio-grid sn-reveal sn-reveal-delay-2">
+
+      <div class="sn-portfolio-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <meta itemprop="position" content="1">
+        <img src="/wp-content/uploads/portfolio-charleshawkins.jpg"
+             alt="Charles Hawkins Law firm web design Fort Lauderdale"
+             width="680" height="425" loading="lazy" itemprop="image">
+        <div class="sn-portfolio-overlay">
+          <div class="flex gap-4" style="margin-bottom:var(--sp-3);">
+            <span class="sn-badge sn-badge--cyan">WordPress</span>
+            <span class="sn-badge sn-badge--mag">Legal</span>
+          </div>
+          <h3 itemprop="name">CharlesHawkinsLaw.com</h3>
+          <p>Custom legal web design · Local SEO · Fort Lauderdale attorney</p>
+          <a href="https://charleshawkinslaw.com" target="_blank" rel="noopener noreferrer"
+             class="sn-btn sn-btn--secondary" style="margin-top:var(--sp-3);font-size:var(--fs-xs);"
+             itemprop="url">View Live Site ↗</a>
+        </div>
+      </div>
+
+      <div class="sn-portfolio-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <meta itemprop="position" content="2">
+        <img src="/wp-content/uploads/portfolio-protouchrehab.jpg"
+             alt="ProTouch Rehab physical therapy web design South Florida"
+             width="680" height="425" loading="lazy" itemprop="image">
+        <div class="sn-portfolio-overlay">
+          <div class="flex gap-4" style="margin-bottom:var(--sp-3);">
+            <span class="sn-badge sn-badge--cyan">WordPress</span>
+            <span class="sn-badge sn-badge--elec">Healthcare</span>
+          </div>
+          <h3 itemprop="name">ProTouchRehab.com</h3>
+          <p>Physical therapy web design · AI chatbot · South Florida</p>
+          <a href="https://protouchrehab.com" target="_blank" rel="noopener noreferrer"
+             class="sn-btn sn-btn--secondary" style="margin-top:var(--sp-3);font-size:var(--fs-xs);"
+             itemprop="url">View Live Site ↗</a>
+        </div>
+      </div>
+
+      <div class="sn-portfolio-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <meta itemprop="position" content="3">
+        <img src="/wp-content/uploads/portfolio-arvadacoins.jpg"
+             alt="Arvada Coins e-commerce web design WooCommerce"
+             width="680" height="425" loading="lazy" itemprop="image">
+        <div class="sn-portfolio-overlay">
+          <div class="flex gap-4" style="margin-bottom:var(--sp-3);">
+            <span class="sn-badge sn-badge--cyan">WooCommerce</span>
+            <span class="sn-badge sn-badge--mag">E-Commerce</span>
+          </div>
+          <h3 itemprop="name">ArvadaCoins.com</h3>
+          <p>Coin dealer e-commerce · WooCommerce · AI content engine</p>
+          <a href="https://arvadacoins.com" target="_blank" rel="noopener noreferrer"
+             class="sn-btn sn-btn--secondary" style="margin-top:var(--sp-3);font-size:var(--fs-xs);"
+             itemprop="url">View Live Site ↗</a>
+        </div>
+      </div>
+
+      <div class="sn-portfolio-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <meta itemprop="position" content="4">
+        <img src="/wp-content/uploads/portfolio-altimagery.jpg"
+             alt="Alt Imagery aerial photography web design South Florida"
+             width="680" height="425" loading="lazy" itemprop="image">
+        <div class="sn-portfolio-overlay">
+          <div class="flex gap-4" style="margin-bottom:var(--sp-3);">
+            <span class="sn-badge sn-badge--cyan">WordPress</span>
+            <span class="sn-badge sn-badge--elec">Photography</span>
+          </div>
+          <h3 itemprop="name">AltImagery.com</h3>
+          <p>Aerial photography portfolio · Custom design · SEO</p>
+          <a href="https://altimagery.com" target="_blank" rel="noopener noreferrer"
+             class="sn-btn sn-btn--secondary" style="margin-top:var(--sp-3);font-size:var(--fs-xs);"
+             itemprop="url">View Live Site ↗</a>
+        </div>
+      </div>
+
+      <div class="sn-portfolio-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <meta itemprop="position" content="5">
+        <img src="/wp-content/uploads/portfolio-spacesplaces.jpg"
+             alt="Spaces Places Pro interior design web design"
+             width="680" height="425" loading="lazy" itemprop="image">
+        <div class="sn-portfolio-overlay">
+          <div class="flex gap-4" style="margin-bottom:var(--sp-3);">
+            <span class="sn-badge sn-badge--cyan">WordPress</span>
+            <span class="sn-badge sn-badge--mag">Interior Design</span>
+          </div>
+          <h3 itemprop="name">SpacesPlacesPro.com</h3>
+          <p>Interior design portfolio · Matterport 3D tour integration</p>
+          <a href="https://spacesplacespro.com" target="_blank" rel="noopener noreferrer"
+             class="sn-btn sn-btn--secondary" style="margin-top:var(--sp-3);font-size:var(--fs-xs);"
+             itemprop="url">View Live Site ↗</a>
+        </div>
+      </div>
+
+      <div class="sn-portfolio-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <meta itemprop="position" content="6">
+        <img src="/wp-content/uploads/portfolio-socalritual.jpg"
+             alt="SoCal Ritual Bodywork wellness web design"
+             width="680" height="425" loading="lazy" itemprop="image">
+        <div class="sn-portfolio-overlay">
+          <div class="flex gap-4" style="margin-bottom:var(--sp-3);">
+            <span class="sn-badge sn-badge--cyan">WordPress</span>
+            <span class="sn-badge sn-badge--elec">Wellness</span>
+          </div>
+          <h3 itemprop="name">SoCalRitualBodywork.com</h3>
+          <p>Wellness &amp; bodywork · Booking integration · Local SEO</p>
+          <a href="https://socalritualbodywork.com" target="_blank" rel="noopener noreferrer"
+             class="sn-btn sn-btn--secondary" style="margin-top:var(--sp-3);font-size:var(--fs-xs);"
+             itemprop="url">View Live Site ↗</a>
+        </div>
+      </div>
+
+      <div class="sn-portfolio-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <meta itemprop="position" content="7">
+        <img src="/wp-content/uploads/portfolio-jonesiron.jpg"
+             alt="Jones Iron and Metal industrial web design South Florida"
+             width="680" height="425" loading="lazy" itemprop="image">
+        <div class="sn-portfolio-overlay">
+          <div class="flex gap-4" style="margin-bottom:var(--sp-3);">
+            <span class="sn-badge sn-badge--cyan">WordPress</span>
+            <span class="sn-badge sn-badge--mag">Industrial</span>
+          </div>
+          <h3 itemprop="name">JonesIronAndMetal.com</h3>
+          <p>Industrial web design · Google Maps SEO · South Florida</p>
+          <a href="https://jonesironandmetal.com" target="_blank" rel="noopener noreferrer"
+             class="sn-btn sn-btn--secondary" style="margin-top:var(--sp-3);font-size:var(--fs-xs);"
+             itemprop="url">View Live Site ↗</a>
+        </div>
+      </div>
+
+      <div class="sn-portfolio-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <meta itemprop="position" content="8">
+        <img src="/wp-content/uploads/portfolio-absmech.jpg"
+             alt="AbsMech automotive web design South Florida"
+             width="680" height="425" loading="lazy" itemprop="image">
+        <div class="sn-portfolio-overlay">
+          <div class="flex gap-4" style="margin-bottom:var(--sp-3);">
+            <span class="sn-badge sn-badge--cyan">WordPress</span>
+            <span class="sn-badge sn-badge--elec">Automotive</span>
+          </div>
+          <h3 itemprop="name">AbsMech.com</h3>
+          <p>Automotive web design · Local SEO · South Florida mechanic</p>
+          <a href="https://absmech.com" target="_blank" rel="noopener noreferrer"
+             class="sn-btn sn-btn--secondary" style="margin-top:var(--sp-3);font-size:var(--fs-xs);"
+             itemprop="url">View Live Site ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHAT'S INCLUDED ════ -->
+<section class="sn-section sn-section--alt2" aria-labelledby="included-heading">
+  <div class="sn-container">
+    <div class="text-center mb-8">
+      <p class="sn-eyebrow sn-reveal" style="justify-content:center;">Every Project</p>
+      <h2 class="sn-section-title sn-reveal sn-reveal-delay-1" id="included-heading">
+        What's Included in Every<br><span class="accent">Fort Lauderdale Web Design</span>
+      </h2>
+    </div>
+
+    <div class="grid-3 sn-reveal sn-reveal-delay-2">
+      <div class="sn-card">
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">🚀 Speed-First</h3>
+        <p style="font-size:var(--fs-sm);">Core Web Vitals optimized. 90+ PageSpeed scores. Fast hosting setup guidance.</p>
+      </div>
+      <div class="sn-card">
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">📱 Mobile-First</h3>
+        <p style="font-size:var(--fs-sm);">Designed mobile-first, then scaled up. Every breakpoint tested and pixel-perfect.</p>
+      </div>
+      <div class="sn-card">
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">🔍 SEO-Ready</h3>
+        <p style="font-size:var(--fs-sm);">Rank Math SEO configured to 85+ score. Schema markup. Sitemap submitted to GSC.</p>
+      </div>
+      <div class="sn-card">
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">♿ Accessible</h3>
+        <p style="font-size:var(--fs-sm);">WCAG 2.1 AA compliant. ARIA labels. Keyboard navigable. Color contrast verified.</p>
+      </div>
+      <div class="sn-card">
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">🔒 Secure</h3>
+        <p style="font-size:var(--fs-sm);">SSL, security plugin, GoDaddy firewall, daily backups, and hardened WordPress config.</p>
+      </div>
+      <div class="sn-card">
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">📊 Conversion-Focused</h3>
+        <p style="font-size:var(--fs-sm);">Clear CTAs, lead capture forms, trust signals, and GA4 tracking from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PRICING ════ -->
+<section class="sn-section" aria-labelledby="web-pricing-heading">
+  <div class="sn-container sn-container--sm">
+    <div class="text-center mb-8">
+      <p class="sn-eyebrow sn-reveal" style="justify-content:center;">Investment</p>
+      <h2 class="sn-section-title sn-reveal sn-reveal-delay-1" id="web-pricing-heading">
+        Fort Lauderdale <span class="accent">Web Design Pricing</span>
+      </h2>
+    </div>
+
+    <div class="sn-card sn-card--featured sn-reveal sn-reveal-delay-2" style="max-width:600px;margin:0 auto;">
+      <div class="sn-plan-label">Web Design — One-Time Project</div>
+      <div class="sn-price" style="margin-bottom:var(--sp-2);">$1,500 <span>— $4,500+</span></div>
+      <p class="sn-price-desc" style="margin-bottom:var(--sp-6);">Scoped to your project size, features, and timeline</p>
+      <ul class="sn-feature-list" style="margin-bottom:var(--sp-6);">
+        <li>Custom WordPress + Kadence design</li>
+        <li>Mobile-first, speed-optimized build</li>
+        <li>Rank Math SEO configured (85+ score)</li>
+        <li>Up to 10 pages (larger projects quoted)</li>
+        <li>Contact forms + GA4 + GSC setup</li>
+        <li>30-day post-launch support included</li>
+        <li>WooCommerce / AI add-ons available</li>
+      </ul>
+      <a href="preview-contact.html" class="sn-btn sn-btn--primary" style="width:100%;justify-content:center;">
+        Get Your Free Quote →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section class="sn-section sn-section--alt2" aria-labelledby="portfolio-faq-heading">
+  <div class="sn-container">
+    <div class="text-center mb-8">
+      <p class="sn-eyebrow sn-reveal" style="justify-content:center;">FAQ</p>
+      <h2 class="sn-section-title sn-reveal sn-reveal-delay-1" id="portfolio-faq-heading">
+        <span class="accent">Web Design</span> Questions
+      </h2>
+    </div>
+    <div class="sn-faq sn-reveal sn-reveal-delay-2">
+
+      <div class="sn-faq-item">
+        <button class="sn-faq-question" aria-expanded="false">How long does a Fort Lauderdale web design project take?</button>
+        <div class="sn-faq-answer"><p>A standard 5–7 page WordPress website takes 2–4 weeks from kickoff to launch. Larger projects with WooCommerce, AI integration, or custom functionality take 4–8 weeks. We'll give you a firm timeline during your free consultation.</p></div>
+      </div>
+
+      <div class="sn-faq-item">
+        <button class="sn-faq-question" aria-expanded="false">Can you redesign my existing South Florida business website?</button>
+        <div class="sn-faq-answer"><p>Yes — redesigns are a significant portion of our portfolio work. We migrate your content, improve the design and speed, fix SEO issues, and relaunch without losing your existing Google rankings. We take special care to preserve any ranking authority you've already built.</p></div>
+      </div>
+
+      <div class="sn-faq-item">
+        <button class="sn-faq-question" aria-expanded="false">Do you build websites on platforms other than WordPress?</button>
+        <div class="sn-faq-answer"><p>Our primary stack is WordPress + Kadence, which gives South Florida small businesses the best combination of flexibility, SEO capability, and ownership. We also work with Shopify and OpenCart for e-commerce. We don't build on Wix or Squarespace — they limit SEO and customization.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ════ -->
+<section class="sn-cta-section sn-section--alt">
+  <div class="sn-container sn-container--sm">
+    <div class="text-center">
+      <h2 class="sn-section-title sn-reveal">
+        Ready to Join the<br><span class="accent">SmarterNerd Portfolio?</span>
+      </h2>
+      <p class="sn-reveal sn-reveal-delay-1" style="margin:0 auto var(--sp-7);">
+        Free consultation for Fort Lauderdale and South Florida businesses. Let's build something that ranks, converts, and grows.
+      </p>
+      <div class="sn-btn-group sn-reveal sn-reveal-delay-2" style="justify-content:center;">
+        <a href="preview-contact.html" class="sn-btn sn-btn--primary">Start My Project →</a>
+        <a href="mailto:Jesse@SmarterNerd.com" class="sn-btn sn-btn--secondary">Jesse@SmarterNerd.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="sn-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-4);">
+          <div class="site-logo__mark" style="width:40px;height:40px;font-size:1.2rem;">🤓</div>
+          <span class="site-logo__name" style="font-size:var(--fs-base);">Smarter<span>Nerd</span></span>
+        </div>
+        <p>AI-powered web design, SEO &amp; digital marketing for South Florida small businesses. Built with military precision in Fort Lauderdale.</p>
+        <div style="margin-top:var(--sp-4);font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(248,243,234,0.55);letter-spacing:0.1em;text-transform:uppercase;line-height:2.2;">
+          SmarterNerd.com<br>Fort Lauderdale, FL 33301<br>(754) 123-4567<br>hello@smarternerd.com
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="preview-ai-services.html">AI Chatbots</a></li>
+          <li><a href="preview-portfolio.html">Web Design</a></li>
+          <li><a href="preview-seo-services.html">Local SEO</a></li>
+          <li><a href="preview-ai-services.html">3D Virtual Tours</a></li>
+          <li><a href="preview-seo-services.html">Google Maps</a></li>
+          <li><a href="preview-ai-services.html">Social Media</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="preview-about.html">About Jesse</a></li>
+          <li><a href="preview-portfolio.html">Portfolio</a></li>
+          <li><a href="preview.html">Blog</a></li>
+          <li><a href="preview-contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="preview-contact.html">Fort Lauderdale</a></li>
+          <li><a href="preview-contact.html">Miami</a></li>
+          <li><a href="preview-contact.html">Boca Raton</a></li>
+          <li><a href="preview-contact.html">Pompano Beach</a></li>
+          <li><a href="preview-contact.html">Hollywood, FL</a></li>
+          <li><a href="preview-contact.html">Deerfield Beach</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 SmarterNerd.com · All Rights Reserved</span>
+      <span>Fort Lauderdale, FL ◆ South Florida's AI Agency</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    bar.style.height = pct + '%';
+  });
+  const reveals = document.querySelectorAll('.sn-reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+  document.querySelectorAll('.sn-faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.sn-faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.sn-faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+    });
+  });
+</script>
+</body>
+</html>

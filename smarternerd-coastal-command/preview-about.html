@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Jesse — Fort Lauderdale Web Designer · SmarterNerd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── Preview scaffold: nav + logo + footer layout ── */
+  .site-header {
+    display: flex; align-items: center;
+    justify-content: space-between; padding: 0 var(--sp-6);
+  }
+  .site-logo { display: flex; align-items: center; gap: var(--sp-3); text-decoration: none; }
+  .site-logo__mark {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--sn-grad-sunset);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; box-shadow: var(--sn-glow-cyan); flex-shrink: 0;
+  }
+  .site-logo__name { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: var(--fs-lg); color: var(--sn-text); letter-spacing: -0.02em; }
+  .site-logo__name span { color: var(--sn-teal); }
+  .primary-nav { display: flex; align-items: center; gap: var(--sp-2); }
+  .primary-nav a { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: var(--fs-sm); color: var(--sn-text-2); padding: var(--sp-2) var(--sp-4); border-radius: var(--r-sm); transition: color var(--t-fast); text-decoration: none; }
+  .primary-nav a:hover { color: var(--sn-teal); }
+  .primary-nav a.active { color: var(--sn-teal); }
+  .primary-nav .nav-cta { background: var(--sn-teal) !important; color: #FDF8F2 !important; padding: var(--sp-2) var(--sp-5) !important; font-weight: 600 !important; border-radius: var(--r-sm) !important; }
+  .primary-nav .nav-cta:hover { background: var(--sn-teal-dark) !important; color: #FDF8F2 !important; }
+  /* Footer layout */
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--sp-8); margin-bottom: var(--sp-7); }
+  .footer-col h4 { color: var(--sn-gold) !important; font-family: 'JetBrains Mono', monospace; font-size: var(--fs-xs); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: var(--sp-4); }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); }
+  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--sp-3); padding-top: var(--sp-5); border-top: 1px solid rgba(248,243,234,0.10); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(248,243,234,0.38); }
+  .footer-brand p { color: rgba(248,243,234,0.65) !important; }
+  @media (max-width: 768px) {
+    .primary-nav a:not(.nav-cta) { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body class="sn-coastal">
+
+<div class="sn-scroll-progress" id="scrollProgress"></div>
+
+<div class="sn-ticker">
+  <div class="sn-ticker__inner">
+    <span class="sn-ticker__item">SOUTH FLORIDA AI AGENCY<span>◆</span></span>
+    <span class="sn-ticker__item">AI CHATBOTS &amp; AUTOMATION<span>◆</span></span>
+    <span class="sn-ticker__item">WEB DESIGN &amp; DEVELOPMENT<span>◆</span></span>
+    <span class="sn-ticker__item">LOCAL SEO &amp; RANK MATH<span>◆</span></span>
+    <span class="sn-ticker__item">3D VIRTUAL TOURS<span>◆</span></span>
+    <span class="sn-ticker__item">GOOGLE MAPS OPTIMIZATION<span>◆</span></span>
+    <span class="sn-ticker__item">FORMER USAF CAPTAIN<span>◆</span></span>
+    <span class="sn-ticker__item">TOP SECRET / SCI CLEARANCE<span>◆</span></span>
+    <span class="sn-ticker__item">62+ TECH INSTALLS<span>◆</span></span>
+    <span class="sn-ticker__item">$32M SYSTEMS ENGINEERED<span>◆</span></span>
+    <span class="sn-ticker__item">SOUTH FLORIDA AI AGENCY<span>◆</span></span>
+    <span class="sn-ticker__item">AI CHATBOTS &amp; AUTOMATION<span>◆</span></span>
+    <span class="sn-ticker__item">WEB DESIGN &amp; DEVELOPMENT<span>◆</span></span>
+    <span class="sn-ticker__item">LOCAL SEO &amp; RANK MATH<span>◆</span></span>
+    <span class="sn-ticker__item">3D VIRTUAL TOURS<span>◆</span></span>
+    <span class="sn-ticker__item">GOOGLE MAPS OPTIMIZATION<span>◆</span></span>
+    <span class="sn-ticker__item">FORMER USAF CAPTAIN<span>◆</span></span>
+    <span class="sn-ticker__item">TOP SECRET / SCI CLEARANCE<span>◆</span></span>
+    <span class="sn-ticker__item">62+ TECH INSTALLS<span>◆</span></span>
+    <span class="sn-ticker__item">$32M SYSTEMS ENGINEERED<span>◆</span></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <a href="preview.html" class="site-logo">
+    <div class="site-logo__mark">🤓</div>
+    <span class="site-logo__name">Smarter<span>Nerd</span></span>
+  </a>
+  <nav class="primary-nav" aria-label="Main navigation">
+    <a href="preview.html">Home</a>
+    <a href="preview-ai-services.html">AI Services</a>
+    <a href="preview-seo-services.html">SEO</a>
+    <a href="preview-portfolio.html">Portfolio</a>
+    <a href="preview-about.html" class="active">About</a>
+    <a href="preview-contact.html" class="nav-cta">Free AI Audit</a>
+  </nav>
+</header>
+
+<!--
+  SmarterNerd.com — ABOUT PAGE
+  Focus keyword: Fort Lauderdale web designer
+  Schema: Person (itemprop) + FAQPage + LocalBusiness (via functions.php)
+-->
+
+<!-- ════ HERO ════ -->
+<section class="sn-hero" aria-label="About Jesse — Fort Lauderdale Web Designer">
+  <div class="sn-hero__bg" aria-hidden="true"></div>
+
+  <div class="sn-container">
+    <div class="sn-hero__content" style="max-width:780px;">
+      <div class="sn-hero__eyebrow sn-reveal">
+        <span class="sn-badge sn-badge--cyan sn-badge--dot">Fort Lauderdale Web Designer</span>
+      </div>
+      <h1 class="sn-hero__title sn-reveal sn-reveal-delay-1">
+        Meet Jesse — Fort Lauderdale's<br><span class="accent">AI-First Web Designer</span>
+      </h1>
+      <p class="sn-hero__body sn-reveal sn-reveal-delay-2">
+        Former USAF Captain. Oracle DBA. Full-stack developer. Process engineer with $32M in systems built. Now deploying that same precision for South Florida small businesses.
+      </p>
+      <div class="sn-btn-group sn-reveal sn-reveal-delay-3">
+        <a href="preview-contact.html" class="sn-btn sn-btn--primary">Work With Jesse →</a>
+        <a href="preview-portfolio.html" class="sn-btn sn-btn--secondary">View Portfolio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CREDENTIALS ════ -->
+<section class="sn-section sn-section--alt" aria-labelledby="credentials-heading">
+  <div class="sn-container">
+    <div class="sn-stats">
+      <div class="sn-stat">
+        <div class="sn-stat__value text-cyan">USAF</div>
+        <div class="sn-stat__label">Captain · Veteran</div>
+      </div>
+      <div class="sn-stat">
+        <div class="sn-stat__value" data-target="62" data-suffix="+">62+</div>
+        <div class="sn-stat__label">Tech Installs</div>
+      </div>
+      <div class="sn-stat">
+        <div class="sn-stat__value" data-target="32" data-prefix="$" data-suffix="M">$32M</div>
+        <div class="sn-stat__label">Systems Engineered</div>
+      </div>
+      <div class="sn-stat">
+        <div class="sn-stat__value text-cyan">TS/SCI</div>
+        <div class="sn-stat__label">Security Clearance</div>
+      </div>
+      <div class="sn-stat">
+        <div class="sn-stat__value" data-target="8" data-suffix="+">8+</div>
+        <div class="sn-stat__label">FL Clients Live</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ STORY ════ -->
+<section class="sn-section" aria-labelledby="story-heading"
+  itemscope itemtype="https://schema.org/Person">
+  <div class="sn-container">
+    <div class="grid-2" style="align-items:start;gap:var(--sp-9);">
+
+      <!-- Left: Photo + Badges -->
+      <div class="sn-reveal">
+        <div class="sn-card" style="text-align:center;padding:var(--sp-7);">
+          <img src="/wp-content/uploads/jesse-smarternerd.jpg"
+               alt="Jesse — Fort Lauderdale web designer and AI specialist"
+               width="280" height="280"
+               style="width:200px;height:200px;border-radius:50%;object-fit:cover;border:3px solid var(--sn-border-h);margin-bottom:var(--sp-5);filter:drop-shadow(var(--sn-glow-cyan));"
+               loading="lazy"
+               itemprop="image">
+          <h2 style="font-size:var(--fs-2xl);margin-bottom:var(--sp-2);" itemprop="name">Jesse</h2>
+          <p class="sn-mono text-cyan" style="margin-bottom:var(--sp-5);" itemprop="jobTitle">Fort Lauderdale Web Designer &amp; AI Specialist</p>
+          <p itemprop="worksFor" itemscope itemtype="https://schema.org/Organization" style="display:none;">
+            <span itemprop="name">SmarterNerd</span>
+          </p>
+
+          <div class="flex flex-wrap gap-4" style="justify-content:center;margin-bottom:var(--sp-5);">
+            <span class="sn-badge sn-badge--cyan">USAF Captain</span>
+            <span class="sn-badge sn-badge--cyan">TS/SCI Clearance</span>
+            <span class="sn-badge sn-badge--mag">Oracle DBA</span>
+            <span class="sn-badge sn-badge--elec">Full-Stack Dev</span>
+            <span class="sn-badge sn-badge--cyan">Process Engineer</span>
+            <span class="sn-badge sn-badge--mag">AI Specialist</span>
+          </div>
+
+          <div style="text-align:left;">
+            <p class="sn-footer-heading" style="margin-bottom:var(--sp-3);">Full-Stack Skills</p>
+            <div class="flex flex-wrap gap-4">
+              <span class="sn-badge sn-badge--elec">HTML5</span>
+              <span class="sn-badge sn-badge--elec">CSS3</span>
+              <span class="sn-badge sn-badge--elec">JavaScript</span>
+              <span class="sn-badge sn-badge--elec">PHP</span>
+              <span class="sn-badge sn-badge--elec">WordPress</span>
+              <span class="sn-badge sn-badge--elec">WooCommerce</span>
+              <span class="sn-badge sn-badge--elec">Shopify</span>
+              <span class="sn-badge sn-badge--elec">OpenCart</span>
+              <span class="sn-badge sn-badge--elec">Matterport</span>
+              <span class="sn-badge sn-badge--elec">Oracle DB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Story -->
+      <div class="sn-reveal sn-reveal-delay-2">
+        <p class="sn-eyebrow">The Origin Story</p>
+        <h2 class="sn-section-title" id="story-heading" style="margin-bottom:var(--sp-5);">
+          Military Precision<br><span class="accent">Meets Digital Intelligence</span>
+        </h2>
+
+        <div itemprop="description">
+          <p style="margin-bottom:var(--sp-5);">
+            Before building websites, I was a <strong>USAF Captain</strong> with a Top Secret/SCI clearance — engineering $32M in mission-critical systems and overseeing 62 technology installations where failure wasn't an option.
+          </p>
+          <p style="margin-bottom:var(--sp-5);">
+            That discipline — the obsession with precision, the intolerance for inefficiency, the commitment to measurable results — is exactly what South Florida small businesses need from their digital partner. Not a freelancer who disappears. Not an agency that sends junior staff. A <strong>Fort Lauderdale web designer</strong> who treats your business like a mission.
+          </p>
+          <p style="margin-bottom:var(--sp-5);">
+            I've been full-stack since before it had a name: <strong>Oracle DBA, process engineer, developer</strong> across HTML, CSS, JavaScript, PHP, and every major CMS. I was early on AI — before ChatGPT was a household name — and I'm using that edge to give South Florida businesses visibility on the new frontier: AI search engines.
+          </p>
+          <p style="margin-bottom:var(--sp-5);">
+            SmarterNerd exists because Fort Lauderdale small businesses deserve better than cookie-cutter templates and vague monthly reports. They deserve a <strong>precision operation</strong> that treats every dollar as a mission-critical investment.
+          </p>
+        </div>
+
+        <hr class="sn-divider">
+
+        <div class="flex gap-4" style="flex-wrap:wrap;">
+          <a href="preview-contact.html" class="sn-btn sn-btn--primary">Start a Project →</a>
+          <a href="https://www.linkedin.com/in/smarternerd" target="_blank" rel="noopener noreferrer" class="sn-btn sn-btn--secondary">LinkedIn ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHY SMARTERNERD ════ -->
+<section class="sn-section sn-section--alt2" aria-labelledby="why-heading">
+  <div class="sn-container">
+    <div class="text-center mb-8">
+      <p class="sn-eyebrow sn-reveal" style="justify-content:center;">Why Us</p>
+      <h2 class="sn-section-title sn-reveal sn-reveal-delay-1" id="why-heading">
+        Why Fort Lauderdale Businesses<br><span class="accent">Choose SmarterNerd</span>
+      </h2>
+    </div>
+
+    <div class="grid-3 sn-reveal sn-reveal-delay-2">
+      <div class="sn-card">
+        <div class="text-cyan" style="font-size:2rem;margin-bottom:var(--sp-4);" aria-hidden="true">🎯</div>
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">Precision-First</h3>
+        <p style="font-size:var(--fs-sm);">Every decision is data-driven. We don't guess — we engineer, measure, and optimize. The same discipline that ran $32M systems runs your project.</p>
+      </div>
+      <div class="sn-card">
+        <div class="text-cyan" style="font-size:2rem;margin-bottom:var(--sp-4);" aria-hidden="true">🤖</div>
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">AI-Native</h3>
+        <p style="font-size:var(--fs-sm);">We don't bolt AI onto existing processes — it's built into everything. Content, SEO, chatbots, automation — all AI-powered and integrated from day one.</p>
+      </div>
+      <div class="sn-card">
+        <div class="text-cyan" style="font-size:2rem;margin-bottom:var(--sp-4);" aria-hidden="true">📍</div>
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">South Florida Focused</h3>
+        <p style="font-size:var(--fs-sm);">Fort Lauderdale is home. We know Broward County markets, local search behavior, and South Florida competition better than any out-of-state agency.</p>
+      </div>
+      <div class="sn-card">
+        <div class="text-cyan" style="font-size:2rem;margin-bottom:var(--sp-4);" aria-hidden="true">🔒</div>
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">No Handoffs</h3>
+        <p style="font-size:var(--fs-sm);">You work directly with Jesse — not an account manager or junior developer. One operator. Full accountability. Military-grade communication standards.</p>
+      </div>
+      <div class="sn-card">
+        <div class="text-cyan" style="font-size:2rem;margin-bottom:var(--sp-4);" aria-hidden="true">📊</div>
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">Transparent Results</h3>
+        <p style="font-size:var(--fs-sm);">Monthly reports in plain English showing exactly what's moving — rankings, traffic, leads, chatbot conversations. No vanity metrics. Real ROI data.</p>
+      </div>
+      <div class="sn-card">
+        <div class="text-cyan" style="font-size:2rem;margin-bottom:var(--sp-4);" aria-hidden="true">⚡</div>
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">Always Current</h3>
+        <p style="font-size:var(--fs-sm);">AI and SEO evolve fast. We stay on the front edge — GEO strategy, llms.txt, AI search visibility — so you benefit from emerging channels before competitors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section class="sn-section" aria-labelledby="about-faq-heading">
+  <div class="sn-container">
+    <div class="text-center mb-8">
+      <p class="sn-eyebrow sn-reveal" style="justify-content:center;">FAQ</p>
+      <h2 class="sn-section-title sn-reveal sn-reveal-delay-1" id="about-faq-heading">
+        About Your <span class="accent">Fort Lauderdale Web Designer</span>
+      </h2>
+    </div>
+    <div class="sn-faq sn-reveal sn-reveal-delay-2">
+
+      <div class="sn-faq-item">
+        <button class="sn-faq-question" aria-expanded="false">Is Jesse a full-time Fort Lauderdale web designer?</button>
+        <div class="sn-faq-answer">
+          <p>Yes — SmarterNerd is Jesse's full-time focus. Based in Fort Lauderdale, FL, serving South Florida businesses in-person and nationwide clients remotely. When you hire SmarterNerd, you get Jesse's full attention — not a junior staff member.</p>
+        </div>
+      </div>
+
+      <div class="sn-faq-item">
+        <button class="sn-faq-question" aria-expanded="false">What industries does SmarterNerd serve in South Florida?</button>
+        <div class="sn-faq-answer">
+          <p>SmarterNerd has built websites for Fort Lauderdale attorneys, physical therapists, coin dealers, aerial photographers, interior designers, wellness businesses, industrial companies, and automotive shops. We work with any South Florida small business ready to grow online.</p>
+        </div>
+      </div>
+
+      <div class="sn-faq-item">
+        <button class="sn-faq-question" aria-expanded="false">How does Jesse's military background apply to web design?</button>
+        <div class="sn-faq-answer">
+          <p>Military service instills precision, deadline discipline, and zero tolerance for failure — all critical in web design and digital marketing. Jesse's experience engineering $32M in mission-critical systems means your project gets the same methodical, documented, results-focused approach that kept aircraft flying and systems running.</p>
+        </div>
+      </div>
+
+      <div class="sn-faq-item">
+        <button class="sn-faq-question" aria-expanded="false">Does SmarterNerd offer ongoing support after launch?</button>
+        <div class="sn-faq-answer">
+          <p>Yes — every web design project includes 30 days of post-launch support. Ongoing monthly retainers for SEO, AI content, and maintenance are available. Many Fort Lauderdale clients stay on monthly programs to keep rankings climbing and AI systems optimized.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ════ -->
+<section class="sn-cta-section sn-section--alt2">
+  <div class="sn-container sn-container--sm">
+    <div class="text-center">
+      <h2 class="sn-section-title sn-reveal">
+        Let's Build Something<br><span class="accent">Worth Ranking For</span>
+      </h2>
+      <p class="sn-reveal sn-reveal-delay-1" style="margin:0 auto var(--sp-7);">
+        Free consultation for Fort Lauderdale and South Florida businesses. No pressure — just a direct conversation about what's possible.
+      </p>
+      <div class="sn-btn-group sn-reveal sn-reveal-delay-2" style="justify-content:center;">
+        <a href="preview-contact.html" class="sn-btn sn-btn--primary">Book Free Consultation →</a>
+        <a href="mailto:Jesse@SmarterNerd.com" class="sn-btn sn-btn--secondary">Jesse@SmarterNerd.com</a>
+      </div>
+      <p class="sn-reveal sn-reveal-delay-3" style="margin-top:var(--sp-5);font-size:var(--fs-xs);color:var(--sn-text-3);text-align:center;">
+        Explore: <a href="preview-ai-services.html" style="color:var(--sn-text-3);">AI Services</a> ·
+        <a href="preview-seo-services.html" style="color:var(--sn-text-3);">SEO Services</a> ·
+        <a href="preview-portfolio.html" style="color:var(--sn-text-3);">Web Design Portfolio</a> ·
+        <a href="https://www.linkedin.com/company/smarternerd" target="_blank" rel="noopener noreferrer" style="color:var(--sn-text-3);">LinkedIn ↗</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="sn-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-4);">
+          <div class="site-logo__mark" style="width:40px;height:40px;font-size:1.2rem;">🤓</div>
+          <span class="site-logo__name" style="font-size:var(--fs-base);">Smarter<span>Nerd</span></span>
+        </div>
+        <p>AI-powered web design, SEO &amp; digital marketing for South Florida small businesses. Built with military precision in Fort Lauderdale.</p>
+        <div style="margin-top:var(--sp-4);font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(248,243,234,0.55);letter-spacing:0.1em;text-transform:uppercase;line-height:2.2;">
+          SmarterNerd.com<br>
+          Fort Lauderdale, FL 33301<br>
+          (754) 123-4567<br>
+          hello@smarternerd.com
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="preview-ai-services.html">AI Chatbots</a></li>
+          <li><a href="preview-portfolio.html">Web Design</a></li>
+          <li><a href="preview-seo-services.html">Local SEO</a></li>
+          <li><a href="preview-ai-services.html">3D Virtual Tours</a></li>
+          <li><a href="preview-seo-services.html">Google Maps</a></li>
+          <li><a href="preview-ai-services.html">Social Media</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="preview-about.html">About Jesse</a></li>
+          <li><a href="preview-portfolio.html">Portfolio</a></li>
+          <li><a href="preview.html">Blog</a></li>
+          <li><a href="preview-contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="preview-contact.html">Fort Lauderdale</a></li>
+          <li><a href="preview-contact.html">Miami</a></li>
+          <li><a href="preview-contact.html">Boca Raton</a></li>
+          <li><a href="preview-contact.html">Pompano Beach</a></li>
+          <li><a href="preview-contact.html">Hollywood, FL</a></li>
+          <li><a href="preview-contact.html">Deerfield Beach</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 SmarterNerd.com · All Rights Reserved</span>
+      <span>Fort Lauderdale, FL ◆ South Florida's AI Agency</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll progress bar
+  const bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    bar.style.height = pct + '%';
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.sn-reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.sn-faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.sn-faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.sn-faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+    });
+  });
+</script>
+</body>
+</html>

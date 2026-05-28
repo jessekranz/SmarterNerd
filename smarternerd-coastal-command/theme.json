@@ -1,0 +1,140 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": true,
+    "color": {
+      "defaultColors": false,
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "custom": true,
+      "customGradient": true,
+      "palette": [
+        { "name": "Ocean Teal",   "slug": "sn-teal",   "color": "#0AA8A0" },
+        { "name": "Warm Gold",    "slug": "sn-gold",   "color": "#C9973A" },
+        { "name": "Cream Page",   "slug": "sn-bg",     "color": "#F8F3EA" },
+        { "name": "Warm Sand",    "slug": "sn-bg-2",   "color": "#EFE6D5" },
+        { "name": "Deep Sand",    "slug": "sn-bg-3",   "color": "#E8DDC8" },
+        { "name": "Card Surface", "slug": "sn-card",   "color": "#FDF8F2" },
+        { "name": "Deep Ocean",   "slug": "sn-hero",   "color": "#062830" },
+        { "name": "Primary Text", "slug": "sn-text",   "color": "#1C1410" }
+      ],
+      "gradients": [
+        {
+          "name": "Teal to Gold",
+          "slug": "sn-brand",
+          "gradient": "linear-gradient(135deg, #0AA8A0 0%, #C9973A 100%)"
+        },
+        {
+          "name": "Hero Ocean",
+          "slug": "sn-hero-grad",
+          "gradient": "linear-gradient(180deg, #062830 0%, #0A3A45 45%, #062830 100%)"
+        }
+      ]
+    },
+    "typography": {
+      "defaultFontSizes": false,
+      "fontFamilies": [
+        {
+          "name": "Fraunces",
+          "slug": "sn-display",
+          "fontFamily": "'Fraunces', Georgia, serif"
+        },
+        {
+          "name": "Outfit",
+          "slug": "sn-body",
+          "fontFamily": "'Outfit', system-ui, sans-serif"
+        },
+        {
+          "name": "JetBrains Mono",
+          "slug": "sn-mono",
+          "fontFamily": "'JetBrains Mono', monospace"
+        }
+      ],
+      "fontSizes": [
+        { "name": "XS",      "slug": "sn-xs",   "size": "0.75rem"  },
+        { "name": "Small",   "slug": "sn-sm",   "size": "0.875rem" },
+        { "name": "Base",    "slug": "sn-base", "size": "1rem"     },
+        { "name": "Large",   "slug": "sn-lg",   "size": "1.25rem"  },
+        { "name": "XL",      "slug": "sn-xl",   "size": "1.5rem"   },
+        { "name": "2XL",     "slug": "sn-2xl",  "size": "1.875rem" },
+        { "name": "3XL",     "slug": "sn-3xl",  "size": "2.5rem"   },
+        { "name": "Hero",    "slug": "sn-hero",  "size": "clamp(2.5rem, 5.5vw, 4.5rem)" }
+      ]
+    },
+    "spacing": {
+      "spacingScale": {
+        "operator": "*",
+        "increment": 1.5,
+        "steps": 7,
+        "mediumStep": 1.5,
+        "unit": "rem"
+      },
+      "units": ["px", "rem", "em", "%", "vw"]
+    },
+    "layout": {
+      "contentSize": "900px",
+      "wideSize": "1200px"
+    },
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#F8F3EA",
+      "text": "#1C1410"
+    },
+    "typography": {
+      "fontFamily": "'Outfit', system-ui, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "1.65"
+    },
+    "elements": {
+      "h1": {
+        "typography": {
+          "fontFamily": "'Fraunces', Georgia, serif",
+          "fontWeight": "700",
+          "fontStyle": "italic"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontFamily": "'Outfit', system-ui, sans-serif",
+          "fontWeight": "600"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontFamily": "'Outfit', system-ui, sans-serif",
+          "fontWeight": "600"
+        }
+      },
+      "link": {
+        "color": { "text": "#0AA8A0" },
+        ":hover": {
+          "color": { "text": "#077D77" }
+        }
+      },
+      "button": {
+        "color": {
+          "background": "#0AA8A0",
+          "text": "#FDF8F2"
+        },
+        "typography": {
+          "fontFamily": "'Outfit', system-ui, sans-serif",
+          "fontWeight": "600"
+        }
+      }
+    },
+    "blocks": {
+      "core/separator": {
+        "color": { "text": "rgba(201,151,58,0.20)" }
+      }
+    }
+  }
+}

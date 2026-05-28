@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmarterNerd.com — Miami Vice Command Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Preview scaffold */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--sp-6);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+  }
+  .site-logo { display: flex; align-items: center; gap: var(--sp-3); text-decoration: none; }
+  .site-logo__mark {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--sn-grad-sunset);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: var(--sn-glow-cyan);
+    flex-shrink: 0;
+  }
+  .site-logo__name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-lg);
+    color: var(--sn-text);
+    letter-spacing: -0.02em;
+  }
+  .site-logo__name span { color: var(--sn-coral); }
+  .primary-nav { display: flex; align-items: center; gap: var(--sp-2); }
+  .primary-nav a {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sn-text-2);
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: var(--r-sm);
+    transition: color var(--t-fast);
+    text-decoration: none;
+  }
+  .primary-nav a:hover { color: var(--sn-coral); }
+  .primary-nav .nav-cta {
+    border: 1px solid rgba(239, 71, 111, 0.4);
+    color: var(--sn-coral) !important;
+    transition: background var(--t-base), box-shadow var(--t-base);
+  }
+  .primary-nav .nav-cta:hover {
+    background: rgba(239, 71, 111, 0.08);
+    box-shadow: var(--sn-glow-cyan);
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--sn-grad-hero);
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: var(--sp-10) 0;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 55%;
+    background-image:
+      linear-gradient(rgba(239,71,111,0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(239,71,111,0.12) 1px, transparent 1px);
+    background-size: 48px 48px;
+    transform: perspective(600px) rotateX(55deg);
+    transform-origin: bottom center;
+    pointer-events: none;
+    animation: grid-pulse 4s ease-in-out infinite;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 12%; left: 50%; transform: translateX(-50%);
+    width: 640px; height: 300px;
+    background: radial-gradient(ellipse, rgba(239,71,111,0.18) 0%, rgba(255,142,83,0.08) 45%, transparent 70%);
+    pointer-events: none;
+  }
+  @keyframes grid-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--sp-8);
+    align-items: center;
+  }
+  .hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sn-coral);
+    margin-bottom: var(--sp-5);
+    padding: var(--sp-2) var(--sp-4);
+    border: 1px solid rgba(239,71,111,0.25);
+    border-radius: 2px;
+    background: rgba(239,71,111,0.06);
+  }
+  .hero__title { margin-bottom: var(--sp-5); }
+  .hero__title .line1 {
+    display: block;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .hero__title .line2 {
+    display: block;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-top: var(--sp-1);
+  }
+  .hero__sub {
+    font-size: var(--fs-lg);
+    color: var(--sn-text-2);
+    line-height: 1.7;
+    max-width: 54ch;
+    margin-bottom: var(--sp-7);
+  }
+  .hero__actions { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
+
+  /* Mascot */
+  .mvc-mascot {
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 38%, rgba(239,71,111,0.25) 0%, rgba(6,214,160,0.08) 60%, transparent 80%);
+    border: 2px solid rgba(239,71,111,0.35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7rem;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 0 48px rgba(239,71,111,0.2), inset 0 0 48px rgba(6,214,160,0.05);
+  }
+  .mvc-mascot::before {
+    content: '';
+    position: absolute; inset: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,209,102,0.15);
+  }
+  .mvc-mascot::after {
+    content: '';
+    position: absolute; inset: -18px;
+    border-radius: 50%;
+    border: 1px solid rgba(239,71,111,0.08);
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+  }
+  .mvc-mascot__scan {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .mvc-mascot__scan::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(6,214,160,0.6), transparent);
+    animation: scan 3s ease-in-out infinite;
+  }
+  @keyframes scan {
+    0%   { top: -2px; opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { top: calc(100% + 2px); opacity: 0; }
+  }
+
+  /* Stats band */
+  .stats-band {
+    background: var(--sn-bg-2);
+    border-top: 1px solid var(--deco-line);
+    border-bottom: 1px solid var(--deco-line);
+    padding: var(--sp-7) 0;
+    position: relative;
+  }
+  .stats-band::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: var(--sn-grad-nav);
+    opacity: 0.5;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--sp-6);
+    text-align: center;
+  }
+  .sn-stat__value {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-4xl);
+    background: var(--sn-grad-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    display: block;
+    margin-bottom: var(--sp-2);
+  }
+  .sn-stat__label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sn-text-3);
+  }
+  .sn-stat { position: relative; }
+  .sn-stat:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 10%; bottom: 10%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--deco-line), transparent);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-4) var(--sp-7);
+    border-radius: var(--r-sm);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all var(--t-base);
+  }
+  .btn--primary {
+    background: var(--sn-grad-btn);
+    color: var(--sn-text);
+    box-shadow: 0 4px 20px rgba(239,71,111,0.3);
+  }
+  .btn--primary:hover { box-shadow: var(--sn-glow-cyan), 0 6px 28px rgba(239,71,111,0.4); transform: translateY(-2px); color: var(--sn-text); }
+  .btn--outline {
+    background: transparent;
+    color: var(--sn-text-2);
+    border: 1px solid var(--sn-border-h);
+  }
+  .btn--outline:hover { border-color: var(--sn-coral); color: var(--sn-coral); }
+  .btn--gold {
+    background: linear-gradient(135deg, var(--sn-gold) 0%, var(--sn-orange) 100%);
+    color: #080614;
+    font-weight: 800;
+  }
+  .btn--gold:hover { box-shadow: var(--sn-glow-mag); transform: translateY(-2px); color: #080614; }
+
+  /* Services grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+  }
+  .sn-card {
+    background: var(--sn-grad-card);
+    border: 1px solid var(--sn-border);
+    border-radius: var(--r-lg);
+    padding: var(--sp-7) var(--sp-6);
+    position: relative;
+    transition: border-color var(--t-base), transform var(--t-slow), box-shadow var(--t-base);
+    overflow: hidden;
+  }
+  .sn-card::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: calc(var(--r-lg) - 4px);
+    border: 1px solid var(--sn-border-gold);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+  .sn-card:hover { border-color: var(--sn-border-h); transform: translateY(-6px); box-shadow: var(--sn-glow-cyan); }
+  .sn-card:hover::before { opacity: 1; }
+  .sn-card__icon {
+    width: 56px; height: 56px;
+    border-radius: var(--r-md);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: var(--sp-5);
+  }
+  .sn-card__icon--coral { background: rgba(239,71,111,0.12); }
+  .sn-card__icon--gold  { background: rgba(255,209,102,0.10); }
+  .sn-card__icon--ocean { background: rgba(6,214,160,0.10); }
+  .sn-card__icon--sky   { background: rgba(17,138,178,0.12); }
+  .sn-card__signal {
+    position: absolute;
+    top: var(--sp-5); right: var(--sp-5);
+    display: flex; gap: 3px; align-items: flex-end;
+  }
+  .sn-card__signal span { width: 4px; background: var(--sn-coral); border-radius: 2px; }
+  .sn-card__signal span:nth-child(1) { height: 6px; opacity: 0.5; }
+  .sn-card__signal span:nth-child(2) { height: 10px; opacity: 0.7; }
+  .sn-card__signal span:nth-child(3) { height: 14px; opacity: 1; }
+  .sn-card h3 { font-size: var(--fs-xl); margin-bottom: var(--sp-3); }
+  .sn-card p  { font-size: var(--fs-sm); color: var(--sn-text-2); max-width: none; }
+  .sn-card__badge {
+    margin-top: var(--sp-5);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px var(--sp-3);
+    border-radius: 2px;
+    background: rgba(239,71,111,0.1);
+    color: var(--sn-coral);
+    border: 1px solid rgba(239,71,111,0.2);
+  }
+  .sn-card__badge--gold { background: rgba(255,209,102,0.08); color: var(--sn-gold); border-color: rgba(255,209,102,0.2); }
+  .sn-card__badge--ocean { background: rgba(6,214,160,0.08); color: var(--sn-ocean); border-color: rgba(6,214,160,0.2); }
+
+  /* Portfolio */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-5);
+  }
+  .portfolio-item {
+    position: relative;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--sn-card);
+    border: 1px solid var(--sn-border);
+    aspect-ratio: 16/9;
+    transition: border-color var(--t-base), transform var(--t-slow);
+    cursor: pointer;
+  }
+  .portfolio-item::before,
+  .portfolio-item::after {
+    content: '';
+    position: absolute;
+    width: 20px; height: 20px;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+  .portfolio-item::before {
+    top: var(--sp-3); left: var(--sp-3);
+    border-top: 2px solid var(--sn-gold);
+    border-left: 2px solid var(--sn-gold);
+  }
+  .portfolio-item::after {
+    bottom: var(--sp-3); right: var(--sp-3);
+    border-bottom: 2px solid var(--sn-gold);
+    border-right: 2px solid var(--sn-gold);
+  }
+  .portfolio-item:hover { border-color: var(--sn-border-h); transform: translateY(-4px); }
+  .portfolio-item:hover::before, .portfolio-item:hover::after { opacity: 1; }
+  .portfolio-item__fill {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-sm);
+    color: rgba(255,248,240,0.15);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+  .portfolio-item__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(8,6,20,0.92) 100%);
+    z-index: 2;
+  }
+  .portfolio-item__info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: var(--sp-5);
+    z-index: 3;
+  }
+  .portfolio-item__category {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sn-coral);
+    display: block;
+    margin-bottom: var(--sp-1);
+  }
+  .portfolio-item__title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-lg);
+    color: var(--sn-text);
+  }
+
+  /* Pricing */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+    align-items: start;
+  }
+  .pricing-card {
+    background: var(--sn-grad-card);
+    border: 1px solid var(--sn-border);
+    border-radius: var(--r-lg);
+    padding: var(--sp-7) var(--sp-6);
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing-card--featured {
+    border-color: rgba(239,71,111,0.4);
+    box-shadow: var(--sn-glow-cyan);
+    transform: translateY(-8px);
+  }
+  .pricing-card--featured::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: calc(var(--r-lg) - 4px);
+    border: 1px solid var(--sn-border-gold);
+    pointer-events: none;
+  }
+  .pricing-card--featured::after {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: var(--sp-4); right: var(--sp-5);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--sn-gold);
+    background: rgba(255,209,102,0.1);
+    padding: 3px var(--sp-3);
+    border-radius: 2px;
+    border: 1px solid rgba(255,209,102,0.25);
+  }
+  .pricing-card__tier {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sn-coral);
+    margin-bottom: var(--sp-3);
+  }
+  .pricing-card__price {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-4xl);
+    background: var(--sn-grad-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: var(--sp-1);
+  }
+  .pricing-card__price sup { font-size: var(--fs-xl); }
+  .pricing-card__period { font-size: var(--fs-sm); color: var(--sn-text-3); margin-bottom: var(--sp-5); }
+  .pricing-card__desc { font-size: var(--fs-sm); color: var(--sn-text-2); margin-bottom: var(--sp-5); }
+  .pricing-card__features { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); margin-bottom: var(--sp-6); }
+  .pricing-card__features li {
+    font-size: var(--fs-sm);
+    color: var(--sn-text-2);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-2);
+  }
+  .pricing-card__features li::before { content: '◆'; color: var(--sn-coral); font-size: 7px; margin-top: 6px; flex-shrink: 0; }
+
+  /* Testimonials */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+  }
+  .testimonial-card {
+    background: var(--sn-grad-card);
+    border: 1px solid var(--sn-border);
+    border-radius: var(--r-lg);
+    padding: var(--sp-6);
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: calc(var(--r-lg) - 4px);
+    border: 1px solid var(--sn-border-gold);
+    pointer-events: none;
+  }
+  .testimonial-card__quote {
+    font-size: var(--fs-sm);
+    color: var(--sn-text-2);
+    line-height: 1.8;
+    margin-bottom: var(--sp-5);
+    font-style: italic;
+  }
+  .testimonial-card__quote::before { content: '\201C'; color: var(--sn-coral); font-size: 1.5rem; line-height: 0; vertical-align: -0.4em; margin-right: 4px; font-style: normal; }
+  .testimonial-card__author { display: flex; align-items: center; gap: var(--sp-3); }
+  .testimonial-card__avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--sn-grad-sunset);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .testimonial-card__name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: var(--fs-sm); color: var(--sn-text); }
+  .testimonial-card__role { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--sn-text-3); letter-spacing: 0.1em; text-transform: uppercase; }
+  .testimonial-card__stars { color: var(--sn-gold); font-size: var(--fs-sm); margin-left: auto; }
+
+  /* About */
+  .about-band {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-9);
+    align-items: center;
+  }
+  .about-photo {
+    aspect-ratio: 3/4;
+    max-height: 500px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(145deg, #1a0828 0%, #2d0d1c 100%);
+    border: 1px solid var(--sn-border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    position: relative;
+  }
+  .about-photo::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: calc(var(--r-lg) - 4px);
+    border: 1px solid var(--sn-border-gold);
+    pointer-events: none;
+  }
+  .about-photo__label {
+    position: absolute;
+    bottom: var(--sp-5); left: var(--sp-5); right: var(--sp-5);
+    background: rgba(8,6,20,0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--deco-line);
+    border-radius: var(--r-sm);
+    padding: var(--sp-3) var(--sp-4);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--sn-text-2);
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .about-photo__label strong { color: var(--sn-gold); display: block; font-size: var(--fs-sm); text-transform: none; letter-spacing: 0; font-family: 'Syne', sans-serif; font-weight: 800; }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(19,8,28,0.98) 0%, rgba(50,10,25,0.98) 100%);
+    border-top: 1px solid var(--deco-line);
+    border-bottom: 1px solid var(--deco-line);
+    padding: var(--sp-10) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg, transparent, transparent 30px,
+      var(--deco-ornament) 30px, var(--deco-ornament) 31px
+    );
+    pointer-events: none;
+  }
+  .cta-glow {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 500px; height: 200px;
+    background: radial-gradient(ellipse, rgba(239,71,111,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Footer */
+  .site-footer {
+    background: var(--sn-bg);
+    border-top: 1px solid var(--deco-line);
+    padding: var(--sp-9) 0 var(--sp-6);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--sp-8);
+    margin-bottom: var(--sp-8);
+  }
+  .footer-brand p { font-size: var(--fs-sm); max-width: 30ch; }
+  .footer-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sn-coral);
+    margin-bottom: var(--sp-4);
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); }
+  .footer-col ul a { font-size: var(--fs-sm); color: var(--sn-text-2); text-decoration: none; transition: color var(--t-fast); }
+  .footer-col ul a:hover { color: var(--sn-coral); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--sp-5);
+    border-top: 1px solid var(--sn-border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sn-text-3);
+  }
+
+  /* Creds */
+  .creds-list { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+  .cred-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-5);
+    border: 1px solid var(--deco-line);
+    border-radius: 2px;
+    background: rgba(255,209,102,0.04);
+  }
+  .cred-badge__icon { font-size: 1.2rem; }
+  .cred-badge__text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sn-text-2);
+  }
+  .cred-badge__text strong { color: var(--sn-gold); display: block; font-size: var(--fs-sm); letter-spacing: 0; text-transform: none; font-family: 'Syne', sans-serif; font-weight: 800; }
+
+  /* Deco rule */
+  .deco-rule-inline {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-7);
+  }
+  .deco-rule-inline::before,
+  .deco-rule-inline::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--deco-line));
+  }
+  .deco-rule-inline::after { background: linear-gradient(270deg, transparent, var(--deco-line)); }
+  .deco-rule-inline span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sn-gold);
+    opacity: 0.7;
+  }
+  .section-header { text-align: center; margin-bottom: var(--sp-8); }
+  .section-header p { margin: 0 auto; font-size: var(--fs-lg); }
+</style>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     COASTAL COMMAND OVERRIDE BLOCK
+     Fixes inline-style cascade issues in this standalone preview file.
+     Must come last in <head> to win the cascade.
+     ═══════════════════════════════════════════════════════════════════ -->
+<style>
+/* ── Font family corrections (Syne → Outfit throughout) ── */
+body, p, li, td, input, textarea, select,
+.hero__sub, .section-header p,
+.about__body, .services-grid, .portfolio-grid,
+.process-steps, .testimonials-section,
+.sn-ticker, .site-footer { font-family: 'Outfit', system-ui, sans-serif !important; }
+
+h1, h2, h3, .hero__title { font-family: 'Fraunces', Georgia, serif !important; }
+
+/* ── Global token corrections ── */
+:root {
+  --sn-text:   #1C1410;
+  --sn-text-2: #4A3F38;
+  --sn-text-3: #8A7B72;
+  --sn-hero-bg: #062830;
+}
+
+/* ── NAV ── */
+.site-header { background: #FDF8F2 !important; }
+.primary-menu > .menu-item > a { color: #4A3F38 !important; }
+.nav-cta { background: #0AA8A0 !important; color: #FDF8F2 !important; }
+
+/* ── HERO SECTION ── */
+.hero { background: #062830 !important; }
+.hero h1,
+.hero h2,
+.hero h3,
+.hero__title,
+.hero__title .line1,
+.hero__title .line2 { color: #F8F3EA !important; font-family: 'Fraunces', Georgia, serif !important; }
+
+.hero__sub { color: rgba(248,243,234,0.75) !important; }
+.hero__badge { color: rgba(248,243,234,0.62) !important; }
+
+.hero .btn,
+.hero .btn--primary { background: #0AA8A0 !important; color: #FDF8F2 !important; border-color: #0AA8A0 !important; }
+
+.hero .btn--outline,
+.hero .btn--secondary {
+  background: transparent !important;
+  color: #F8F3EA !important;
+  border: 1.5px solid rgba(248,243,234,0.40) !important;
+}
+.hero .btn--outline:hover,
+.hero .btn--secondary:hover {
+  background: rgba(248,243,234,0.08) !important;
+  border-color: rgba(248,243,234,0.65) !important;
+}
+
+/* hero grid pulse lines */
+.hero::before, .hero::after { border-color: rgba(10,168,160,0.06) !important; }
+
+/* ── ABOUT SECTION ── */
+.about-photo {
+  background: linear-gradient(145deg, #062830, #0A3A45) !important;
+  border-color: rgba(10,168,160,0.25) !important;
+}
+.about-photo__label { color: #0AA8A0 !important; }
+.about-photo__status { color: rgba(248,243,234,0.72) !important; }
+.about-photo__stat-value { color: #0AA8A0 !important; }
+.about-photo__stat-label { color: rgba(248,243,234,0.55) !important; }
+
+/* ── SERVICES ── */
+.service-card { background: #FDF8F2 !important; border-color: rgba(201,151,58,0.12) !important; }
+.service-card__icon { color: #0AA8A0 !important; }
+.service-card h3 { color: #1C1410 !important; }
+.service-card p { color: #4A3F38 !important; }
+
+/* ── PORTFOLIO ── */
+.portfolio-item__overlay { background: rgba(6,40,48,0.82) !important; }
+.portfolio-item__title { color: #F8F3EA !important; }
+.portfolio-item__tag { color: rgba(248,243,234,0.72) !important; }
+
+/* ── PROCESS STEPS ── */
+.process-step__number { color: #0AA8A0 !important; border-color: rgba(10,168,160,0.25) !important; }
+.process-step__title { color: #1C1410 !important; }
+.process-step__desc { color: #4A3F38 !important; }
+
+/* ── TESTIMONIALS ── */
+.testimonial-card { background: #FDF8F2 !important; border-color: rgba(201,151,58,0.12) !important; }
+.testimonial-card__quote { color: #4A3F38 !important; }
+.testimonial-card__name { color: #1C1410 !important; }
+.testimonial-card__role { color: #8A7B72 !important; }
+
+/* ── CTA SECTION ── */
+.cta-section { background: #062830 !important; }
+.cta-section h1,
+.cta-section h2,
+.cta-section h3,
+.cta-section p { color: #F8F3EA !important; }
+.cta-section p { color: rgba(248,243,234,0.75) !important; }
+.cta-section .btn,
+.cta-section .btn--primary { background: #0AA8A0 !important; color: #FDF8F2 !important; }
+.cta-section .btn--outline,
+.cta-section .btn--secondary {
+  background: transparent !important;
+  color: #F8F3EA !important;
+  border: 1.5px solid rgba(248,243,234,0.40) !important;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  background: #062830 !important;
+  border-top: 1px solid rgba(201,151,58,0.15) !important;
+  color: rgba(248,243,234,0.72) !important;
+}
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6,
+.footer-html-widget h1,
+.footer-html-widget h2,
+.footer-html-widget h3,
+.footer-html-widget h4,
+.sn-footer-heading { color: #C9973A !important; }
+
+.site-footer p,
+.footer-html-widget p,
+.sn-footer-bottom p { color: rgba(248,243,234,0.65) !important; }
+
+.site-footer a,
+.footer-html-widget a,
+.sn-footer-links a { color: rgba(248,243,234,0.65) !important; }
+.site-footer a:hover,
+.footer-html-widget a:hover,
+.sn-footer-links a:hover { color: #0AA8A0 !important; }
+
+.sn-footer-bottom { border-top-color: rgba(248,243,234,0.10) !important; }
+.sn-footer-bottom p { color: rgba(248,243,234,0.38) !important; }
+
+/* NAP block — bump contrast to pass WCAG AA */
+.sn-nap,
+.sn-nap p,
+.footer-nap p { color: rgba(248,243,234,0.75) !important; }
+
+/* ── ALL BUTTONS global ── */
+.btn, .sn-btn, .wp-block-button__link {
+  color: #FDF8F2 !important;
+  background-color: #0AA8A0 !important;
+}
+.btn--outline, .sn-btn--secondary {
+  background-color: transparent !important;
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div class="sn-scroll-progress" id="scrollProgress"></div>
+
+<!-- TICKER -->
+<div class="sn-ticker">
+  <div class="sn-ticker__inner">
+    <span class="sn-ticker__item">SOUTH FLORIDA AI AGENCY<span>◆</span></span>
+    <span class="sn-ticker__item">AI CHATBOTS &amp; AUTOMATION<span>◆</span></span>
+    <span class="sn-ticker__item">WEB DESIGN &amp; DEVELOPMENT<span>◆</span></span>
+    <span class="sn-ticker__item">LOCAL SEO &amp; RANK MATH<span>◆</span></span>
+    <span class="sn-ticker__item">3D VIRTUAL TOURS<span>◆</span></span>
+    <span class="sn-ticker__item">GOOGLE MAPS OPTIMIZATION<span>◆</span></span>
+    <span class="sn-ticker__item">FORMER USAF CAPTAIN<span>◆</span></span>
+    <span class="sn-ticker__item">TOP SECRET / SCI CLEARANCE<span>◆</span></span>
+    <span class="sn-ticker__item">62+ TECH INSTALLS<span>◆</span></span>
+    <span class="sn-ticker__item">$32M SYSTEMS ENGINEERED<span>◆</span></span>
+    <span class="sn-ticker__item">SOUTH FLORIDA AI AGENCY<span>◆</span></span>
+    <span class="sn-ticker__item">AI CHATBOTS &amp; AUTOMATION<span>◆</span></span>
+    <span class="sn-ticker__item">WEB DESIGN &amp; DEVELOPMENT<span>◆</span></span>
+    <span class="sn-ticker__item">LOCAL SEO &amp; RANK MATH<span>◆</span></span>
+    <span class="sn-ticker__item">3D VIRTUAL TOURS<span>◆</span></span>
+    <span class="sn-ticker__item">GOOGLE MAPS OPTIMIZATION<span>◆</span></span>
+    <span class="sn-ticker__item">FORMER USAF CAPTAIN<span>◆</span></span>
+    <span class="sn-ticker__item">TOP SECRET / SCI CLEARANCE<span>◆</span></span>
+    <span class="sn-ticker__item">62+ TECH INSTALLS<span>◆</span></span>
+    <span class="sn-ticker__item">$32M SYSTEMS ENGINEERED<span>◆</span></span>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-header">
+  <a href="#" class="site-logo">
+    <div class="site-logo__mark">🤓</div>
+    <span class="site-logo__name">Smarter<span>Nerd</span></span>
+  </a>
+  <nav class="primary-nav">
+    <a href="preview.html" class="active">Home</a>
+    <a href="preview-ai-services.html">AI Services</a>
+    <a href="preview-seo-services.html">SEO</a>
+    <a href="preview-portfolio.html">Portfolio</a>
+    <a href="preview-about.html">About</a>
+    <a href="preview-contact.html" class="nav-cta">Free AI Audit</a>
+  </nav>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="sn-container">
+    <div class="hero__inner">
+      <div>
+        <div class="hero__eyebrow">◆ Fort Lauderdale, FL — South Florida's AI Agency</div>
+        <h1 class="hero__title">
+          <span class="line1">Where <span style="background:var(--sn-grad-sunset);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Neon Meets</span></span>
+          <span class="line2">Neural Networks</span>
+        </h1>
+        <p class="hero__sub">
+          AI chatbots. World-class web design. Local SEO that dominates Google.
+          Built with military precision by a former USAF Captain in South Florida.
+        </p>
+        <div class="hero__actions">
+          <a href="#" class="btn btn--primary">⚡ Get a Free AI Audit</a>
+          <a href="#" class="btn btn--outline">View Portfolio →</a>
+        </div>
+      </div>
+      <div>
+        <div class="mvc-mascot">
+          🤓
+          <div class="mvc-mascot__scan"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-band">
+  <div class="sn-container">
+    <div class="stats-grid">
+      <div class="sn-stat"><span class="sn-stat__value">62+</span><span class="sn-stat__label">Tech Installs</span></div>
+      <div class="sn-stat"><span class="sn-stat__value">$32M</span><span class="sn-stat__label">Systems Engineered</span></div>
+      <div class="sn-stat"><span class="sn-stat__value">8+</span><span class="sn-stat__label">Years Experience</span></div>
+      <div class="sn-stat"><span class="sn-stat__value">91</span><span class="sn-stat__label">Avg Rank Math Score</span></div>
+      <div class="sn-stat"><span class="sn-stat__value">0</span><span class="sn-stat__label">Unsatisfied Clients</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SERVICES ══ -->
+<section class="sn-section sn-diagonal-bottom" style="background:var(--sn-bg);">
+  <div class="sn-container">
+    <div class="section-header">
+      <div class="sn-eyebrow" style="justify-content:center;">Mission Services</div>
+      <h2>AI-Powered Growth for <span style="background:var(--sn-grad-sunset);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">South Florida</span></h2>
+      <div class="deco-rule-inline" style="margin-top:var(--sp-4);"><span>◆ ◆ ◆</span></div>
+      <p>Everything a South Florida small business needs to dominate online — built by someone who engineered $32M in military-grade systems.</p>
+    </div>
+    <div class="services-grid">
+      <div class="sn-card">
+        <div class="sn-card__signal"><span></span><span></span><span></span></div>
+        <div class="sn-card__icon sn-card__icon--coral">🤖</div>
+        <h3>AI Chatbots &amp; Automation</h3>
+        <p>Custom AI assistants that qualify leads, book appointments, and answer questions 24/7 — while you sleep.</p>
+        <span class="sn-card__badge">◆ Lead Offer — From $400/mo</span>
+      </div>
+      <div class="sn-card">
+        <div class="sn-card__signal"><span></span><span></span><span></span></div>
+        <div class="sn-card__icon sn-card__icon--gold">💻</div>
+        <h3>Web Design &amp; Development</h3>
+        <p>WordPress sites on Kadence — blazing fast, mobile-first, SEO-ready, designed to convert visitors into paying clients.</p>
+        <span class="sn-card__badge sn-card__badge--gold">◆ Custom Quote</span>
+      </div>
+      <div class="sn-card">
+        <div class="sn-card__signal"><span></span><span></span><span></span></div>
+        <div class="sn-card__icon sn-card__icon--ocean">📈</div>
+        <h3>Local SEO</h3>
+        <p>Rank Math Pro + schema markup + Google Maps optimization. Dominate Fort Lauderdale search results.</p>
+        <span class="sn-card__badge sn-card__badge--ocean">◆ From $600/mo</span>
+      </div>
+      <div class="sn-card">
+        <div class="sn-card__signal"><span></span><span></span><span></span></div>
+        <div class="sn-card__icon sn-card__icon--sky">🏢</div>
+        <h3>3D Virtual Tours</h3>
+        <p>Immersive Matterport-style walkthroughs that let clients explore your space before they ever visit in person.</p>
+        <span class="sn-card__badge" style="background:rgba(17,138,178,0.08);color:var(--sn-sky);border-color:rgba(17,138,178,0.2);">◆ From $350</span>
+      </div>
+      <div class="sn-card">
+        <div class="sn-card__signal"><span></span><span></span><span></span></div>
+        <div class="sn-card__icon sn-card__icon--coral">📍</div>
+        <h3>Google Maps &amp; GBP</h3>
+        <p>Full Google Business Profile optimization — photos, posts, Q&amp;A, review strategy — so locals find you first.</p>
+        <span class="sn-card__badge">◆ One-Time + Monthly</span>
+      </div>
+      <div class="sn-card">
+        <div class="sn-card__signal"><span></span><span></span><span></span></div>
+        <div class="sn-card__icon sn-card__icon--gold">📱</div>
+        <h3>Social Media Management</h3>
+        <p>AI-generated content, platform management, and brand strategy that drives consistent engagement and growth.</p>
+        <span class="sn-card__badge sn-card__badge--gold">◆ From $500/mo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section class="sn-section sn-diagonal-top sn-section--deco" style="background:var(--sn-bg-2);">
+  <div class="sn-container">
+    <div class="about-band">
+      <div class="about-photo">
+        👨‍✈️
+        <div class="about-photo__label">
+          <strong>Jesse Velazco</strong>
+          Founder &amp; Lead Engineer · Fort Lauderdale, FL
+        </div>
+      </div>
+      <div>
+        <div class="sn-eyebrow">About the Commander</div>
+        <h2>Not Your Average<br><span style="background:var(--sn-grad-sunset);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Web Designer</span></h2>
+        <div class="deco-rule-inline" style="margin-top:var(--sp-4);"><span>◆ ◆ ◆</span></div>
+        <p>Before building websites, I engineered $32M in military-grade systems as a U.S. Air Force Captain with a Top Secret/SCI clearance. Every client project gets the same mission-critical thinking — zero tolerance for "good enough."</p>
+        <br>
+        <p>Now I apply that same precision to help South Florida small businesses compete in the age of AI — with chatbots, websites, and SEO strategies built to win.</p>
+        <div class="creds-list" style="margin-top:var(--sp-6);">
+          <div class="cred-badge">
+            <span class="cred-badge__icon">✈️</span>
+            <span class="cred-badge__text"><strong>USAF Captain</strong>Veteran</span>
+          </div>
+          <div class="cred-badge">
+            <span class="cred-badge__icon">🔐</span>
+            <span class="cred-badge__text"><strong>TS/SCI</strong>Clearance</span>
+          </div>
+          <div class="cred-badge">
+            <span class="cred-badge__icon">⚙️</span>
+            <span class="cred-badge__text"><strong>62 Installs</strong>Completed</span>
+          </div>
+          <div class="cred-badge">
+            <span class="cred-badge__icon">💰</span>
+            <span class="cred-badge__text"><strong>$32M</strong>Engineered</span>
+          </div>
+        </div>
+        <div style="margin-top:var(--sp-6);">
+          <a href="#" class="btn btn--primary">Work With Jesse</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PORTFOLIO ══ -->
+<section class="sn-section" style="background:var(--sn-bg);">
+  <div class="sn-container">
+    <div class="section-header">
+      <div class="sn-eyebrow" style="justify-content:center;">Recent Work</div>
+      <h2>Mission-Critical <span style="background:var(--sn-grad-ocean);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Deliveries</span></h2>
+      <div class="deco-rule-inline" style="margin-top:var(--sp-4);"><span>◆ ◆ ◆</span></div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" style="background:linear-gradient(135deg,#0a1a1e,#102d28);">
+        <div class="portfolio-item__fill">proTouch Rehab</div>
+        <div class="portfolio-item__overlay"></div>
+        <div class="portfolio-item__info">
+          <span class="portfolio-item__category">Web Design + AI Chatbot</span>
+          <div class="portfolio-item__title">ProTouch Rehab Center</div>
+        </div>
+      </div>
+      <div class="portfolio-item" style="background:linear-gradient(135deg,#1a0a1e,#2d1040);">
+        <div class="portfolio-item__fill">Jones Iron Works</div>
+        <div class="portfolio-item__overlay"></div>
+        <div class="portfolio-item__info">
+          <span class="portfolio-item__category">Web Design + Local SEO</span>
+          <div class="portfolio-item__title">Jones Iron Works</div>
+        </div>
+      </div>
+      <div class="portfolio-item" style="background:linear-gradient(135deg,#1e1a0a,#302810);">
+        <div class="portfolio-item__fill">All Seasons Plumbing</div>
+        <div class="portfolio-item__overlay"></div>
+        <div class="portfolio-item__info">
+          <span class="portfolio-item__category">Web Design + Google Maps</span>
+          <div class="portfolio-item__title">All Seasons Plumbing</div>
+        </div>
+      </div>
+      <div class="portfolio-item" style="background:linear-gradient(135deg,#1e0a10,#300a18);">
+        <div class="portfolio-item__fill">Coastal Realty Group</div>
+        <div class="portfolio-item__overlay"></div>
+        <div class="portfolio-item__info">
+          <span class="portfolio-item__category">3D Virtual Tours + SEO</span>
+          <div class="portfolio-item__title">Coastal Realty Group</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:var(--sp-7);">
+      <a href="#" class="btn btn--outline">View All Projects →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══ -->
+<section class="sn-section sn-section--deco" style="background:var(--sn-bg-2);">
+  <div class="sn-container">
+    <div class="section-header">
+      <div class="sn-eyebrow" style="justify-content:center;">AI Service Plans</div>
+      <h2>Mission Plans &amp; <span style="background:var(--sn-grad-sunset);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Investment</span></h2>
+      <div class="deco-rule-inline" style="margin-top:var(--sp-4);"><span>◆ ◆ ◆</span></div>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-card__tier">AI Starter</div>
+        <div class="pricing-card__price"><sup>$</sup>400</div>
+        <div class="pricing-card__period">/month</div>
+        <p class="pricing-card__desc">For businesses ready to automate their first customer touchpoint with AI.</p>
+        <ul class="pricing-card__features">
+          <li>AI lead qualification chatbot</li>
+          <li>Appointment booking automation</li>
+          <li>WhatsApp + website integration</li>
+          <li>Monthly performance report</li>
+          <li>Email + Slack support</li>
+        </ul>
+        <a href="#" class="btn btn--outline" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-card__tier">AI Growth</div>
+        <div class="pricing-card__price"><sup>$</sup>900</div>
+        <div class="pricing-card__period">/month</div>
+        <p class="pricing-card__desc">Full AI system — chatbot + CRM + automations + monthly SEO growth.</p>
+        <ul class="pricing-card__features">
+          <li>Everything in AI Starter</li>
+          <li>CRM integration &amp; automation</li>
+          <li>Local SEO monthly management</li>
+          <li>Google Business Profile posts</li>
+          <li>Bi-weekly strategy call</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="btn btn--gold" style="width:100%;justify-content:center;">Most Popular ◆</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-card__tier">AI Partner</div>
+        <div class="pricing-card__price" style="-webkit-text-fill-color:transparent;">Custom</div>
+        <div class="pricing-card__period">Enterprise pricing</div>
+        <p class="pricing-card__desc">End-to-end AI transformation — web, SEO, chatbots, automations, and strategy.</p>
+        <ul class="pricing-card__features">
+          <li>Everything in AI Growth</li>
+          <li>Custom AI pipeline builds</li>
+          <li>Multi-location SEO</li>
+          <li>3D virtual tours</li>
+          <li>Social media management</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="#" class="btn btn--primary" style="width:100%;justify-content:center;">Let's Talk Strategy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="sn-section" style="background:var(--sn-bg);">
+  <div class="sn-container">
+    <div class="section-header">
+      <div class="sn-eyebrow" style="justify-content:center;">Field Reports</div>
+      <h2>What South Florida <span style="background:var(--sn-grad-sunset);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Clients Say</span></h2>
+      <div class="deco-rule-inline" style="margin-top:var(--sp-4);"><span>◆ ◆ ◆</span></div>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-card__quote">Jesse built us an AI chatbot that captures leads around the clock. Our consultation bookings went up 40% in the first month. The precision he brings is unlike any agency we've worked with.</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">👨</div>
+          <div>
+            <div class="testimonial-card__name">Charles Hawkins</div>
+            <div class="testimonial-card__role">Owner, Hawkins Legal Group</div>
+          </div>
+          <div class="testimonial-card__stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-card__quote">The website redesign + local SEO package has us ranking #1 for "physical therapy Fort Lauderdale." Jesse treats this like a mission — and delivers on time, every time.</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">👩</div>
+          <div>
+            <div class="testimonial-card__name">Dr. Maria Santos</div>
+            <div class="testimonial-card__role">Director, ProTouch Rehab</div>
+          </div>
+          <div class="testimonial-card__stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-card__quote">We were invisible online before SmarterNerd. Now we show up in the Maps pack for every key search in South Florida. The 3D virtual tour alone has closed three major contracts.</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">👨</div>
+          <div>
+            <div class="testimonial-card__name">Robert Jones</div>
+            <div class="testimonial-card__role">CEO, Jones Iron Works</div>
+          </div>
+          <div class="testimonial-card__stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <div class="sn-container" style="position:relative;z-index:2;">
+    <div class="sn-eyebrow" style="justify-content:center;margin-bottom:var(--sp-5);">Ready to Deploy</div>
+    <h2 style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:var(--sp-4);">
+      Your AI Advantage Starts<br><span style="background:var(--sn-grad-sunset);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Right Now</span>
+    </h2>
+    <div class="deco-rule-inline" style="max-width:400px;margin:0 auto var(--sp-5);"><span>◆ ◆ ◆</span></div>
+    <p style="text-align:center;margin:0 auto var(--sp-7);max-width:52ch;">
+      Book a free 30-minute AI Audit. We'll identify exactly where AI and better SEO can win you more clients — no fluff, no upsell pressure.
+    </p>
+    <div style="display:flex;gap:var(--sp-4);justify-content:center;flex-wrap:wrap;">
+      <a href="#" class="btn btn--primary" style="padding:var(--sp-5) var(--sp-8);">⚡ Book Free AI Audit</a>
+      <a href="#" class="btn btn--outline">Call: (754) 123-4567</a>
+    </div>
+    <div style="margin-top:var(--sp-6);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--sn-text-3);">
+      Fort Lauderdale, FL &nbsp;◆&nbsp; Serving All of South Florida &nbsp;◆&nbsp; No Contracts Required
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="sn-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-4);">
+          <div class="site-logo__mark" style="width:40px;height:40px;font-size:1.2rem;">🤓</div>
+          <span class="site-logo__name" style="font-size:var(--fs-base);">Smarter<span>Nerd</span></span>
+        </div>
+        <p>AI-powered web design, SEO &amp; digital marketing for South Florida small businesses. Built with military precision in Fort Lauderdale.</p>
+        <div style="margin-top:var(--sp-4);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--sn-text-3);letter-spacing:0.1em;text-transform:uppercase;line-height:2.2;">
+          SmarterNerd.com<br>
+          Fort Lauderdale, FL 33301<br>
+          (754) 123-4567<br>
+          hello@smarternerd.com
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="preview-ai-services.html">AI Chatbots</a></li>
+          <li><a href="preview-portfolio.html">Web Design</a></li>
+          <li><a href="preview-seo-services.html">Local SEO</a></li>
+          <li><a href="preview-ai-services.html">3D Virtual Tours</a></li>
+          <li><a href="preview-seo-services.html">Google Maps</a></li>
+          <li><a href="preview-ai-services.html">Social Media</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="preview-about.html">About Jesse</a></li>
+          <li><a href="preview-portfolio.html">Portfolio</a></li>
+          <li><a href="preview.html">Blog</a></li>
+          <li><a href="preview-contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="preview-contact.html">Fort Lauderdale</a></li>
+          <li><a href="preview-contact.html">Miami</a></li>
+          <li><a href="preview-contact.html">Boca Raton</a></li>
+          <li><a href="preview-contact.html">Pompano Beach</a></li>
+          <li><a href="preview-contact.html">Hollywood, FL</a></li>
+          <li><a href="preview-contact.html">Deerfield Beach</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 SmarterNerd.com · All Rights Reserved</span>
+      <span>Fort Lauderdale, FL ◆ South Florida's AI Agency</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    bar.style.height = pct + '%';
+  });
+</script>
+</body>
+</html>

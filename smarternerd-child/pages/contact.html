@@ -1,0 +1,309 @@
+<!--
+  SmarterNerd.com — CONTACT PAGE
+  Focus keyword: contact Fort Lauderdale web designer
+  Schema: LocalBusiness + GeoCoordinates + FAQPage (LocalBusiness also via functions.php)
+-->
+
+<!-- ════ HERO ════ -->
+<section class="sn-hero" style="min-height:50svh;" aria-label="Contact Fort Lauderdale Web Designer">
+  <div class="sn-hero__bg" aria-hidden="true"></div>
+  <div class="sn-orb sn-orb--cyan" style="top:-10%;left:-5%;" aria-hidden="true"></div>
+  <div class="sn-orb sn-orb--mag"  style="bottom:0;right:-8%;" aria-hidden="true"></div>
+
+  <div class="sn-container">
+    <div class="sn-hero__content" style="max-width:700px;">
+      <div class="sn-hero__eyebrow sn-reveal">
+        <span class="sn-badge sn-badge--cyan sn-badge--dot">Fort Lauderdale, FL — Open for New Projects</span>
+      </div>
+      <h1 class="sn-hero__title sn-reveal sn-reveal-delay-1">
+        Contact Your Fort Lauderdale<br><span class="accent">Web Designer</span>
+      </h1>
+      <p class="sn-hero__body sn-reveal sn-reveal-delay-2">
+        Free consultation for South Florida small businesses. Tell Jesse about your project — web design, AI services, or SEO — and get a straight answer within one business day.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT MAIN ════ -->
+<section class="sn-section" aria-labelledby="contact-main-heading">
+  <div class="sn-container">
+    <div class="grid-2" style="align-items:start;gap:var(--sp-9);">
+
+      <!-- Left: Form -->
+      <div class="sn-reveal">
+        <p class="sn-eyebrow">Send a Message</p>
+        <h2 class="sn-section-title" id="contact-main-heading" style="margin-bottom:var(--sp-6);">
+          Let's Start Your <span class="accent">Mission Brief</span>
+        </h2>
+
+        <!-- WordPress: replace this with [contact-form-7 id="YOUR_ID"] or WPForms shortcode -->
+        <form class="sn-form" name="sn-contact" method="POST" action="/contact-success/" aria-label="Contact form">
+          <input type="hidden" name="form-name" value="sn-contact">
+
+          <div class="grid-2" style="gap:var(--sp-4);">
+            <div class="sn-form-group">
+              <label for="contact-name">Your Name *</label>
+              <input type="text" id="contact-name" name="name" required
+                     placeholder="Jane Smith" autocomplete="name">
+            </div>
+            <div class="sn-form-group">
+              <label for="contact-email">Email Address *</label>
+              <input type="email" id="contact-email" name="email" required
+                     placeholder="jane@yourbusiness.com" autocomplete="email">
+            </div>
+          </div>
+
+          <div class="grid-2" style="gap:var(--sp-4);">
+            <div class="sn-form-group">
+              <label for="contact-phone">Phone (Optional)</label>
+              <input type="tel" id="contact-phone" name="phone"
+                     placeholder="(954) 000-0000" autocomplete="tel">
+            </div>
+            <div class="sn-form-group">
+              <label for="contact-business">Business Name</label>
+              <input type="text" id="contact-business" name="business"
+                     placeholder="My Fort Lauderdale Business" autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="sn-form-group">
+            <label for="contact-service">Service Interested In *</label>
+            <select id="contact-service" name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option value="ai">AI Services (Chatbots, Automation, Content)</option>
+              <option value="web">Web Design / Redesign</option>
+              <option value="seo">SEO Services</option>
+              <option value="maps">Google Maps Optimization</option>
+              <option value="tours">3D Virtual Tours (Matterport)</option>
+              <option value="social">Social Media Management</option>
+              <option value="bundle">Full Digital Package</option>
+              <option value="other">Other / Not Sure Yet</option>
+            </select>
+          </div>
+
+          <div class="sn-form-group">
+            <label for="contact-budget">Monthly Budget Range</label>
+            <select id="contact-budget" name="budget">
+              <option value="" disabled selected>Select budget range...</option>
+              <option value="under400">Under $400/mo</option>
+              <option value="400-900">$400–$900/mo</option>
+              <option value="900-2000">$900–$2,000/mo</option>
+              <option value="2000plus">$2,000+/mo</option>
+              <option value="oneoff">One-time project ($1,500–$4,500)</option>
+            </select>
+          </div>
+
+          <div class="sn-form-group">
+            <label for="contact-message">Tell Me About Your Business *</label>
+            <textarea id="contact-message" name="message" rows="5" required
+              placeholder="What does your business do? What's your biggest digital challenge right now? Where are you located in South Florida?"></textarea>
+          </div>
+
+          <button type="submit" class="sn-btn sn-btn--primary" style="width:100%;justify-content:center;padding:var(--sp-4);">
+            Send Mission Brief
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </button>
+
+          <p style="font-size:var(--fs-xs);color:var(--sn-text-3);margin-top:var(--sp-3);text-align:center;">
+            Response within 1 business day · No spam · No pressure
+          </p>
+        </form>
+      </div>
+
+      <!-- Right: Info + Map -->
+      <div class="sn-reveal sn-reveal-delay-2">
+        <p class="sn-eyebrow">Direct Contact</p>
+        <h2 class="sn-section-title" style="margin-bottom:var(--sp-6);">
+          Reach Jesse <span class="accent">Directly</span>
+        </h2>
+
+        <!-- Contact cards -->
+        <div style="display:flex;flex-direction:column;gap:var(--sp-4);margin-bottom:var(--sp-7);">
+
+          <a href="mailto:Jesse@SmarterNerd.com" class="sn-card"
+             style="display:flex;align-items:center;gap:var(--sp-4);text-decoration:none;"
+             aria-label="Email Jesse at SmarterNerd">
+            <div class="sn-service-icon" style="flex-shrink:0;" aria-hidden="true">✉️</div>
+            <div>
+              <p class="sn-footer-heading" style="margin-bottom:var(--sp-1);">Email</p>
+              <p style="color:var(--sn-cyan);font-family:'Syne',sans-serif;font-weight:700;max-width:100%;">Jesse@SmarterNerd.com</p>
+            </div>
+          </a>
+
+          <div class="sn-card" style="display:flex;align-items:center;gap:var(--sp-4);">
+            <div class="sn-service-icon" style="flex-shrink:0;" aria-hidden="true">📍</div>
+            <div>
+              <p class="sn-footer-heading" style="margin-bottom:var(--sp-1);">Location</p>
+              <p style="color:var(--sn-text);font-family:'Syne',sans-serif;font-weight:700;max-width:100%;"
+                 itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <span itemprop="addressLocality">Fort Lauderdale</span>,
+                <span itemprop="addressRegion">FL</span>
+                <span itemprop="postalCode">33301</span>
+              </p>
+              <p style="font-size:var(--fs-sm);margin-top:var(--sp-1);">Serving South Florida + Nationwide Remote</p>
+            </div>
+          </div>
+
+          <div class="sn-card" style="display:flex;align-items:center;gap:var(--sp-4);">
+            <div class="sn-service-icon" style="flex-shrink:0;" aria-hidden="true">🕐</div>
+            <div>
+              <p class="sn-footer-heading" style="margin-bottom:var(--sp-1);">Response Time</p>
+              <p style="color:var(--sn-text);font-family:'Syne',sans-serif;font-weight:700;max-width:100%;">Within 1 Business Day</p>
+              <p style="font-size:var(--fs-sm);margin-top:var(--sp-1);">Mon–Fri · 9am–6pm ET</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Map embed placeholder -->
+        <div class="sn-card" style="padding:0;overflow:hidden;aspect-ratio:4/3;"
+          itemscope itemtype="https://schema.org/GeoCoordinates">
+          <meta itemprop="latitude"  content="26.1224">
+          <meta itemprop="longitude" content="-80.1373">
+          <iframe
+            title="SmarterNerd location — Fort Lauderdale, FL"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57268.78!2d-80.1873!3d26.1224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9002af268a433%3A0xd21e6b4be764b30d!2sFort%20Lauderdale%2C%20FL!5e0!3m2!1sen!2sus!4v1700000000"
+            width="100%"
+            height="100%"
+            style="border:0;filter:invert(90%) hue-rotate(180deg) saturate(0.8);"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            aria-label="Map showing Fort Lauderdale, FL — SmarterNerd service area">
+          </iframe>
+        </div>
+
+        <!-- Quick links -->
+        <div class="flex gap-4" style="margin-top:var(--sp-5);flex-wrap:wrap;">
+          <a href="https://www.google.com/search?q=SmarterNerd+Fort+Lauderdale+reviews"
+             target="_blank" rel="noopener noreferrer"
+             class="sn-btn sn-btn--secondary">Google Reviews ↗</a>
+          <a href="https://www.linkedin.com/company/smarternerd"
+             target="_blank" rel="noopener noreferrer"
+             class="sn-btn sn-btn--secondary">LinkedIn ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHAT HAPPENS NEXT ════ -->
+<section class="sn-section sn-section--alt2" aria-labelledby="next-steps-heading">
+  <div class="sn-container sn-container--sm">
+    <div class="text-center mb-8">
+      <p class="sn-eyebrow sn-reveal" style="justify-content:center;">The Process</p>
+      <h2 class="sn-section-title sn-reveal sn-reveal-delay-1" id="next-steps-heading">
+        What Happens After You Contact<br>Your <span class="accent">Fort Lauderdale Web Designer</span>
+      </h2>
+    </div>
+
+    <div class="sn-process sn-reveal sn-reveal-delay-2" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
+      <div class="sn-process-step">
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-2);">You Submit</h3>
+        <p style="font-size:var(--fs-sm);">Fill out the form or email Jesse directly. Takes 2 minutes.</p>
+      </div>
+      <div class="sn-process-step">
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-2);">Jesse Reviews</h3>
+        <p style="font-size:var(--fs-sm);">Within 1 business day, Jesse personally reviews your brief and researches your market.</p>
+      </div>
+      <div class="sn-process-step">
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-2);">Free Strategy Call</h3>
+        <p style="font-size:var(--fs-sm);">30-minute call to discuss your goals, show competitive data, and map a plan.</p>
+      </div>
+      <div class="sn-process-step">
+        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-2);">Proposal + Launch</h3>
+        <p style="font-size:var(--fs-sm);">Clear scope, timeline, and pricing. No surprises. Mission begins on agreement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section class="sn-section" aria-labelledby="contact-faq-heading">
+  <div class="sn-container">
+    <div class="text-center mb-8">
+      <p class="sn-eyebrow sn-reveal" style="justify-content:center;">FAQ</p>
+      <h2 class="sn-section-title sn-reveal sn-reveal-delay-1" id="contact-faq-heading">
+        Contacting Your <span class="accent">Fort Lauderdale Web Designer</span>
+      </h2>
+      <p class="sn-reveal sn-reveal-delay-2" style="font-size:var(--fs-sm);color:var(--sn-text-3);margin-top:calc(-1 * var(--sp-4));">
+        More about us: <a href="/about/">About Jesse</a> · <a href="/ai-services/">AI Services</a> · <a href="/seo-services/">SEO Services</a> · <a href="/portfolio/">Portfolio</a>
+      </p>
+    </div>
+    <div class="sn-faq sn-reveal sn-reveal-delay-2">
+
+      <div class="sn-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="sn-faq-question" itemprop="name" aria-expanded="false">How quickly does SmarterNerd respond to inquiries?</button>
+        <div class="sn-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Jesse responds to all Fort Lauderdale and South Florida inquiries within one business day — often same day. Email Jesse@SmarterNerd.com directly for the fastest response.</p>
+        </div>
+      </div>
+
+      <div class="sn-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="sn-faq-question" itemprop="name" aria-expanded="false">Is the initial consultation really free?</button>
+        <div class="sn-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Yes — 100% free, no obligation. The consultation includes a review of your current digital presence, competitive analysis for your Fort Lauderdale market, and a clear recommendation for which services will move the needle fastest for your business.</p>
+        </div>
+      </div>
+
+      <div class="sn-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="sn-faq-question" itemprop="name" aria-expanded="false">Do you meet in person in Fort Lauderdale?</button>
+        <div class="sn-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Yes — in-person meetings are available for Fort Lauderdale and Broward County clients. Most work happens remotely via Zoom, email, and Slack, which means faster turnaround and lower overhead costs passed on to you.</p>
+        </div>
+      </div>
+
+      <div class="sn-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="sn-faq-question" itemprop="name" aria-expanded="false">What information should I prepare before the consultation?</button>
+        <div class="sn-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Just your website URL (if you have one), your top 2–3 business goals, and your approximate monthly marketing budget. Jesse handles the competitive research, keyword analysis, and strategy recommendation — you just show up ready to talk about your business.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "SmarterNerd",
+  "url": "https://www.smarternerd.com",
+  "email": "Jesse@SmarterNerd.com",
+  "description": "Fort Lauderdale web designer offering AI services, SEO, and web design for South Florida small businesses.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Fort Lauderdale",
+    "addressRegion": "FL",
+    "postalCode": "33301",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 26.1224,
+    "longitude": -80.1373
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How quickly does SmarterNerd respond to inquiries?", "acceptedAnswer": { "@type": "Answer", "text": "Jesse responds within one business day — often same day. Email Jesse@SmarterNerd.com for the fastest response." } },
+    { "@type": "Question", "name": "Is the initial consultation really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — 100% free, no obligation. Includes competitive analysis and a clear recommendation for your Fort Lauderdale market." } },
+    { "@type": "Question", "name": "Do you meet in person in Fort Lauderdale?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — in-person meetings available for Fort Lauderdale and Broward County clients. Most work happens remotely via Zoom, email, and Slack." } }
+  ]
+}
+</script>
