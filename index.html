@@ -113,9 +113,6 @@
     overflow-x: auto;
     background: var(--surface);
     box-shadow: var(--sh-1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
     backdrop-filter: blur(10px);
     background: rgba(26, 31, 58, 0.8);
   }
@@ -177,10 +174,6 @@
     border-right: 1px solid var(--line);
     padding: 28px 20px;
     box-shadow: var(--sh-1);
-    position: sticky;
-    top: 65px;
-    max-height: calc(100vh - 65px);
-    overflow-y: auto;
     display: none;
     backdrop-filter: blur(10px);
   }
@@ -241,8 +234,6 @@
   .content {
     flex: 1;
     padding: 40px;
-    overflow-y: auto;
-    max-height: calc(100vh - 65px);
     background: linear-gradient(135deg, rgba(15, 15, 31, 0.4), rgba(26, 31, 58, 0.4));
   }
 
@@ -428,8 +419,6 @@
       width: 100%;
       border-right: none;
       border-bottom: 1px solid var(--line);
-      position: static;
-      max-height: none;
       display: none;
       padding: 16px 20px;
     }
