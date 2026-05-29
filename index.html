@@ -4,23 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SmarterNerd — SEO Services Documentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #0a1233;
-    --brand: #3b49f0;
-    --cyan: #1fd3ff;
-    --magenta: #ff3aa0;
-    --bg: #f5f6fb;
-    --surface: #ffffff;
-    --line: #e7e9f3;
-    --text: #1d2236;
-    --muted: #5b647e;
-    --accent: #0891b2;
-    --r: 16px;
-    --r-lg: 22px;
-    --sh-1: 0 1px 2px rgba(16, 24, 64, 0.06), 0 2px 8px rgba(16, 24, 64, 0.05);
-    --sh-2: 0 8px 24px rgba(16, 24, 64, 0.1);
-    --sh-3: 0 18px 48px rgba(48, 40, 140, 0.22);
+    /* Dark Stargate Palette */
+    --ink: #0f0f1f;
+    --brand: #00d4ff;
+    --accent-gold: #ffd700;
+    --accent-violet: #9d4edd;
+    --accent-orange: #ff6b35;
+    --bg: #0a0e27;
+    --surface: #1a1f3a;
+    --surface-light: #252d52;
+    --line: #2d3561;
+    --text: #f0f4f8;
+    --muted: #a8b2cf;
+    --r: 12px;
+    --r-lg: 20px;
+    --sh-1: 0 4px 12px rgba(0, 212, 255, 0.08), 0 2px 6px rgba(0, 0, 0, 0.3);
+    --sh-2: 0 12px 32px rgba(0, 212, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.4);
+    --sh-3: 0 24px 64px rgba(0, 212, 255, 0.25), 0 8px 24px rgba(157, 78, 221, 0.15);
   }
 
   * {
@@ -33,11 +36,14 @@
 
   body {
     margin: 0;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', -apple-system, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(157, 78, 221, 0.08) 0%, transparent 40%);
   }
 
   .container {
@@ -48,31 +54,60 @@
 
   /* Header */
   header {
-    background: linear-gradient(135deg, var(--ink) 0%, #1b2a86 100%);
-    color: #fff;
-    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--ink) 0%, #1a1f3a 50%, var(--surface) 100%);
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, var(--brand), var(--accent-violet), var(--accent-gold)) 1;
+    color: var(--text);
+    padding: 48px 20px;
     text-align: center;
-    box-shadow: var(--sh-3);
+    box-shadow: var(--sh-3), inset 0 1px 0 rgba(0, 212, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1), transparent 60%);
+    pointer-events: none;
+  }
+
+  header > * {
+    position: relative;
+    z-index: 1;
   }
 
   header h1 {
     margin: 0 0 8px;
-    font-size: 32px;
+    font-size: 42px;
     font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--brand), var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   header p {
     margin: 0;
-    font-size: 16px;
-    opacity: 0.9;
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   /* Nav Tabs */
   .tabs {
     display: flex;
-    gap: 8px;
-    border-bottom: 2px solid var(--line);
-    padding: 0 20px;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 0;
     margin: 0;
     list-style: none;
     overflow-x: auto;
@@ -81,31 +116,53 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(26, 31, 58, 0.8);
   }
 
   .tab {
     padding: 0;
+    flex: 1;
   }
 
   .tab button {
     background: none;
     border: none;
-    padding: 16px 20px;
-    font-size: 15px;
+    padding: 16px 24px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--muted);
     cursor: pointer;
     border-bottom: 3px solid transparent;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+
+  .tab button::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand), var(--accent-gold));
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .tab button:hover {
     color: var(--brand);
+    background: rgba(0, 212, 255, 0.08);
   }
 
   .tab button.active {
     color: var(--brand);
-    border-bottom-color: var(--brand);
+  }
+
+  .tab button.active::before {
+    opacity: 1;
   }
 
   /* Main Content */
@@ -116,15 +173,16 @@
 
   .sidebar {
     width: 280px;
-    background: var(--surface);
+    background: var(--surface-light);
     border-right: 1px solid var(--line);
-    padding: 24px 16px;
+    padding: 28px 20px;
     box-shadow: var(--sh-1);
     position: sticky;
     top: 65px;
     max-height: calc(100vh - 65px);
     overflow-y: auto;
     display: none;
+    backdrop-filter: blur(10px);
   }
 
   .sidebar.visible {
@@ -132,52 +190,60 @@
   }
 
   .sidebar h3 {
-    margin: 0 0 16px;
-    padding: 0;
-    font-size: 12px;
+    margin: 0 0 20px;
+    padding: 12px 0 0 0;
+    font-size: 11px;
     font-weight: 700;
-    color: var(--muted);
+    color: var(--brand);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     display: block;
+    border-top: 1px solid var(--line);
   }
 
   .sidebar ul {
     list-style: none;
-    margin: 0 0 24px;
+    margin: 0;
     padding: 0;
   }
 
   .sidebar li {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .sidebar a {
     display: block;
-    padding: 8px 12px;
-    border-radius: 8px;
-    color: var(--text);
+    padding: 10px 14px;
+    border-radius: var(--r);
+    color: var(--muted);
     text-decoration: none;
     font-size: 13px;
-    transition: all 0.15s ease;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    border-left: 3px solid transparent;
+    position: relative;
   }
 
   .sidebar a:hover {
-    background: var(--bg);
+    background: rgba(0, 212, 255, 0.08);
     color: var(--brand);
+    border-left-color: var(--brand);
+    padding-left: 18px;
   }
 
   .sidebar a.active {
-    background: linear-gradient(135deg, #eceaff, #e0f7fb);
+    background: rgba(0, 212, 255, 0.12);
     color: var(--brand);
     font-weight: 600;
+    border-left-color: var(--brand);
   }
 
   .content {
     flex: 1;
-    padding: 32px;
+    padding: 40px;
     overflow-y: auto;
     max-height: calc(100vh - 65px);
+    background: linear-gradient(135deg, rgba(15, 15, 31, 0.4), rgba(26, 31, 58, 0.4));
   }
 
   .tab-content {
@@ -202,90 +268,115 @@
 
   /* Markdown rendering */
   .markdown {
-    line-height: 1.7;
+    line-height: 1.8;
+    max-width: 900px;
   }
 
   .markdown h1,
   .markdown h2,
   .markdown h3 {
-    margin-top: 24px;
-    margin-bottom: 12px;
+    margin-top: 32px;
+    margin-bottom: 16px;
     font-weight: 800;
-    color: var(--ink);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.01em;
   }
 
   .markdown h1 {
-    font-size: 28px;
-    border-bottom: 2px solid var(--line);
-    padding-bottom: 12px;
+    font-size: 32px;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, var(--brand), transparent) 1;
+    padding-bottom: 16px;
+    color: var(--brand);
   }
 
   .markdown h2 {
-    font-size: 22px;
+    font-size: 24px;
+    color: var(--text);
+  }
+
+  .markdown h2::before {
+    content: '→ ';
+    color: var(--accent-gold);
   }
 
   .markdown h3 {
     font-size: 16px;
+    color: var(--accent-violet);
   }
 
   .markdown p {
-    margin: 12px 0;
+    margin: 14px 0;
+    color: var(--text);
   }
 
   .markdown ul,
   .markdown ol {
-    margin: 12px 0;
-    padding-left: 24px;
+    margin: 16px 0;
+    padding-left: 28px;
   }
 
   .markdown li {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    color: var(--muted);
+  }
+
+  .markdown li strong {
+    color: var(--text);
   }
 
   .markdown table {
     width: 100%;
     border-collapse: collapse;
-    margin: 16px 0;
-    font-size: 14px;
+    margin: 24px 0;
+    font-size: 13px;
+    border-radius: var(--r);
+    overflow: hidden;
+    box-shadow: var(--sh-1);
   }
 
   .markdown table th {
-    background: var(--bg);
-    padding: 12px;
+    background: linear-gradient(90deg, var(--surface-light), var(--surface));
+    padding: 14px 16px;
     text-align: left;
     font-weight: 700;
     border: 1px solid var(--line);
-    color: var(--ink);
+    color: var(--brand);
   }
 
   .markdown table td {
-    padding: 10px 12px;
+    padding: 12px 16px;
     border: 1px solid var(--line);
+    color: var(--text);
   }
 
   .markdown table tr:nth-child(even) {
-    background: rgba(245, 246, 251, 0.5);
+    background: rgba(26, 31, 58, 0.4);
   }
 
   .markdown strong {
     font-weight: 700;
-    color: var(--ink);
+    color: var(--accent-gold);
   }
 
   .markdown code {
-    background: var(--bg);
-    padding: 2px 6px;
+    background: rgba(0, 212, 255, 0.08);
+    padding: 4px 8px;
     border-radius: 4px;
-    font-family: monospace;
-    font-size: 13px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--brand);
   }
 
   .markdown blockquote {
-    border-left: 4px solid var(--brand);
-    padding-left: 16px;
-    margin: 16px 0;
+    border-left: 4px solid var(--accent-violet);
+    padding-left: 20px;
+    margin: 20px 0;
     color: var(--muted);
     font-style: italic;
+    background: rgba(157, 78, 221, 0.05);
+    padding: 16px 16px 16px 20px;
+    border-radius: var(--r);
   }
 
   /* HTML Summary Frame */
@@ -295,25 +386,33 @@
     border-radius: var(--r-lg);
     box-shadow: var(--sh-2);
     min-height: 600px;
+    background: var(--surface);
   }
 
   /* Footer */
   footer {
     text-align: center;
-    padding: 24px 20px;
+    padding: 32px 20px;
     border-top: 1px solid var(--line);
-    background: var(--surface);
+    background: var(--surface-light);
     color: var(--muted);
     font-size: 12px;
-    margin-top: 32px;
+    margin-top: 40px;
+  }
+
+  footer p {
+    margin: 8px 0;
   }
 
   footer a {
     color: var(--brand);
     text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
   }
 
   footer a:hover {
+    color: var(--accent-gold);
     text-decoration: underline;
   }
 
