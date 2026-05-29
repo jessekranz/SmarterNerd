@@ -6,24 +6,24 @@
 <title>SmarterNerd — SEO Services Summary</title>
 <style>
   :root{
-    /* Color */
-    --ink:#0a1233;
-    --ink-2:#141f57;
-    --brand:#3b49f0;
-    --brand-ink:#2a37c9;
-    --violet:#8b5cf6;
+    /* Dark Mode Stargate Palette */
+    --ink:#0f0f1f;
+    --ink-2:#1a1f3a;
+    --brand:#00d4ff;
+    --brand-ink:#5af0ff;
+    --violet:#9d4edd;
     --cyan:#1fd3ff;
     --magenta:#ff3aa0;
-    --accent:#0891b2;
-    --accent-ink:#0e7490;
-    --accent-soft:#e3f7fb;
-    --amber:#f59e0b;
-    --bg:#f5f6fb;
-    --surface:#ffffff;
-    --line:#e7e9f3;
-    --text:#1d2236;
-    --muted:#5b647e;
-    --muted-2:#646b85;
+    --accent:#ffd700;
+    --accent-ink:#ffed4e;
+    --accent-soft:#1a1f3a;
+    --amber:#ff6b35;
+    --bg:#0a0e27;
+    --surface:#1a1f3a;
+    --line:#2d3561;
+    --text:#f0f4f8;
+    --muted:#a8b2cf;
+    --muted-2:#8a96b8;
     /* Radius */
     --r-sm:10px; --r:16px; --r-lg:22px; --r-pill:999px;
     /* Shadow */
@@ -38,6 +38,9 @@
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji",sans-serif;
     color:var(--text);
     background:var(--bg);
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(157, 78, 221, 0.08) 0%, transparent 40%);
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
@@ -56,7 +59,7 @@
   .brand{display:flex;align-items:center;gap:12px;}
   .logo-img{height:54px;width:auto;display:block;flex:none;
     filter:drop-shadow(0 2px 7px rgba(31,211,255,.35));}
-  .brand-name{font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.02em;}
+  .brand-name{font-size:21px;font-weight:800;color:var(--text);letter-spacing:-.02em;}
   .brand-name b{
     color:var(--magenta);
     background:linear-gradient(120deg,var(--cyan),var(--magenta));
@@ -77,7 +80,7 @@
       radial-gradient(820px 420px at 92% -25%, rgba(255,58,160,.30), transparent 60%),
       radial-gradient(760px 380px at 4% 120%, rgba(31,211,255,.34), transparent 58%),
       linear-gradient(135deg,#0a1233 0%, #1b2a86 55%, #5a2a9e 100%);
-    color:#fff;padding:34px 36px;box-shadow:var(--sh-3);
+    color:var(--text);padding:34px 36px;box-shadow:var(--sh-3);
   }
   .hero::after{
     content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
@@ -98,7 +101,7 @@
   .chip{
     display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;
     background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.20);
-    color:#fff;padding:7px 13px;border-radius:var(--r-pill);backdrop-filter:blur(4px);
+    color:var(--text);padding:7px 13px;border-radius:var(--r-pill);backdrop-filter:blur(4px);
   }
   .chip svg{width:14px;height:14px;color:#5af0ff;}
 
@@ -107,9 +110,9 @@
   .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;}
   .sec-num{
     font-size:12px;font-weight:700;color:var(--brand);
-    background:#eceaff;border-radius:8px;padding:3px 9px;letter-spacing:.04em;
+    background:rgba(0, 212, 255, 0.1);border-radius:8px;padding:3px 9px;letter-spacing:.04em;
   }
-  .sec-head h2{font-size:25px;font-weight:800;color:var(--ink);}
+  .sec-head h2{font-size:25px;font-weight:800;color:var(--brand);}
   .sec-head .sub{margin-left:auto;font-size:13px;color:var(--muted);text-align:right;}
 
   /* ---------- Services ---------- */
@@ -121,10 +124,10 @@
   .svc:hover{transform:translateY(-2px);box-shadow:var(--sh-2);}
   .svc .ico{
     width:38px;height:38px;border-radius:11px;display:grid;place-items:center;margin-bottom:11px;
-    background:linear-gradient(135deg,#eaecff,#e0f7fb);color:var(--brand);
+    background:linear-gradient(135deg,rgba(0, 212, 255, 0.08), rgba(0, 212, 255, 0.08));color:var(--brand);
   }
   .svc .ico svg{width:20px;height:20px;}
-  .svc h3{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px;}
+  .svc h3{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:5px;}
   .svc p{font-size:12.5px;color:var(--muted);line-height:1.5;}
 
   /* ---------- Timeline ---------- */
@@ -137,10 +140,10 @@
     display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;
     text-transform:uppercase;letter-spacing:.05em;color:var(--brand-ink);margin-bottom:4px;
   }
-  .phase .dot{width:9px;height:9px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px #eceaff;}
+  .phase .dot{width:9px;height:9px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(0, 212, 255, 0.1);}
   .phase.alt .dot{background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);}
   .phase.alt .tag{color:var(--accent-ink);}
-  .phase h3{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:3px;}
+  .phase h3{font-size:16px;font-weight:800;color:var(--text);margin-bottom:3px;}
   .phase .when{font-size:12px;color:var(--muted-2);font-weight:600;margin-bottom:10px;}
   .phase ul{margin:0;padding:0;list-style:none;}
   .phase li{font-size:12.5px;color:var(--muted);padding-left:18px;position:relative;margin-bottom:6px;line-height:1.45;}
@@ -164,15 +167,15 @@
   }
   .badge{
     position:absolute;top:-12px;left:50%;transform:translateX(-50%);
-    background:linear-gradient(135deg,var(--brand),var(--violet));color:#fff;
+    background:linear-gradient(135deg,var(--brand),var(--violet));color:var(--text);
     font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
     padding:5px 13px;border-radius:var(--r-pill);box-shadow:var(--sh-2);white-space:nowrap;
   }
-  .tier h3{font-size:17px;font-weight:800;color:var(--ink);}
+  .tier h3{font-size:17px;font-weight:800;color:var(--text);}
   .tier .for{font-size:12px;color:var(--muted-2);margin:3px 0 14px;min-height:32px;}
   .price{display:flex;align-items:flex-end;gap:4px;}
   .price .cur{font-size:16px;font-weight:700;color:var(--muted);margin-bottom:6px;}
-  .price .amt{font-size:34px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1;}
+  .price .amt{font-size:34px;font-weight:800;color:var(--text);letter-spacing:-.02em;line-height:1;}
   .price .per{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:4px;}
   .setup{font-size:11.5px;color:var(--muted-2);margin-top:6px;}
   .tier ul{list-style:none;margin:16px 0 0;padding:16px 0 0;border-top:1px solid var(--line);}
@@ -180,7 +183,7 @@
   .tier li svg{position:absolute;left:0;top:1px;width:16px;height:16px;color:var(--accent);}
   .tier .spacer{flex:1;}
   .price-foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-top:16px;
-    font-size:12.5px;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:var(--r);padding:13px 16px;}
+    font-size:12.5px;color:var(--muted);background:var(--text);border:1px dashed var(--line);border-radius:var(--r);padding:13px 16px;}
   .price-foot b{color:var(--text);}
 
   /* ---------- Why us ---------- */
@@ -192,17 +195,17 @@
   .why .wi{width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;
     background:var(--accent-soft);color:var(--accent-ink);}
   .why .wi svg{width:18px;height:18px;}
-  .why h3{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+  .why h3{font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:3px;}
   .why p{font-size:12px;color:var(--muted);line-height:1.45;}
 
   /* ---------- Promise ---------- */
   .promise{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .promise .card{border-radius:var(--r-lg);padding:22px 22px 18px;}
-  .promise .do{background:linear-gradient(160deg,#0d1640,#1c2a86);color:#fff;box-shadow:var(--sh-2);}
+  .promise .do{background:linear-gradient(160deg,#0d1640,#1c2a86);color:var(--text);box-shadow:var(--sh-2);}
   .promise .dont{background:var(--surface);border:1px solid var(--line);box-shadow:var(--sh-1);}
   .promise h3{font-size:16px;font-weight:800;margin-bottom:4px;}
-  .promise .do h3{color:#fff;}
-  .promise .dont h3{color:var(--ink);}
+  .promise .do h3{color:var(--text);}
+  .promise .dont h3{color:var(--text);}
   .promise .cap{font-size:12px;margin-bottom:14px;}
   .promise .do .cap{color:#c7ccff;}
   .promise .dont .cap{color:var(--muted);}
@@ -221,22 +224,22 @@
       radial-gradient(620px 320px at 90% 130%, rgba(31,211,255,.50), transparent 60%),
       radial-gradient(560px 300px at 96% -30%, rgba(255,58,160,.42), transparent 60%),
       linear-gradient(135deg,#0a1233 0%, #1b2a86 70%, #4a2a9e 100%);
-    color:#fff;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;
+    color:var(--text);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;
     gap:20px;flex-wrap:wrap;box-shadow:var(--sh-3);
   }
   .cta h2{font-size:24px;font-weight:800;}
   .cta p{font-size:14px;color:#eafff7;margin-top:6px;max-width:46ch;}
   .cta .actions{display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
   .btn{
-    display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--ink);
+    display:inline-flex;align-items:center;gap:9px;background:var(--text);color:var(--text);
     font-weight:700;font-size:15px;padding:13px 22px;border-radius:var(--r-pill);
     text-decoration:none;box-shadow:var(--sh-2);transition:transform .12s ease;
   }
   .btn:hover{transform:translateY(-1px);}
-  .btn:focus-visible{outline:3px solid #fff;outline-offset:3px;}
+  .btn:focus-visible{outline:3px solid var(--text);outline-offset:3px;}
   .btn svg{width:17px;height:17px;color:var(--brand);}
   .cta .contact{font-size:12.5px;color:#eafff7;text-align:right;}
-  .cta .contact b{color:#fff;}
+  .cta .contact b{color:var(--text);}
 
   /* ---------- Footer ---------- */
   footer{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);
@@ -259,8 +262,8 @@
 
   /* ---------- Print ---------- */
   @media print{
-    :root{--bg:#fff;}
-    body{background:#fff;}
+    :root{--bg:var(--text);}
+    body{background:var(--text);}
     *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
     .page{padding:0 0 8px;max-width:none;}
     .topbar{padding:0 0 8px;}
