@@ -472,44 +472,87 @@
 </footer>
 
 <script>
-  // Markdown to HTML converter (basic)
+  // Markdown to HTML converter
   function markdownToHtml(markdown) {
     let html = markdown;
 
-    // Headers
+    // Escape HTML
+    html = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    // Headers (before other replacements)
     html = html.replace(/^### (.*?)$/gm, '<h3>$1</h3>');
     html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
     html = html.replace(/^# (.*?)$/gm, '<h1>$1</h1>');
 
-    // Bold
-    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Tables (simple)
+    html = html.replace(/^\|(.+)\|$/gm, (match) => {
+      const cells = match.split('|').slice(1, -1).map(c => c.trim());
+      const isHeader = cells.some(c => c.includes('---'));
+      if (isHeader) return '';
+      const tag = cells[0] && cells[0].match(/\*\*/) ? 'th' : 'td';
+      const row = cells.map(c => {
+        c = c.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        return `<${tag}>${c}</${tag}>`;
+      }).join('');
+      return `<tr>${row}</tr>`;
+    });
+    html = html.replace(/(<tr>.*?<\/tr>)/s, (match) => `<table>${match}</table>`);
+    html = html.replace(/<\/table>\s*<table>/g, '');
 
-    // Italic
+    // Task lists
+    html = html.replace(/^- \[ \] (.*?)$/gm, '<li style="list-style: none;"><input type="checkbox" disabled> $1</li>');
+    html = html.replace(/^- \[x\] (.*?)$/gm, '<li style="list-style: none;"><input type="checkbox" checked disabled> $1</li>');
+
+    // Lists
+    html = html.replace(/^\d+\. (.*?)$/gm, '<li>$1</li>');
+    html = html.replace(/^- (.*?)$/gm, '<li>$1</li>');
+    html = html.replace(/(<li>.*?<\/li>)/s, (match) => {
+      return '<ul>' + match + '</ul>';
+    });
+    html = html.replace(/<\/ul>\s*<ul>/g, '');
+
+    // Code blocks
+    html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+
+    // Bold and italic
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
 
     // Inline code
     html = html.replace(/`(.*?)`/g, '<code>$1</code>');
 
-    // Line breaks
-    html = html.replace(/\n\n/g, '</p><p>');
-    html = '<p>' + html + '</p>';
+    // Links
+    html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
 
-    // Lists
-    html = html.replace(/^\s*- (.*?)$/gm, '<li>$1</li>');
-    html = html.replace(/(<li>.*?<\/li>)/s, (match) => {
-      return '<ul>' + match + '</ul>';
+    // Line breaks - convert double newlines to paragraphs
+    const lines = html.split('\n');
+    let result = '';
+    let inPara = false;
+
+    lines.forEach((line, i) => {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('<')) {
+        if (inPara) result += '</p>';
+        inPara = false;
+        result += line + '\n';
+      } else {
+        if (!inPara) result += '<p>';
+        inPara = true;
+        result += line + ' ';
+      }
     });
-
-    // Clean up multiple lists
-    html = html.replace(/<\/ul>\s*<ul>/g, '');
+    if (inPara) result += '</p>';
+    html = result;
 
     return html;
   }
 
-  // Fetch and render markdown
+  // Fetch and render markdown (use raw GitHub URL to bypass CORS)
   async function loadMarkdown() {
     try {
-      const response = await fetch('SmarterNerd SEO Contract Template.md');
+      const rawUrl = 'https://raw.githubusercontent.com/jessekranz/SmarterNerd/master/SmarterNerd%20SEO%20Contract%20Template.md';
+      const response = await fetch(rawUrl);
+      if (!response.ok) throw new Error('Failed to fetch');
       const markdown = await response.text();
       const htmlContent = document.getElementById('markdown-content');
       htmlContent.innerHTML = markdownToHtml(markdown);
@@ -519,7 +562,7 @@
     } catch (error) {
       console.error('Error loading markdown:', error);
       document.getElementById('markdown-content').innerHTML =
-        '<p style="color: var(--muted);">Error loading contract. <a href="SmarterNerd SEO Contract Template.md">View raw file</a></p>';
+        '<p style="color: var(--muted);">Error loading contract. <a href="https://github.com/jessekranz/SmarterNerd/blob/master/SmarterNerd%20SEO%20Contract%20Template.md">View on GitHub</a></p>';
     }
   }
 
@@ -585,8 +628,8 @@
     });
   });
 
-  // Load markdown on page load (optional, remove if slow)
-  // loadMarkdown();
+  // Load markdown immediately on page load
+  document.addEventListener('DOMContentLoaded', loadMarkdown);
 </script>
 
 </body>
