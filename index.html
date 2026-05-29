@@ -124,15 +124,22 @@
     top: 65px;
     max-height: calc(100vh - 65px);
     overflow-y: auto;
+    display: none;
+  }
+
+  .sidebar.visible {
+    display: block;
   }
 
   .sidebar h3 {
-    margin: 0 0 12px;
+    margin: 0 0 16px;
+    padding: 0;
     font-size: 12px;
     font-weight: 700;
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    display: block;
   }
 
   .sidebar ul {
@@ -322,14 +329,17 @@
       border-bottom: 1px solid var(--line);
       position: static;
       max-height: none;
-      display: flex;
-      gap: 24px;
-      overflow-x: auto;
+      display: none;
       padding: 16px 20px;
     }
 
+    .sidebar.visible {
+      display: block;
+    }
+
     .sidebar h3 {
-      display: none;
+      display: block;
+      margin-bottom: 12px;
     }
 
     .sidebar ul {
@@ -337,6 +347,7 @@
       gap: 8px;
       margin: 0;
       flex-direction: row;
+      overflow-x: auto;
     }
 
     .sidebar li {
@@ -616,9 +627,9 @@
       // Show/hide sidebar
       const sidebar = document.getElementById('contract-sidebar');
       if (tabName === 'contract') {
-        sidebar.style.display = 'flex';
+        sidebar.classList.add('visible');
       } else {
-        sidebar.style.display = 'none';
+        sidebar.classList.remove('visible');
       }
 
       // Load markdown on contract tab
