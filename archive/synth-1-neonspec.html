@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmarterNerd — NEON SPEC (synthesis hero)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08080C; --panel:#0D0E14;
+    --cyan:#00E5FF; --mag:#FF2D9B; --elec:#4D6EFF; --violet:#7B5CFF;
+    --text:#F5F7FA; --t2:rgba(245,247,250,.62); --t3:rgba(245,247,250,.34);
+    --line:rgba(245,247,250,.10);
+    --disp:'Space Grotesk',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--disp);-webkit-font-smoothing:antialiased;overflow:hidden}
+  .stage{position:relative;width:100vw;height:100vh;min-height:760px;overflow:hidden}
+  /* plasma */
+  .plasma{position:absolute;inset:0;filter:blur(10px)}
+  .orb{position:absolute;border-radius:50%;filter:blur(70px)}
+  .o1{width:640px;height:640px;background:var(--cyan);opacity:.32;top:-8%;right:6%}
+  .o2{width:520px;height:520px;background:var(--mag);opacity:.24;top:30%;right:24%}
+  .o3{width:560px;height:560px;background:var(--elec);opacity:.30;top:18%;right:-6%}
+  .o4{width:420px;height:420px;background:var(--violet);opacity:.22;bottom:-10%;right:30%}
+  .o5{width:360px;height:360px;background:var(--cyan);opacity:.10;bottom:-6%;left:6%}
+  .grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .frame{position:absolute;inset:18px;border:1px solid var(--line);border-radius:14px;pointer-events:none}
+  /* top bar */
+  .bar{position:absolute;top:18px;left:18px;right:18px;display:flex;align-items:center;justify-content:space-between;padding:20px 30px;border-bottom:1px solid var(--line)}
+  .brand{font-weight:700;font-size:1.15rem;letter-spacing:-.01em}
+  .brand sup{font-family:var(--mono);font-size:.5rem;color:var(--cyan);vertical-align:super}
+  .nav{display:flex;gap:26px;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--t2)}
+  .pill{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--cyan);padding:9px 16px;border-radius:100px;font-weight:500;box-shadow:0 0 24px rgba(0,229,255,.4)}
+  /* annotation row */
+  .annot{position:absolute;top:80px;left:48px;right:48px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);padding-top:14px}
+  /* content */
+  .content{position:absolute;top:50%;left:64px;transform:translateY(-50%);max-width:620px;z-index:5}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+  .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+  h1{font-size:clamp(3.2rem,6vw,5.4rem);line-height:.98;letter-spacing:-.03em;font-weight:600}
+  .strike{position:relative;color:var(--t2);font-weight:500}
+  .strike:after{content:"";position:absolute;left:-4%;right:-4%;top:52%;height:5px;background:var(--mag);transform:rotate(-3deg);border-radius:3px;box-shadow:0 0 16px rgba(255,45,155,.6)}
+  .neon{background:linear-gradient(100deg,var(--cyan),var(--elec) 70%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 26px rgba(0,229,255,.35))}
+  .sub{font-size:1.16rem;color:var(--t2);max-width:460px;margin:28px 0 32px;line-height:1.55}
+  /* input cta */
+  .input{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:100px;padding:8px 8px 8px 22px;max-width:440px;backdrop-filter:blur(8px)}
+  .input span{flex:1;color:var(--t3);font-size:.96rem}
+  .input .go{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--elec));display:grid;place-items:center;color:var(--bg);font-size:1.1rem;box-shadow:0 0 22px rgba(0,229,255,.45)}
+  .micro{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-top:16px}
+  /* floating artifacts */
+  .art{position:absolute;background:rgba(13,14,20,.66);border:1px solid var(--line);border-radius:16px;padding:16px 18px;backdrop-filter:blur(14px);box-shadow:0 24px 60px rgba(0,0,0,.5);z-index:4}
+  .art .h{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+  .art .h i{width:6px;height:6px;border-radius:50%}
+  .a1{top:20%;right:7%;width:260px}
+  .a1 .h i{background:#3ddc84;box-shadow:0 0 8px #3ddc84}
+  .a1 .q{font-size:1.05rem;font-weight:500;line-height:1.3}
+  .a1 .who{font-family:var(--mono);font-size:.58rem;color:var(--t3);margin-top:10px;letter-spacing:.08em}
+  .a1 .stars{color:#FFC83D;font-size:.8rem;letter-spacing:2px}
+  .a2{top:54%;right:20%;width:210px}
+  .a2 .h i{background:var(--mag);box-shadow:0 0 8px var(--mag)}
+  .a2 .big{font-size:1.5rem;font-weight:700}
+  .a2 .pin{display:inline-flex;align-items:center;gap:8px;font-size:.92rem;color:var(--text)}
+  .a2 .dot{width:10px;height:10px;border-radius:50%;background:var(--mag);box-shadow:0 0 0 4px rgba(255,45,155,.2)}
+  .a3{top:71%;right:8%;width:230px}
+  .a3 .h i{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+  .bars{display:flex;align-items:flex-end;gap:7px;height:48px;margin-bottom:8px}
+  .bars b{flex:1;background:linear-gradient(180deg,var(--cyan),rgba(0,229,255,.15));border-radius:3px 3px 0 0;display:block}
+  .a3 .res{font-size:1.4rem;font-weight:700;color:var(--cyan)}
+  .a3 .res small{font-family:var(--mono);font-size:.56rem;color:var(--t3);text-transform:uppercase;letter-spacing:.1em;display:block;margin-top:2px}
+  /* corner annotations */
+  .fig{position:absolute;bottom:42px;left:64px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}
+  .scroll{position:absolute;bottom:38px;right:56px;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--t3)}
+  .qr{width:34px;height:34px;background:
+     conic-gradient(from 0deg,var(--t3) 25%,transparent 0 50%,var(--t3) 0 75%,transparent 0),
+     conic-gradient(from 90deg at 70% 70%,var(--t3) 25%,transparent 0 50%,var(--t3) 0 75%,transparent 0);
+     background-size:8px 8px;opacity:.5;border:1px solid var(--line)}
+  .cursor{position:absolute;width:54px;height:54px;border:1.5px solid var(--cyan);border-radius:50%;top:48%;left:41%;box-shadow:0 0 20px rgba(0,229,255,.5);z-index:6}
+  .cursor:after{content:"";position:absolute;inset:22px;background:var(--cyan);border-radius:50%;box-shadow:0 0 12px var(--cyan)}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="plasma"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div><div class="orb o5"></div></div>
+  <div class="grain"></div>
+  <div class="frame"></div>
+
+  <div class="bar">
+    <div class="brand">SmarterNerd<sup>™</sup></div>
+    <div class="nav"><span>Work</span><span>SEO</span><span>AI</span><span>Studio</span><span>Pricing</span></div>
+    <div class="pill">Start free →</div>
+  </div>
+  <div class="annot"><span>[ Fort Lauderdale · 26.12°N ]</span><span>AI · Search · Systems</span><span>Est. 2026 · Mission Active</span></div>
+
+  <div class="content">
+    <div class="eyebrow"><i></i>// The growth engine for South Florida</div>
+    <h1>From <span class="strike">invisible</span><br>to <span class="neon">unmissable</span>.</h1>
+    <p class="sub">Web, SEO &amp; AI — engineered with military precision to make your business impossible to ignore on Google and beyond.</p>
+    <div class="input"><span>Describe your business…</span><div class="go">▷</div></div>
+    <div class="micro">No card · free growth plan in 60 seconds</div>
+  </div>
+
+  <!-- floating artifacts -->
+  <div class="art a1">
+    <div class="h"><i></i>Live · Client result</div>
+    <div class="q">“Page 1 on Google in 90 days.”</div>
+    <div class="stars">★★★★★</div>
+    <div class="who">— Charles Hawkins Law · Ft. Lauderdale</div>
+  </div>
+  <div class="art a2">
+    <div class="h"><i></i>Google Maps</div>
+    <div class="pin"><span class="dot"></span> Local 3-Pack</div>
+    <div class="big">Rank #1</div>
+  </div>
+  <div class="art a3">
+    <div class="h"><i></i>Organic traffic</div>
+    <div class="bars"><b style="height:30%"></b><b style="height:45%"></b><b style="height:40%"></b><b style="height:68%"></b><b style="height:82%"></b><b style="height:100%"></b></div>
+    <div class="res">+312%<small>6-month lift</small></div>
+  </div>
+
+  <div class="cursor"></div>
+  <div class="fig">Fig.01 — The Growth Engine</div>
+  <div class="scroll"><div class="qr"></div>Scroll ↓</div>
+</div>
+</body>
+</html>

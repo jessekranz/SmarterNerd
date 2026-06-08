@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmarterNerd — Option 2: Coastal Editorial (Light, Premium)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Outfit:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F8F3EA; --bg2:#EFE6D5; --bg3:#E8DDC8; --card:#FDF8F2;
+    --teal:#0AA8A0; --teal-d:#077D77; --gold:#C9973A; --ocean:#062830;
+    --text:#1C1410; --text2:rgba(28,20,16,.70); --text3:rgba(28,20,16,.45);
+    --bd:rgba(28,20,16,.10);
+    --mono:'JetBrains Mono',monospace; --disp:'Fraunces',Georgia,serif; --body:'Outfit',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--teal-d)}
+  /* header */
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;max-width:1180px;margin:0 auto}
+  .logo{font-family:var(--disp);font-weight:600;font-size:1.5rem;font-style:italic;letter-spacing:-.01em}
+  .logo span{color:var(--teal)}
+  nav{display:flex;gap:30px;font-size:.94rem;color:var(--text2)}
+  .btn{font-family:var(--body);font-weight:600;font-size:.92rem;padding:12px 24px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;transition:.2s}
+  .btn-p{background:var(--teal);color:#fff}
+  .btn-s{border:1px solid var(--bd);color:var(--text)}
+  .btn-o{background:var(--gold);color:#fff}
+  /* hero */
+  .hero{padding:54px 0 30px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:24px}
+  .eyebrow .ln{width:30px;height:1px;background:var(--gold)}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  h1{font-family:var(--disp);font-weight:500;font-size:clamp(2.7rem,4.6vw,4.2rem);line-height:1.05;letter-spacing:-.015em;margin-bottom:24px}
+  h1 em{font-style:italic;color:var(--teal)}
+  .sub{font-size:1.16rem;color:var(--text2);max-width:480px;margin-bottom:32px}
+  .cta-row{display:flex;gap:14px;margin-bottom:30px;align-items:center}
+  .trust{display:flex;align-items:center;gap:14px;font-size:.88rem;color:var(--text3)}
+  .stars{color:var(--gold);letter-spacing:2px}
+  /* hero visual */
+  .hv{position:relative}
+  .hv .photo{aspect-ratio:4/5;border-radius:20px;background:linear-gradient(160deg,#0A3A45,#062830 60%,#0AA8A0);box-shadow:0 30px 70px rgba(6,40,48,.28);position:relative;overflow:hidden}
+  .hv .photo:after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 70% 10%,rgba(201,151,58,.30),transparent 50%)}
+  .hv .badge{position:absolute;bottom:-22px;left:-22px;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px 22px;box-shadow:0 20px 50px rgba(6,40,48,.16)}
+  .hv .badge .v{font-family:var(--disp);font-style:italic;font-weight:600;font-size:2rem;color:var(--teal);line-height:1}
+  .hv .badge .l{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-top:6px}
+  .hv .chip{position:absolute;top:22px;right:-18px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 16px;box-shadow:0 14px 36px rgba(6,40,48,.14);font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:8px}
+  .hv .chip i{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+  /* ocean interlude */
+  .ocean{background:var(--ocean);color:#F2EFE6;margin-top:64px;border-radius:28px;padding:46px 48px}
+  .ocean .row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:left}
+  .ocean .v{font-family:var(--disp);font-style:italic;font-weight:600;font-size:2.5rem;color:#fff;line-height:1}
+  .ocean .l{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:8px}
+  /* services */
+  .sec{padding:64px 0 0}
+  .sec .head{max-width:620px;margin-bottom:34px}
+  .sec h2{font-family:var(--disp);font-weight:500;font-size:2.7rem;line-height:1.08;letter-spacing:-.01em;margin:12px 0 10px}
+  .sec h2 em{font-style:italic;color:var(--teal)}
+  .sec .head p{color:var(--text2)}
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .b{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:26px;transition:.2s}
+  .b:hover{box-shadow:0 18px 44px rgba(6,40,48,.10)}
+  .b .ic{font-size:1.5rem;margin-bottom:14px}
+  .b h3{font-family:var(--disp);font-weight:600;font-size:1.25rem;margin-bottom:8px}
+  .b p{font-size:.92rem;color:var(--text2)}
+  .b .mono{display:block;margin-bottom:12px}
+  .b-ai{grid-column:span 2;grid-row:span 2;background:linear-gradient(165deg,#0AA8A0,#077D77);color:#fff;border:none}
+  .b-ai .mono{color:rgba(255,255,255,.75)}
+  .b-ai h3{font-size:2rem;color:#fff}
+  .b-ai p{color:rgba(255,255,255,.88)}
+  .b-ai .pill{display:inline-block;font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--ocean);background:var(--gold);padding:5px 11px;border-radius:7px;margin-bottom:16px;font-weight:500}
+  .b-ai .feat{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .b-ai .feat span{font-size:.78rem;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:8px;padding:6px 11px}
+  .b-web{grid-column:span 2}
+  .b-seo{grid-column:span 2}
+  .b-social{grid-column:span 2}
+  .rule{width:34px;height:2px;background:var(--gold);margin-bottom:14px;border-radius:2px}
+  footer{margin-top:60px;border-top:1px solid var(--bd);padding:26px 0;font-family:var(--mono);font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Smarter<span>Nerd</span></div>
+    <nav><a>Services</a><a>AI</a><a>SEO</a><a>Case Studies</a><a>Pricing</a><a>About</a></nav>
+    <a class="btn btn-p">Book a Call</a>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="ln"></span><span class="mono">Fort Lauderdale · Est. South Florida</span></div>
+        <h1>Web, SEO &amp; AI, built with <em>precision</em> &amp; a little soul.</h1>
+        <p class="sub">A boutique South Florida studio engineering growth for local businesses — beautiful sites, real rankings, and AI that does the heavy lifting.</p>
+        <div class="cta-row">
+          <a class="btn btn-p">Start your project →</a>
+          <a class="btn btn-s">View case studies</a>
+        </div>
+        <div class="trust"><span class="stars">★★★★★</span> 5.0 · Loved by 40+ Fort Lauderdale owners</div>
+      </div>
+      <div class="hv">
+        <div class="photo"></div>
+        <div class="chip"><i></i> Page 1 in 90 days</div>
+        <div class="badge"><div class="v">+312%</div><div class="l">Avg organic traffic</div></div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="ocean">
+        <div class="row">
+          <div><div class="v">62+</div><div class="l">Systems Deployed</div></div>
+          <div><div class="v">$32M</div><div class="l">Engineered</div></div>
+          <div><div class="v">91/100</div><div class="l">Avg SEO Score</div></div>
+          <div><div class="v">8+</div><div class="l">FL Clients Live</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec">
+    <div class="head">
+      <span class="mono">What we do</span>
+      <h2>One studio, your whole <em>digital stack</em>.</h2>
+      <p>Web, SEO, AI, and the add-ons that turn a website into a growth system.</p>
+    </div>
+    <div class="bento">
+      <div class="b b-ai">
+        <span class="pill">Lead Service</span>
+        <div class="ic">🤖</div>
+        <h3>AI Services</h3>
+        <p>Chatbots, automation, AI content, and GEO / AI-search visibility — so you appear in Google and ChatGPT answers alike.</p>
+        <div class="feat"><span>AI Chatbots</span><span>Automation</span><span>GEO / AI Search</span><span>Content Engine</span></div>
+      </div>
+      <div class="b b-web"><div class="rule"></div><span class="mono">Build</span><h3>Web Design</h3><p>Hand-crafted, mobile-first WordPress builds tuned for speed and conversions.</p></div>
+      <div class="b b-seo"><div class="rule"></div><span class="mono">Rank</span><h3>SEO Services</h3><p>Local SEO + Google Maps so Fort Lauderdale finds you first.</p></div>
+      <div class="b"><div class="ic">🏠</div><h3>3D Tours</h3><p>Matterport virtual tours.</p></div>
+      <div class="b"><div class="ic">📍</div><h3>Google Maps</h3><p>Into the local 3-pack.</p></div>
+      <div class="b b-social"><div class="ic">📣</div><h3>Social &amp; Content</h3><p>AI-assisted calendars and posting tuned to South Florida audiences.</p></div>
+    </div>
+  </section>
+
+  <footer>© 2026 SmarterNerd · Fort Lauderdale · A boutique South Florida studio — WordPress + Kadence</footer>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmarterNerd — Option 1: Command (Dark, Warmed)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05080F; --bg2:#0C1422; --card:#0F1B2E; --card2:#13233b;
+    --cyan:#00E5FF; --elec:#4D6EFF; --mag:#FF2D9B;
+    --text:#F0F8FF; --text2:rgba(240,248,255,.66); --text3:rgba(240,248,255,.40);
+    --bd:rgba(0,229,255,.14); --bdh:rgba(0,229,255,.34);
+    --mono:'JetBrains Mono',monospace; --disp:'Syne',sans-serif; --body:'DM Sans',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--cyan)}
+  /* ticker */
+  .ticker{border-bottom:1px solid var(--bd);background:var(--bg2);font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;color:var(--text3);text-transform:uppercase;padding:9px 0;text-align:center}
+  .ticker b{color:var(--cyan)}
+  /* header */
+  header{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:1200px;margin:0 auto;border-bottom:1px solid rgba(255,255,255,.04)}
+  .logo{font-family:var(--disp);font-weight:800;font-size:1.4rem;letter-spacing:-.02em}
+  .logo span{color:var(--cyan)}
+  nav{display:flex;gap:30px;font-size:.92rem;color:var(--text2)}
+  .btn{font-family:var(--disp);font-weight:700;font-size:.9rem;padding:12px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:.2s}
+  .btn-p{background:var(--cyan);color:#05080F;box-shadow:0 0 0 1px rgba(0,229,255,.4),0 8px 30px rgba(0,229,255,.25)}
+  .btn-s{border:1px solid var(--bdh);color:var(--text)}
+  /* hero */
+  .hero{position:relative;padding:70px 0 64px;overflow:hidden}
+  .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none}
+  .o1{width:480px;height:480px;background:#00e5ff;top:-160px;left:-120px;opacity:.22}
+  .o2{width:420px;height:420px;background:#4d6eff;top:40px;right:-140px;opacity:.20}
+  .o3{width:300px;height:300px;background:#ff2d9b;bottom:-120px;left:30%;opacity:.12}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--bd);border-radius:100px;padding:7px 14px;background:rgba(0,229,255,.05);margin-bottom:26px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+  h1{font-family:var(--disp);font-weight:800;font-size:clamp(2.6rem,4.4vw,3.9rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:22px}
+  h1 .c{color:var(--cyan)}
+  h1 .m{background:linear-gradient(120deg,#00E5FF,#4D6EFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:1.14rem;color:var(--text2);max-width:520px;margin-bottom:30px}
+  .cta-row{display:flex;gap:14px;margin-bottom:30px}
+  .trust{display:flex;align-items:center;gap:18px;font-size:.86rem;color:var(--text3)}
+  .stars{color:#FFC83D;letter-spacing:2px}
+  .avs{display:flex}
+  .avs i{width:30px;height:30px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px;display:block;background:linear-gradient(135deg,#0AA8A0,#4D6EFF)}
+  .avs i:nth-child(2){background:linear-gradient(135deg,#FF2D9B,#4D6EFF)}
+  .avs i:nth-child(3){background:linear-gradient(135deg,#00E5FF,#0AA8A0)}
+  .avs i:nth-child(4){background:linear-gradient(135deg,#C9973A,#FF2D9B)}
+  /* demo card */
+  .demo{background:linear-gradient(180deg,rgba(19,35,59,.9),rgba(15,27,46,.9));border:1px solid var(--bdh);border-radius:18px;padding:20px;backdrop-filter:blur(10px);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(0,229,255,.06)}
+  .demo-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bd);padding-bottom:14px;margin-bottom:16px}
+  .demo-top .mono{color:var(--text3)}
+  .live{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.68rem;color:#3ddc84;text-transform:uppercase;letter-spacing:.14em}
+  .live i{width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 8px #3ddc84}
+  .bub{padding:11px 14px;border-radius:12px;font-size:.9rem;margin-bottom:10px;max-width:88%}
+  .bub.u{background:var(--card2);color:var(--text);margin-left:auto;border-bottom-right-radius:3px}
+  .bub.a{background:rgba(0,229,255,.10);border:1px solid var(--bd);color:var(--text);border-bottom-left-radius:3px}
+  .typing{display:inline-flex;gap:4px;padding:12px 14px}
+  .typing i{width:7px;height:7px;border-radius:50%;background:var(--cyan);opacity:.6}
+  .demo-input{display:flex;align-items:center;gap:10px;border:1px solid var(--bd);border-radius:11px;padding:11px 14px;margin-top:14px;color:var(--text3);font-size:.86rem}
+  .demo-input .send{margin-left:auto;width:30px;height:30px;border-radius:8px;background:var(--cyan);display:grid;place-items:center;color:#05080F}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:30px 0;margin:54px 0}
+  .stat .v{font-family:var(--disp);font-weight:800;font-size:2.3rem;color:var(--cyan);line-height:1}
+  .stat .l{font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text3);margin-top:8px}
+  /* section head */
+  .sec{padding:18px 0 10px}
+  .sec h2{font-family:var(--disp);font-weight:800;font-size:2.3rem;letter-spacing:-.02em;margin:10px 0 8px}
+  .sec h2 .c{color:var(--cyan)}
+  .sec p.lead{color:var(--text2);max-width:560px}
+  /* bento */
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px}
+  .b{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:.2s}
+  .b:hover{border-color:var(--bdh)}
+  .b .ic{font-size:1.5rem;margin-bottom:14px}
+  .b h3{font-family:var(--disp);font-weight:700;font-size:1.2rem;margin-bottom:8px}
+  .b p{font-size:.9rem;color:var(--text2)}
+  .b .mono{display:block;margin-bottom:14px}
+  .b-ai{grid-column:span 2;grid-row:span 2;background:radial-gradient(120% 120% at 0% 0%,rgba(0,229,255,.14),transparent 55%),var(--card);border-color:var(--bd)}
+  .b-ai .pill{display:inline-block;font-family:var(--mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.14em;color:#05080F;background:var(--cyan);padding:4px 10px;border-radius:6px;margin-bottom:16px}
+  .b-ai h3{font-size:1.9rem}
+  .b-ai .feat{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .b-ai .feat span{font-size:.78rem;color:var(--text2);border:1px solid var(--bd);border-radius:8px;padding:6px 11px}
+  .b-web{grid-column:span 2}
+  .b-seo{grid-column:span 2}
+  .b-social{grid-column:span 2}
+  .glow-line{height:2px;width:40px;background:linear-gradient(90deg,var(--cyan),transparent);margin-bottom:16px;border-radius:2px}
+  footer{margin-top:60px;border-top:1px solid var(--bd);padding:26px 0;font-family:var(--mono);font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;text-align:center}
+</style>
+</head>
+<body>
+  <div class="ticker">// AI SERVICES FORT LAUDERDALE &nbsp;▸&nbsp; <b>SMARTERNERD</b> &nbsp;▸&nbsp; LOCAL SEO EXPERTS &nbsp;▸&nbsp; SOUTH FLORIDA DIGITAL AGENCY</div>
+
+  <header>
+    <div class="logo">Smarter<span>Nerd</span></div>
+    <nav>
+      <a>Services</a><a>AI</a><a>SEO</a><a>Case Studies</a><a>Pricing</a><a>About</a>
+    </nav>
+    <a class="btn btn-p">Book a Call</a>
+  </header>
+
+  <section class="hero">
+    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span><span class="mono">Fort Lauderdale · AI Digital Agency</span></div>
+        <h1>The <span class="c">AI-powered</span> growth engine for South Florida business.</h1>
+        <p class="sub">Web design, SEO, and AI automation — engineered with military precision to make Fort Lauderdale businesses outrank, outperform, and out-convert.</p>
+        <div class="cta-row">
+          <a class="btn btn-p">Get your free growth plan →</a>
+          <a class="btn btn-s">See the work</a>
+        </div>
+        <div class="trust">
+          <div class="avs"><i></i><i></i><i></i><i></i></div>
+          <div><span class="stars">★★★★★</span> &nbsp;<b style="color:var(--text2)">5.0</b> from 40+ South Florida clients</div>
+        </div>
+      </div>
+      <div class="demo">
+        <div class="demo-top"><span class="mono">SmarterNerd AI</span><span class="live"><i></i>Live demo</span></div>
+        <div class="bub u">How fast can you rank my Fort Lauderdale law firm?</div>
+        <div class="bub a">Most local firms hit page 1 in 60–90 days. Based on your market, I'd start with Google Maps + 3 service pages. Want a free audit?</div>
+        <div class="typing"><i></i><i></i><i></i></div>
+        <div class="demo-input">Ask about your business…<span class="send">→</span></div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><div class="v">62+</div><div class="l">Systems Deployed</div></div>
+        <div class="stat"><div class="v">$32M</div><div class="l">Engineered</div></div>
+        <div class="stat"><div class="v">91<span style="font-size:1.2rem;color:var(--text3)">/100</span></div><div class="l">Avg SEO Score</div></div>
+        <div class="stat"><div class="v">8+</div><div class="l">FL Clients Live</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec">
+    <span class="mono">Services</span>
+    <h2>Your digital <span class="c">command center</span></h2>
+    <p class="lead">One integrated stack — web, SEO, AI, and the add-ons that make it a full solution.</p>
+
+    <div class="bento">
+      <div class="b b-ai">
+        <span class="pill">Lead Service</span>
+        <div class="ic">🤖</div>
+        <h3>AI Services</h3>
+        <p>ChatGPT-powered chatbots, workflow automation, AI content engines, and GEO / AI-search visibility — so you show up in Google <em>and</em> ChatGPT answers.</p>
+        <div class="feat"><span>AI Chatbots</span><span>Automation</span><span>GEO / AI Search</span><span>Content Engine</span></div>
+      </div>
+      <div class="b b-web">
+        <div class="glow-line"></div>
+        <span class="mono">Build</span>
+        <h3>Web Design</h3>
+        <p>Hand-coded, mobile-first WordPress builds tuned for speed, conversions, and local SEO.</p>
+      </div>
+      <div class="b b-seo">
+        <div class="glow-line"></div>
+        <span class="mono">Rank</span>
+        <h3>SEO Services</h3>
+        <p>Local SEO + Google Maps domination so Fort Lauderdale finds you first.</p>
+      </div>
+      <div class="b">
+        <div class="ic">🏠</div><h3>3D Tours</h3><p>Matterport virtual tours.</p>
+      </div>
+      <div class="b">
+        <div class="ic">📍</div><h3>Google Maps</h3><p>Into the local 3-pack.</p>
+      </div>
+      <div class="b b-social">
+        <div class="ic">📣</div><h3>Social & Content</h3><p>AI-generated calendars, posting, and engagement tuned to South Florida audiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 SmarterNerd · Fort Lauderdale · Built with AI precision — WordPress + Kadence</footer>
+</body>
+</html>

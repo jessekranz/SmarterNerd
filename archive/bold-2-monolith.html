@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmarterNerd — MONOLITH (full homepage)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E8E7E1; --ink:#111110; --blue:#1F22E6; --muted:#6b6b66; --rule:#111110;
+    --disp:'Anton',sans-serif; --body:'Archivo',sans-serif; --mono:'Space Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 36px}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;text-transform:uppercase}
+  .blue{color:var(--blue)}
+  header{border-bottom:2px solid var(--ink)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 36px}
+  .brand{font-family:var(--disp);font-size:1.5rem;letter-spacing:.02em;text-transform:uppercase}
+  nav{display:flex;gap:26px}
+  nav a{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.04em}
+  .idx{font-family:var(--mono);font-size:.66rem;text-transform:uppercase}
+  .marq{border-bottom:2px solid var(--ink);overflow:hidden;white-space:nowrap;background:var(--blue);color:var(--paper)}
+  .marq span{font-family:var(--disp);font-size:1.15rem;letter-spacing:.04em;text-transform:uppercase;display:inline-block;padding:8px 0}
+  .marq b{padding:0 18px;opacity:.55}
+  /* hero */
+  .hero{border-bottom:2px solid var(--ink)}
+  .hero .top{display:flex;justify-content:space-between;border-bottom:1px solid var(--ink);padding:14px 0}
+  .hero .top .mono{color:var(--muted)}
+  .giant{font-family:var(--disp);text-transform:uppercase;line-height:.84;letter-spacing:-.005em;font-size:clamp(4.5rem,15.5vw,13.5rem);padding:18px 0 8px}
+  .giant .b{color:var(--blue)}
+  .hero .meta{display:grid;grid-template-columns:1.6fr 1fr 1fr;border-top:1px solid var(--ink)}
+  .hero .meta>div{padding:20px 22px 20px 0;border-right:1px solid var(--ink)}
+  .hero .meta>div:last-child{border-right:none}
+  .hero .meta>div:not(:first-child){padding-left:22px}
+  .hero .meta p{font-size:1rem;max-width:42ch}
+  .hero .meta .big{font-family:var(--disp);font-size:3.4rem;line-height:.9}
+  .hero .meta .l{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;color:var(--muted);margin-top:8px}
+  .cta-btn{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;background:var(--ink);color:var(--paper);display:inline-block;padding:13px 20px;margin-top:18px}
+  /* section head */
+  .shead{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 10px}
+  .shead h2{font-family:var(--disp);font-size:2.6rem;text-transform:uppercase;letter-spacing:.01em}
+  /* services index */
+  .row{display:grid;grid-template-columns:90px 1fr auto;gap:24px;align-items:center;border-top:1px solid var(--ink);padding:22px 0}
+  .row:last-child{border-bottom:2px solid var(--ink)}
+  .row .n{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+  .row .name{font-family:var(--disp);font-size:2.5rem;text-transform:uppercase;letter-spacing:.01em;line-height:1}
+  .row .desc{font-size:.92rem;color:var(--muted);max-width:46ch;justify-self:start}
+  .row.lead{background:var(--blue);color:var(--paper);margin:0 -36px;padding-left:36px;padding-right:36px}
+  .row.lead .n,.row.lead .desc{color:rgba(232,231,225,.8)}
+  .row .arrow{font-family:var(--disp);font-size:2rem}
+  /* work */
+  .work{border-top:2px solid var(--ink)}
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--ink)}
+  .wk{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:26px 24px}
+  .wk .img{aspect-ratio:16/10;background:#1a1a17;margin-bottom:18px;position:relative;overflow:hidden}
+  .wk:nth-child(1) .img{background:linear-gradient(135deg,#1f22e6,#111)}
+  .wk:nth-child(2) .img{background:linear-gradient(135deg,#222,#444)}
+  .wk:nth-child(3) .img{background:linear-gradient(135deg,#1a1a17,#1f22e6)}
+  .wk .img:after{content:attr(data-n);position:absolute;left:14px;bottom:8px;font-family:var(--disp);font-size:2.4rem;color:rgba(232,231,225,.85)}
+  .wk .name{font-family:var(--disp);font-size:1.5rem;text-transform:uppercase}
+  .wk .meta2{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;color:var(--muted);margin:6px 0 12px}
+  .wk .res{font-family:var(--disp);font-size:2rem;color:var(--blue)}
+  /* studio / operator */
+  .studio{border-top:2px solid var(--ink)}
+  .studio .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:0}
+  .studio .l{padding:48px 48px 48px 0;border-right:1px solid var(--ink)}
+  .studio .r{padding:48px 0 48px 48px}
+  .studio h2{font-family:var(--disp);font-size:clamp(2.6rem,5vw,4.4rem);text-transform:uppercase;line-height:.92}
+  .studio p{margin-top:20px;font-size:1.05rem;max-width:40ch}
+  .dtable{margin-top:8px}
+  .dtable .dr{display:flex;justify-content:space-between;border-bottom:1px solid var(--ink);padding:14px 0;font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em}
+  .dtable .dr:first-child{border-top:1px solid var(--ink)}
+  .dtable .dr .k{color:var(--muted)}
+  /* pricing */
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--ink)}
+  .pc{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);border-top:1px solid var(--ink);padding:28px 24px}
+  .pc .t{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .pc .p{font-family:var(--disp);font-size:3.6rem;line-height:1;margin:12px 0}
+  .pc .p small{font-size:1rem;color:var(--muted)}
+  .pc ul{list-style:none;margin:14px 0 20px}
+  .pc li{font-size:.86rem;padding:7px 0;border-bottom:1px solid rgba(17,17,16,.12);color:var(--muted)}
+  .pc.feat{background:var(--ink);color:var(--paper)}
+  .pc.feat .t,.pc.feat li{color:rgba(232,231,225,.7)}
+  .pc .pbtn{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;border:1px solid currentColor;padding:10px 16px;display:inline-block}
+  .pc.feat .pbtn{background:var(--blue);border-color:var(--blue);color:#fff}
+  /* quotes */
+  .quotes{border-top:2px solid var(--ink)}
+  .qgrid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--ink)}
+  .qc{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:28px 24px}
+  .qc .qm{font-family:var(--disp);font-size:3rem;color:var(--blue);line-height:.6}
+  .qc p{font-size:1.05rem;margin:8px 0 14px}
+  .qc .src{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;color:var(--muted)}
+  /* faq */
+  .faq{border-top:2px solid var(--ink)}
+  .frow{display:grid;grid-template-columns:60px 1fr auto;gap:20px;align-items:center;border-bottom:1px solid var(--ink);padding:22px 0}
+  .frow .fn{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+  .frow .fq{font-family:var(--disp);font-size:1.5rem;text-transform:uppercase}
+  .frow .fp{font-family:var(--disp);font-size:1.6rem;color:var(--blue)}
+  /* big cta */
+  .bigcta{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+  .bigcta .giant{padding:30px 0}
+  .bigcta .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  /* footer */
+  footer .wrap{display:flex;justify-content:space-between;padding:34px 36px;gap:30px;flex-wrap:wrap}
+  footer .brand2{font-family:var(--disp);font-size:1.6rem;text-transform:uppercase}
+  footer .col h4{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  footer .col a{display:block;font-size:.88rem;padding:3px 0}
+  .footbar{border-top:2px solid var(--ink);font-family:var(--mono);font-size:.62rem;text-transform:uppercase;color:var(--muted)}
+  .footbar .wrap{display:flex;justify-content:space-between;padding:14px 36px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="brand">SmarterNerd</div>
+  <nav><a>Work</a><a>SEO</a><a>AI</a><a>Studio</a><a>Pricing</a><a>Contact</a></nav>
+  <div class="idx blue">(01 / Fort Lauderdale)</div>
+</div></header>
+
+<div class="marq"><span>WEB DESIGN <b>/</b> SEARCH <b>/</b> ARTIFICIAL INTELLIGENCE <b>/</b> AUTOMATION <b>/</b> WEB DESIGN <b>/</b> SEARCH <b>/</b> ARTIFICIAL INTELLIGENCE <b>/</b> AUTOMATION <b>/</b></span></div>
+
+<!-- HERO -->
+<section class="hero"><div class="wrap">
+  <div class="top"><span class="mono">South Florida Growth Studio — Est. Fort Lauderdale</span><span class="mono">↓ Scroll to deploy</span></div>
+  <div class="giant">RANK.<br>BUILD.<br><span class="b">AUTOMATE.</span></div>
+  <div class="meta">
+    <div><p>We engineer websites, search dominance, and AI systems for South Florida businesses that refuse to blend in.</p><a class="cta-btn">Start a project →</a></div>
+    <div><div class="big">62</div><div class="l">Systems Deployed</div></div>
+    <div><div class="big">$32M</div><div class="l">Engineered · 0 Failed</div></div>
+  </div>
+</div></section>
+
+<!-- CAPABILITIES -->
+<section class="svc">
+  <div class="wrap"><div class="shead"><h2>Capabilities</h2><span class="mono blue">(Index — 06 services)</span></div></div>
+  <div class="wrap"><div class="row lead"><div class="n">01</div><div class="name">AI Systems</div><div class="desc">Chatbots · automation · GEO/AI-search visibility</div><div class="arrow">→</div></div></div>
+  <div class="wrap">
+    <div class="row"><div class="n">02</div><div class="name">Web Design</div><div class="desc">Hand-coded, fast, conversion-built</div></div>
+    <div class="row"><div class="n">03</div><div class="name">SEO</div><div class="desc">Local rankings + Google Maps 3-pack</div></div>
+    <div class="row"><div class="n">04</div><div class="name">Content</div><div class="desc">AI-assisted, human-edited, on brand</div></div>
+    <div class="row"><div class="n">05</div><div class="name">3D Tours</div><div class="desc">Matterport for South Florida spaces</div></div>
+    <div class="row"><div class="n">06</div><div class="name">Social</div><div class="desc">Calendars, posting, engagement</div></div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work">
+  <div class="wrap"><div class="shead"><h2>Selected Work</h2><span class="mono blue">(03 / 08 shown)</span></div></div>
+  <div class="work-grid">
+    <div class="wk"><div class="img" data-n="01"></div><div class="name">Charles Hawkins Law</div><div class="meta2">Legal · Web + SEO</div><div class="res">Page 1 · 90d</div></div>
+    <div class="wk"><div class="img" data-n="02"></div><div class="name">ProTouch Rehab</div><div class="meta2">Healthcare · AI</div><div class="res">10 hrs/wk saved</div></div>
+    <div class="wk"><div class="img" data-n="03"></div><div class="name">Arvada Coins</div><div class="meta2">E-comm · Content</div><div class="res">+312% traffic</div></div>
+  </div>
+</section>
+
+<!-- STUDIO / OPERATOR -->
+<section class="studio"><div class="wrap">
+  <div class="l">
+    <span class="mono blue">(The Studio)</span>
+    <h2>One operator.<br>Military precision.</h2>
+    <p>SmarterNerd is led by Jesse Kranz — a former USAF Captain who brings mission discipline to web, SEO, and AI for South Florida.</p>
+    <a class="cta-btn">Meet Jesse →</a>
+  </div>
+  <div class="r">
+    <div class="dtable">
+      <div class="dr"><span class="k">Rank</span><span>USAF Captain (Former)</span></div>
+      <div class="dr"><span class="k">Clearance</span><span>Top Secret / SCI</span></div>
+      <div class="dr"><span class="k">Engineering</span><span>Oracle DBA · Full-Stack</span></div>
+      <div class="dr"><span class="k">Deployments</span><span>62 Systems</span></div>
+      <div class="dr"><span class="k">Value Engineered</span><span class="blue">$32,000,000</span></div>
+      <div class="dr"><span class="k">Missions Failed</span><span>0</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- PRICING -->
+<section class="svc">
+  <div class="wrap"><div class="shead"><h2>Pricing</h2><span class="mono blue">(Monthly · transparent)</span></div></div>
+  <div class="price-grid">
+    <div class="pc"><div class="t">AI Starter</div><div class="p">$400<small>/mo</small></div><ul><li>4 AI blog posts</li><li>8 social posts</li><li>Google Business Profile</li><li>Local SEO foundation</li></ul><a class="pbtn">Start →</a></div>
+    <div class="pc feat"><div class="t">AI Growth</div><div class="p">$900<small>/mo</small></div><ul><li>Everything in Starter</li><li>AI chatbot</li><li>2 automations/mo</li><li>GEO / AI-search</li></ul><a class="pbtn">Deploy →</a></div>
+    <div class="pc"><div class="t">AI Partner</div><div class="p">Custom</div><ul><li>Everything in Growth</li><li>Unlimited automations</li><li>Dedicated Slack</li><li>Custom AI tooling</li></ul><a class="pbtn">Talk →</a></div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section class="quotes">
+  <div class="wrap"><div class="shead"><h2>On The Record</h2><span class="mono blue">(Client results)</span></div></div>
+  <div class="qgrid">
+    <div class="qc"><div class="qm">“</div><p>Our phone hasn’t stopped ringing since launch. Best investment we’ve made.</p><div class="src">Charles Hawkins, Esq.</div></div>
+    <div class="qc"><div class="qm">“</div><p>The AI chatbot alone saves us 10 hours a week. A sales system, not a website.</p><div class="src">ProTouch Rehab</div></div>
+    <div class="qc"><div class="qm">“</div><p>Page 1 in 90 days. From invisible to dominating our local market.</p><div class="src">Jones Iron &amp; Metal</div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap"><div class="shead"><h2>FAQ</h2><span class="mono blue">(03)</span></div></div>
+  <div class="wrap">
+    <div class="frow"><span class="fn">01</span><span class="fq">What does a website cost?</span><span class="fp">$1.5K+</span></div>
+    <div class="frow"><span class="fn">02</span><span class="fq">How fast can I rank?</span><span class="fp">60–90d</span></div>
+    <div class="frow"><span class="fn">03</span><span class="fq">Do you work outside Fort Lauderdale?</span><span class="fp">YES</span></div>
+  </div>
+</section>
+
+<!-- BIG CTA -->
+<section class="bigcta"><div class="wrap">
+  <div class="giant">LET’S <span class="b">BUILD.</span></div>
+  <a class="cta-btn" style="font-size:.82rem;padding:16px 24px">Jesse@SmarterNerd.com →</a>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="brand2">SmarterNerd</div>
+  <div class="col"><h4>Services</h4><a>AI Systems</a><a>Web Design</a><a>SEO</a><a>Social</a></div>
+  <div class="col"><h4>Studio</h4><a>Work</a><a>About</a><a>Pricing</a><a>Contact</a></div>
+  <div class="col"><h4>Fort Lauderdale</h4><a>Jesse@SmarterNerd.com</a><a>South Florida + Remote</a></div>
+</div></footer>
+<div class="footbar"><div class="wrap"><span>© 2026 SmarterNerd</span><span>WordPress + Kadence · Rank Math SEO</span></div></div>
+
+</body>
+</html>
