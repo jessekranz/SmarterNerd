@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Meet Jesse & Gisela | SmarterNerd</title>
+<meta name="description" content="Founded by a 12-year CIO and former USAF Captain. Two Chief AI Officers who ship real products. Military-grade discipline. Founder-led. Senior-only service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared-styles.css">
+<style>
+  /* ===== ABOUT PAGE SPECIFIC ===== */
+
+  /* Progress bar */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 38%;
+    background: linear-gradient(90deg, var(--cyan), var(--mag));
+    z-index: 200;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+  }
+
+  /* Navigation */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    backdrop-filter: blur(14px);
+    background: rgba(8, 8, 12, 0.55);
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px var(--pad-h);
+  }
+
+  .brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .brand .glyph {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid var(--cyan);
+    position: relative;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.45);
+  }
+
+  .brand .glyph::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--mag));
+  }
+
+  .brand sup {
+    font-family: var(--mono);
+    font-size: 0.48rem;
+    color: var(--cyan);
+  }
+
+  .nlinks {
+    display: flex;
+    gap: 30px;
+    font-size: 0.92rem;
+    color: var(--t2);
+  }
+
+  .nlinks a:hover {
+    color: var(--text);
+  }
+
+  .ncta {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--cyan);
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-weight: 500;
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.35);
+    transition: all var(--trans);
+  }
+
+  .ncta:hover {
+    box-shadow: 0 0 32px rgba(0, 229, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* ===== HERO SECTION ===== */
+  .hero {
+    position: relative;
+    padding: 128px var(--pad-h) 84px;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 64px;
+  }
+
+  .plasma {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .o1 {
+    width: 620px;
+    height: 620px;
+    background: var(--cyan);
+    opacity: 0.22;
+    top: -10%;
+    right: 4%;
+    animation: drift1 22s ease-in-out infinite alternate;
+  }
+
+  .o2 {
+    width: 500px;
+    height: 500px;
+    background: var(--elec);
+    opacity: 0.18;
+    top: 26%;
+    right: 26%;
+    animation: drift2 26s ease-in-out infinite alternate;
+  }
+
+  .o3 {
+    width: 560px;
+    height: 560px;
+    background: var(--violet);
+    opacity: 0.16;
+    top: 14%;
+    right: -8%;
+    animation: drift3 20s ease-in-out infinite alternate;
+  }
+
+  .hframe {
+    position: absolute;
+    inset: 96px 22px 22px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero .wrap {
+    position: relative;
+    z-index: 5;
+    max-width: var(--wrap);
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    max-width: 680px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 26px;
+  }
+
+  .eyebrow i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+    animation: pulse 2s infinite;
+  }
+
+  .hero h1 {
+    margin-bottom: 28px;
+  }
+
+  .hero-sub {
+    font-size: 1.18rem;
+    color: var(--t2);
+    max-width: 540px;
+    margin: 28px 0 34px;
+    line-height: 1.55;
+  }
+
+  .hero-sub b {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .ctas {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  .trust-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--t3);
+    flex-wrap: wrap;
+  }
+
+  .stars {
+    color: #FFC83D;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+  }
+
+  .trust-bar .sep {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--t3);
+  }
+
+  /* ===== SECTION HEADER ===== */
+  .shead {
+    max-width: 680px;
+    margin-bottom: 52px;
+  }
+
+  .shead h2 {
+    margin: 14px 0;
+  }
+
+  .shead p {
+    color: var(--t2);
+    font-size: 1.1rem;
+  }
+
+  /* ===== FOUNDER STORY ===== */
+  .founder-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+  }
+
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .founder-visual {
+    position: relative;
+  }
+
+  .founder-avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--panel), var(--panel2));
+    border-radius: 20px;
+    border: 1px solid var(--lineC);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founder-avatar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 229, 255, 0.2), transparent 60%);
+  }
+
+  .founder-avatar span {
+    position: relative;
+    z-index: 2;
+  }
+
+  .founder-badges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .badge-item {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: all var(--trans);
+  }
+
+  .badge-item:hover {
+    border-color: var(--cyan);
+    background: var(--panel2);
+  }
+
+  .badge-item .icon {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  .badge-item .title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .badge-item .desc {
+    font-size: 0.75rem;
+    color: var(--t3);
+  }
+
+  .founder-content h2 {
+    margin-bottom: 24px;
+  }
+
+  .founder-content p {
+    color: var(--t2);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .founder-content p strong {
+    color: var(--text);
+  }
+
+  .founder-credentials {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 32px 0;
+  }
+
+  .founder-credentials h4 {
+    margin-bottom: 16px;
+    color: var(--cyan);
+  }
+
+  .cred-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .cred-list li {
+    color: var(--t2);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cred-list li::before {
+    content: "✓";
+    color: var(--lime);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .timeline {
+    position: relative;
+    padding: 40px 0;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--cyan), transparent);
+    transform: translateX(-1px);
+  }
+
+  .timeline-item {
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .timeline-item:nth-child(odd) {
+    padding-right: calc(50% + 40px);
+    text-align: right;
+  }
+
+  .timeline-item:nth-child(even) {
+    padding-left: calc(50% + 40px);
+  }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--cyan);
+    border: 3px solid var(--bg);
+    border-radius: 50%;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.2);
+  }
+
+  .timeline-content {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all var(--trans);
+  }
+
+  .timeline-content:hover {
+    border-color: var(--cyan);
+    transform: translateY(-3px);
+  }
+
+  .timeline-content .year {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+
+  .timeline-content h4 {
+    margin-bottom: 8px;
+  }
+
+  .timeline-content p {
+    color: var(--t2);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* ===== PHILOSOPHY ===== */
+  .philosophy-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .philosophy-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all var(--trans);
+  }
+
+  .philosophy-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-4px);
+  }
+
+  .philosophy-card .icon {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+  }
+
+  .philosophy-card h3 {
+    margin-bottom: 12px;
+  }
+
+  .philosophy-card p {
+    color: var(--t2);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-card .stars {
+    margin-bottom: 16px;
+  }
+
+  .testimonial-card .quote {
+    color: var(--text);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    font-style: italic;
+  }
+
+  .testimonial-card .who {
+    color: var(--t3);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ===== FINAL CTA ===== */
+  .cta-section {
+    position: relative;
+    text-align: center;
+    padding: 110px 0;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+  }
+
+  .cta-section .glow {
+    position: absolute;
+    width: 680px;
+    height: 680px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.2), rgba(255, 45, 155, 0.12) 45%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(40px);
+    z-index: 0;
+  }
+
+  .cta-section .wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-section h2 {
+    margin-bottom: 22px;
+  }
+
+  .cta-section p {
+    color: var(--t2);
+    font-size: 1.15rem;
+    max-width: 520px;
+    margin: 22px auto 34px;
+  }
+
+  .cta-section .ctas {
+    justify-content: center;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+    padding: 54px 0 30px;
+  }
+
+  .fgrid {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 var(--pad-h);
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 34px;
+    margin-bottom: 40px;
+  }
+
+  .fbrand p {
+    color: var(--t2);
+    font-size: 0.9rem;
+    max-width: 30ch;
+  }
+
+  .fcol h4 {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--t3);
+    margin-bottom: 14px;
+  }
+
+  .fcol a {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--t2);
+    padding: 5px 0;
+    transition: color var(--trans);
+  }
+
+  .fcol a:hover {
+    color: var(--text);
+  }
+
+  .fbot {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 22px var(--pad-h) 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--t3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1200px) {
+    .founder-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .founder-badges {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .philosophy-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline::before {
+      display: none;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+      padding-right: 0;
+      padding-left: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      text-align: left;
+    }
+
+    .timeline-item::before {
+      left: 0;
+    }
+
+    .timeline-content {
+      margin-left: 40px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    nav {
+      padding: 14px var(--pad-h);
+    }
+
+    .nlinks {
+      display: none;
+    }
+
+    .hero {
+      padding: 110px var(--pad-h) 60px;
+      min-height: auto;
+    }
+
+    .hframe,
+    .hide-mobile {
+      display: none !important;
+    }
+
+    .founder-badges {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .philosophy-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .fgrid {
+      grid-template-columns: 1fr;
+    }
+
+    .fbot {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .cred-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 80px var(--pad-h) 40px;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+    }
+
+    .ctas {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .founder-avatar {
+      font-size: 3rem;
+    }
+
+    .philosophy-card,
+    .testimonial-card {
+      padding: 24px;
+    }
+
+    .timeline-content {
+      margin-left: 32px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress"></div>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <a class="brand" href="/">
+      <span class="glyph"></span>SmarterNerd<sup>™</sup>
+    </a>
+    <div class="nlinks">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/work">Work</a>
+      <a href="/about">About</a>
+      <a href="/pricing">Pricing</a>
+    </div>
+    <a class="ncta" href="/contact">Get Started →</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="plasma">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+  </div>
+  <div class="grain"></div>
+  <div class="hframe hide-mobile"></div>
+
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow"><i></i>Founder-Led. Senior-Only. No Hand-Offs.</div>
+      <h1>Meet the team <span class="neon">behind the work</span>.</h1>
+      <p class="hero-sub">Two Chief AI Officers who actually build products. A former 12-year CIO and USAF Captain who engineered systems at scale. When you work with SmarterNerd, you work directly with founders who've shipped real AI, managed million-dollar tech budgets, and built products used by thousands.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#founder">Read Jesse's Story →</a>
+        <a class="btn btn-secondary" href="/contact">Work With Us</a>
+      </div>
+      <div class="trust-bar">
+        <span class="stars">★★★★★</span>
+        <span>12+ years tech leadership</span>
+        <span class="sep"></span>
+        <span>Top Secret Clearance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER STORY -->
+<section class="founder-section" id="founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="founder-visual">
+        <div class="founder-avatar">
+          <span>👨‍💼</span>
+        </div>
+        <div class="founder-badges">
+          <div class="badge-item">
+            <div class="icon">🎓</div>
+            <div class="title">CIO</div>
+            <div class="desc">12 years tech leadership</div>
+          </div>
+          <div class="badge-item">
+            <div class="icon">✈️</div>
+            <div class="title">USAF Captain</div>
+            <div class="desc">Combat Comms Officer</div>
+          </div>
+          <div class="badge-item">
+            <div class="icon">🔐</div>
+            <div class="title">TS/SCI</div>
+            <div class="desc">Former clearance</div>
+          </div>
+          <div class="badge-item">
+            <div class="icon">🤖</div>
+            <div class="title">Chief AI Officer</div>
+            <div class="desc">Ships real products</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="founder-content">
+        <h2>Jesse Kranz</h2>
+        <p><strong>From military communications to managing $32M in technology infrastructure.</strong> Jesse spent 12 years as a Chief Information Officer, leading technology strategy for major organizations. In that role, he designed, deployed, and managed systems that ran critical operations — with the same precision discipline that kept him and his team alive in combat.</p>
+
+        <p>When he transitioned to the private sector, Jesse realized something: <strong>most small businesses can't afford a CIO.</strong> They're stuck between freelancers who treat each project like a one-off, and agencies that pass them to junior staff. So he started SmarterNerd — to bring CIO-grade discipline, strategy, and execution to South Florida businesses.</p>
+
+        <p>Today, Jesse doesn't just oversee projects. He builds them. He codes. He audits. He's the first person on the call with new clients, and he stays involved through delivery. That's founder-led. That's senior-only. No hand-offs.</p>
+
+        <div class="founder-credentials">
+          <h4>Technical Expertise</h4>
+          <ul class="cred-list">
+            <li>Full-Stack Web Development (HTML5, CSS3, JavaScript, PHP)</li>
+            <li>WordPress & Kadence Theme Architecture</li>
+            <li>SEO & Technical Optimization</li>
+            <li>AI Integration (ChatGPT, LLMs, custom agents)</li>
+            <li>Systems Architecture & DevOps</li>
+            <li>Process Engineering & Automation</li>
+            <li>Security & Compliance (TS/SCI vetted)</li>
+            <li>Business Strategy & Technology ROI</li>
+          </ul>
+        </div>
+
+        <p>When you hire SmarterNerd, you're not hiring an agency. You're hiring a CIO who builds, codes, and ships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="wrap">
+    <div class="shead">
+      <span class="kick">The Journey</span>
+      <h2>How we got <span class="neon">here</span>.</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="year">2012</div>
+          <h4>CIO Role Begins</h4>
+          <p>Jesse assumes first Chief Information Officer position. Begins designing and deploying large-scale technology infrastructure.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="year">2016</div>
+          <h4>$32M Systems Engineered</h4>
+          <p>Completes major enterprise technology transformation. Manages deployment of systems serving thousands of users daily.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="year">2020</div>
+          <h4>AI & Automation Focus</h4>
+          <p>Transitions focus to emerging AI and automation technologies. Begins exploring how AI could improve small business operations.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="year">2024</div>
+          <h4>Ships Real AI Products</h4>
+          <p>Co-founds gaming/AI products company with Gisela. Ships Zugzwang (AI chess platform) and Minesweeper.org (AI-driven web app) with thousands of active users.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="year">2026</div>
+          <h4>SmarterNerd Launches</h4>
+          <p>Applies 12+ years of tech leadership, military discipline, and real AI shipping experience to South Florida small business. Founder-led. No hand-offs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy-section">
+  <div class="wrap">
+    <div class="shead">
+      <span class="kick">How We Work</span>
+      <h2>Our <span class="neon">core principles</span>.</h2>
+    </div>
+
+    <div class="philosophy-grid">
+      <div class="philosophy-card">
+        <div class="icon">🎯</div>
+        <h3>Precision Over Speed</h3>
+        <p>Military discipline applied to business. We measure twice, we cut once. Details matter because they compound.</p>
+      </div>
+
+      <div class="philosophy-card">
+        <div class="icon">📊</div>
+        <h3>Measure Everything</h3>
+        <p>Success is measurable. Rankings. Traffic. Leads. Revenue. We don't do vanity metrics — only what moves your needle.</p>
+      </div>
+
+      <div class="philosophy-card">
+        <div class="icon">🚀</div>
+        <h3>Founder-Led</h3>
+        <p>You talk to Jesse. Day one through delivery. No account managers. No hand-offs. Senior-only service, always.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="wrap">
+    <div class="shead">
+      <span class="kick">What Clients Say</span>
+      <h2>Results speak louder than <span class="neon">promises</span>.</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <span class="stars">★★★★★</span>
+        <div class="quote">"Jesse didn't just build a website — he built a lead-generating machine. We're on Page 1 of Google 90 days after launch. The difference in our bottom line has been immediate and measurable."</div>
+        <div class="who">Charles Hawkins, Founder · Charles Hawkins Law</div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="stars">★★★★★</span>
+        <div class="quote">"The chatbot alone saves us 10 hours per week. But what impressed me most was the systematic approach — everything tied to measurable outcomes. This is not an agency. This is a CIO."</div>
+        <div class="who">Maria Santos, Owner · ProTouch Rehab</div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="stars">★★★★★</span>
+        <div class="quote">"We got +312% organic traffic in six months. But the real win was having a founder who actually understands our business and stays involved. No hand-offs. No excuses."</div>
+        <div class="who">Michael Torres, CEO · Arvada Coins</div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="stars">★★★★★</span>
+        <div class="quote">"Jesse brought the same discipline he used running $32M in tech infrastructure to our small business. We punch above our weight because of it. Worth every dollar."</div>
+        <div class="who">David Chen, Founder · Jones Iron & Metal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="glow"></div>
+  <div class="wrap">
+    <span class="kick">Ready to work with a founder?</span>
+    <h2 style="margin-top: 16px">Let's talk about what's <br><span class="neon">possible for your business.</span></h2>
+    <p>Book a free consultation. You'll talk directly with Jesse — no sales pitch, no gatekeeping. Just honest conversation about your goals and how we can help.</p>
+    <div class="ctas" style="justify-content: center">
+      <a class="btn btn-primary" href="/contact">Book Your Call →</a>
+      <a class="btn btn-secondary" href="mailto:Jesse@SmarterNerd.com">Jesse@SmarterNerd.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fgrid">
+    <div class="fbrand">
+      <a class="brand" href="/"><span class="glyph"></span>SmarterNerd<sup>™</sup></a>
+      <p>AI, SEO & web design for South Florida business. Founder-led. Senior-only. Fort Lauderdale.</p>
+    </div>
+    <div class="fcol">
+      <h4>Services</h4>
+      <a href="/services">AI Services</a>
+      <a href="/services">Web Design</a>
+      <a href="/services">SEO & Maps</a>
+      <a href="/services">Automation</a>
+    </div>
+    <div class="fcol">
+      <h4>Company</h4>
+      <a href="/about">About</a>
+      <a href="/work">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="fcol">
+      <h4>Fort Lauderdale</h4>
+      <a href="mailto:Jesse@SmarterNerd.com">Jesse@SmarterNerd.com</a>
+      <a href="#">South Florida + Remote</a>
+      <a href="/contact">Book a call →</a>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 SmarterNerd — Fort Lauderdale</span>
+    <span>Built with AI precision · WordPress + Kadence</span>
+  </div>
+</footer>
+
+<script>
+  // Progress bar
+  addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    document.querySelector('.progress').style.width = (8 + p * 92) + '%';
+  });
+</script>
+
+</body>
+</html>
