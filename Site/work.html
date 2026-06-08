@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Web Design & SEO Portfolio | SmarterNerd</title>
+<meta name="description" content="Portfolio of web design, SEO, and AI projects for South Florida businesses. See real results: Page 1 rankings, 300%+ traffic growth, chatbots that convert.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared-styles.css">
+<style>
+  /* ===== WORK/PORTFOLIO PAGE SPECIFIC ===== */
+
+  /* Progress bar */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 38%;
+    background: linear-gradient(90deg, var(--cyan), var(--mag));
+    z-index: 200;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+  }
+
+  /* Navigation */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    backdrop-filter: blur(14px);
+    background: rgba(8, 8, 12, 0.55);
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px var(--pad-h);
+  }
+
+  .brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .brand .glyph {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid var(--cyan);
+    position: relative;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.45);
+  }
+
+  .brand .glyph::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--mag));
+  }
+
+  .brand sup {
+    font-family: var(--mono);
+    font-size: 0.48rem;
+    color: var(--cyan);
+  }
+
+  .nlinks {
+    display: flex;
+    gap: 30px;
+    font-size: 0.92rem;
+    color: var(--t2);
+  }
+
+  .nlinks a:hover {
+    color: var(--text);
+  }
+
+  .ncta {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--cyan);
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-weight: 500;
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.35);
+    transition: all var(--trans);
+  }
+
+  .ncta:hover {
+    box-shadow: 0 0 32px rgba(0, 229, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* ===== HERO SECTION ===== */
+  .hero {
+    position: relative;
+    padding: 128px var(--pad-h) 84px;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 64px;
+  }
+
+  .plasma {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .o1 {
+    width: 620px;
+    height: 620px;
+    background: var(--mag);
+    opacity: 0.2;
+    top: -10%;
+    right: 4%;
+    animation: drift1 22s ease-in-out infinite alternate;
+  }
+
+  .o2 {
+    width: 500px;
+    height: 500px;
+    background: var(--cyan);
+    opacity: 0.18;
+    top: 26%;
+    right: 26%;
+    animation: drift2 26s ease-in-out infinite alternate;
+  }
+
+  .o3 {
+    width: 560px;
+    height: 560px;
+    background: var(--violet);
+    opacity: 0.16;
+    top: 14%;
+    right: -8%;
+    animation: drift3 20s ease-in-out infinite alternate;
+  }
+
+  .hframe {
+    position: absolute;
+    inset: 96px 22px 22px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero .wrap {
+    position: relative;
+    z-index: 5;
+    max-width: var(--wrap);
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    max-width: 680px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 26px;
+  }
+
+  .eyebrow i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+    animation: pulse 2s infinite;
+  }
+
+  .hero h1 {
+    margin-bottom: 28px;
+  }
+
+  .hero-sub {
+    font-size: 1.18rem;
+    color: var(--t2);
+    max-width: 540px;
+    margin: 28px 0 34px;
+    line-height: 1.55;
+  }
+
+  .hero-sub b {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .ctas {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  .trust-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--t3);
+    flex-wrap: wrap;
+  }
+
+  .stars {
+    color: #FFC83D;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+  }
+
+  .trust-bar .sep {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--t3);
+  }
+
+  /* ===== SECTION HEADER ===== */
+  .shead {
+    max-width: 680px;
+    margin-bottom: 52px;
+  }
+
+  .shead h2 {
+    margin: 14px 0;
+  }
+
+  .shead p {
+    color: var(--t2);
+    font-size: 1.1rem;
+  }
+
+  /* ===== AGGREGATE STATS ===== */
+  .stats-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .stat-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .stat-card .number {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .stat-card .number.c {
+    color: var(--cyan);
+  }
+
+  .stat-card .number.m {
+    color: var(--mag);
+  }
+
+  .stat-card .number.v {
+    color: var(--violet);
+  }
+
+  .stat-card .number.l {
+    color: var(--lime);
+  }
+
+  .stat-card .label {
+    color: var(--t2);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* ===== FILTER TABS ===== */
+  .filter-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--t2);
+    cursor: pointer;
+    transition: all var(--trans);
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    background: rgba(0, 229, 255, 0.06);
+  }
+
+  /* ===== PORTFOLIO GRID ===== */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .portfolio-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all var(--trans);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .portfolio-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-6px);
+  }
+
+  .portfolio-card-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--panel2), var(--panel));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portfolio-card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 229, 255, 0.15), transparent 60%);
+  }
+
+  .portfolio-card-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .portfolio-card .badge {
+    font-family: var(--mono);
+    font-size: 0.54rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+
+  .portfolio-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+
+  .portfolio-card .desc {
+    color: var(--t2);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex-grow: 1;
+  }
+
+  .portfolio-card .meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .portfolio-card .services {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .portfolio-card .services span {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--t3);
+    background: rgba(0, 229, 255, 0.04);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+
+  .portfolio-card .link {
+    color: var(--cyan);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ===== FEATURED CASE STUDY ===== */
+  .featured-case {
+    position: relative;
+    padding: 60px;
+    background: var(--panel);
+    border: 1px solid var(--lineC);
+    border-radius: 20px;
+    margin-bottom: 60px;
+    overflow: hidden;
+  }
+
+  .featured-case::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.08), transparent 70%);
+    z-index: 0;
+  }
+
+  .featured-case .wrap {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .case-content h2 {
+    margin-bottom: 20px;
+  }
+
+  .case-content p {
+    color: var(--t2);
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .case-results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .case-result-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+
+  .case-result-item .metric {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cyan);
+    margin-bottom: 4px;
+  }
+
+  .case-result-item .label {
+    color: var(--t3);
+    font-size: 0.85rem;
+  }
+
+  .case-cta {
+    margin-top: 24px;
+  }
+
+  .case-testimonial {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 28px;
+    border-radius: 12px;
+    border-left: 3px solid var(--cyan);
+  }
+
+  .case-testimonial .quote {
+    color: var(--text);
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .case-testimonial .who {
+    color: var(--t3);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ===== FINAL CTA ===== */
+  .cta-section {
+    position: relative;
+    text-align: center;
+    padding: 110px 0;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+  }
+
+  .cta-section .glow {
+    position: absolute;
+    width: 680px;
+    height: 680px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.2), rgba(255, 45, 155, 0.12) 45%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(40px);
+    z-index: 0;
+  }
+
+  .cta-section .wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-section h2 {
+    margin-bottom: 22px;
+  }
+
+  .cta-section p {
+    color: var(--t2);
+    font-size: 1.15rem;
+    max-width: 520px;
+    margin: 22px auto 34px;
+  }
+
+  .cta-section .ctas {
+    justify-content: center;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+    padding: 54px 0 30px;
+  }
+
+  .fgrid {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 var(--pad-h);
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 34px;
+    margin-bottom: 40px;
+  }
+
+  .fbrand p {
+    color: var(--t2);
+    font-size: 0.9rem;
+    max-width: 30ch;
+  }
+
+  .fcol h4 {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--t3);
+    margin-bottom: 14px;
+  }
+
+  .fcol a {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--t2);
+    padding: 5px 0;
+    transition: color var(--trans);
+  }
+
+  .fcol a:hover {
+    color: var(--text);
+  }
+
+  .fbot {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 22px var(--pad-h) 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--t3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1200px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featured-case .wrap {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    nav {
+      padding: 14px var(--pad-h);
+    }
+
+    .nlinks {
+      display: none;
+    }
+
+    .hero {
+      padding: 110px var(--pad-h) 60px;
+      min-height: auto;
+    }
+
+    .hframe,
+    .hide-mobile {
+      display: none !important;
+    }
+
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .fgrid {
+      grid-template-columns: 1fr;
+    }
+
+    .fbot {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .filter-tabs {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 80px var(--pad-h) 40px;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+    }
+
+    .ctas {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .featured-case {
+      padding: 30px 20px;
+    }
+
+    .case-results {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress"></div>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <a class="brand" href="/">
+      <span class="glyph"></span>SmarterNerd<sup>™</sup>
+    </a>
+    <div class="nlinks">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/work">Work</a>
+      <a href="/about">About</a>
+      <a href="/pricing">Pricing</a>
+    </div>
+    <a class="ncta" href="/contact">Get Started →</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="plasma">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+  </div>
+  <div class="grain"></div>
+  <div class="hframe hide-mobile"></div>
+
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow"><i></i>Real Work. Real Results.</div>
+      <h1>Web design and SEO that <span class="neon">move the needle</span>.</h1>
+      <p class="hero-sub">From law firms hitting Page 1 on Google to e-commerce sites growing 300%+ in 6 months — we measure success by the revenue you generate, not hours billed.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#portfolio">View Portfolio →</a>
+        <a class="btn btn-secondary" href="/contact">Start Your Project</a>
+      </div>
+      <div class="trust-bar">
+        <span class="stars">★★★★★</span>
+        <span>8+ live projects</span>
+        <span class="sep"></span>
+        <span>South Florida based</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGGREGATE STATS -->
+<section class="stats-section">
+  <div class="wrap">
+    <div class="shead">
+      <span class="kick">Across All Projects</span>
+      <h2>The cumulative impact of our <span class="neon">work</span>.</h2>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number c">8+</div>
+        <div class="label">Active client projects across legal, healthcare, retail, and e-commerce</div>
+      </div>
+      <div class="stat-card">
+        <div class="number m">+312%</div>
+        <div class="label">Average organic traffic increase within 6 months</div>
+      </div>
+      <div class="stat-card">
+        <div class="number v">Page 1</div>
+        <div class="label">Google rankings in 90 days or less, on average</div>
+      </div>
+      <div class="stat-card">
+        <div class="number l">1000+</div>
+        <div class="label">Leads captured annually via AI chatbots</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="filter-section" id="portfolio">
+  <div class="wrap">
+    <div class="shead">
+      <span class="kick">Portfolio</span>
+      <h2>Every project tells a <span class="neon">story</span>.</h2>
+      <p>Filter by industry or service type to see work relevant to your business.</p>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="legal">Legal</button>
+      <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+      <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+      <button class="filter-btn" data-filter="retail">Retail</button>
+      <button class="filter-btn" data-filter="services">Services</button>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- Charles Hawkins Law -->
+      <div class="portfolio-card" data-category="legal">
+        <div class="portfolio-card-image">⚖️</div>
+        <div class="portfolio-card-content">
+          <span class="badge">Featured</span>
+          <h3>Charles Hawkins Law</h3>
+          <p class="desc">Legal practice in Fort Lauderdale. Needed Page 1 rankings for high-intent keywords.</p>
+          <div class="meta">
+            <div class="services">
+              <span>Web Design</span>
+              <span>SEO</span>
+              <span>Maps</span>
+            </div>
+            <a href="#case-hawkins" class="link">View →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ProTouch Rehab -->
+      <div class="portfolio-card" data-category="healthcare">
+        <div class="portfolio-card-image">🏥</div>
+        <div class="portfolio-card-content">
+          <h3>ProTouch Rehab</h3>
+          <p class="desc">Physical therapy clinic. Automated lead intake and patient booking with AI chatbot.</p>
+          <div class="meta">
+            <div class="services">
+              <span>Chatbot</span>
+              <span>Automation</span>
+              <span>Booking</span>
+            </div>
+            <a href="#" class="link">View →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arvada Coins -->
+      <div class="portfolio-card" data-category="ecommerce">
+        <div class="portfolio-card-image">💎</div>
+        <div class="portfolio-card-content">
+          <h3>Arvada Coins</h3>
+          <p class="desc">E-commerce collectibles store. Rebuilt site + SEO strategy. 312% traffic lift.</p>
+          <div class="meta">
+            <div class="services">
+              <span>WooCommerce</span>
+              <span>SEO</span>
+              <span>Content</span>
+            </div>
+            <a href="#" class="link">View →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jones Iron & Metal -->
+      <div class="portfolio-card" data-category="retail">
+        <div class="portfolio-card-image">⚙️</div>
+        <div class="portfolio-card-content">
+          <h3>Jones Iron & Metal</h3>
+          <p class="desc">Industrial supplier. Local SEO and 3-pack optimization for South Florida.</p>
+          <div class="meta">
+            <div class="services">
+              <span>Local SEO</span>
+              <span>Maps</span>
+              <span>GBP</span>
+            </div>
+            <a href="#" class="link">View →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alt Imagery -->
+      <div class="portfolio-card" data-category="services">
+        <div class="portfolio-card-image">🎬</div>
+        <div class="portfolio-card-content">
+          <h3>Alt Imagery</h3>
+          <p class="desc">Creative studio. Portfolio redesign with custom filterable gallery and SEO.</p>
+          <div class="meta">
+            <div class="services">
+              <span>Web Design</span>
+              <span>Portfolio</span>
+              <span>SEO</span>
+            </div>
+            <a href="#" class="link">View →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Placeholder Project -->
+      <div class="portfolio-card" data-category="all">
+        <div class="portfolio-card-image">🚀</div>
+        <div class="portfolio-card-content">
+          <h3>Your Success Story</h3>
+          <p class="desc">The next page in our portfolio could be your business. Let's talk about what's possible.</p>
+          <div class="meta">
+            <div class="services">
+              <span>All Services</span>
+            </div>
+            <a href="/contact" class="link">Start →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CASE STUDY -->
+<section id="case-hawkins">
+  <div class="wrap">
+    <div class="featured-case">
+      <div class="wrap">
+        <div class="case-content">
+          <h2>Charles Hawkins Law</h2>
+          <p><b>The Challenge:</b> A well-respected legal practice was losing potential clients to competitors ranking higher on Google. They needed immediate visibility for high-intent keywords: "Fort Lauderdale attorney," "personal injury lawyer," "DUI defense."</p>
+
+          <p><b>The Solution:</b> Complete website rebuild with SEO-first architecture, aggressive on-page optimization, technical SEO fixes, and a strategic link-building campaign. Integrated Rank Math for structured data and local schema.</p>
+
+          <div class="case-results">
+            <div class="case-result-item">
+              <div class="metric">Page 1</div>
+              <div class="label">In 90 days, ranking for 14 local keywords</div>
+            </div>
+            <div class="case-result-item">
+              <div class="metric">+42</div>
+              <div class="label">New qualified leads per month</div>
+            </div>
+            <div class="case-result-item">
+              <div class="metric">Local 3-Pack</div>
+              <div class="label">Rank #1 on Google Maps for their practice area</div>
+            </div>
+            <div class="case-result-item">
+              <div class="metric">+$180K</div>
+              <div class="label">Estimated first-year client revenue from rankings</div>
+            </div>
+          </div>
+
+          <div class="case-cta">
+            <a class="btn btn-primary" href="/contact">Replicate This Success →</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="case-testimonial">
+            <div class="quote">"Jesse didn't just build a website — he built a lead-generating machine. We're on Page 1 of Google 90 days after launch. The difference in our bottom line has been immediate and measurable."</div>
+            <div class="who">Charles Hawkins, Founder · Charles Hawkins Law</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="glow"></div>
+  <div class="wrap">
+    <span class="kick">Ready to join our portfolio?</span>
+    <h2 style="margin-top: 16px">Your success story <br><span class="neon">starts here.</span></h2>
+    <p>Book a free consultation to discuss your project, timeline, and goals. We'll map the exact strategy to move your needle.</p>
+    <div class="ctas" style="justify-content: center">
+      <a class="btn btn-primary" href="/contact">Start Your Project →</a>
+      <a class="btn btn-secondary" href="mailto:Jesse@SmarterNerd.com">Jesse@SmarterNerd.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fgrid">
+    <div class="fbrand">
+      <a class="brand" href="/"><span class="glyph"></span>SmarterNerd<sup>™</sup></a>
+      <p>AI, SEO & web design for South Florida business. Founder-led. Senior-only. Fort Lauderdale.</p>
+    </div>
+    <div class="fcol">
+      <h4>Services</h4>
+      <a href="/services">AI Services</a>
+      <a href="/services">Web Design</a>
+      <a href="/services">SEO & Maps</a>
+      <a href="/services">Automation</a>
+    </div>
+    <div class="fcol">
+      <h4>Company</h4>
+      <a href="/about">About</a>
+      <a href="/work">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="fcol">
+      <h4>Fort Lauderdale</h4>
+      <a href="mailto:Jesse@SmarterNerd.com">Jesse@SmarterNerd.com</a>
+      <a href="#">South Florida + Remote</a>
+      <a href="/contact">Book a call →</a>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 SmarterNerd — Fort Lauderdale</span>
+    <span>Built with AI precision · WordPress + Kadence</span>
+  </div>
+</footer>
+
+<script>
+  // Progress bar
+  addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    document.querySelector('.progress').style.width = (8 + p * 92) + '%';
+  });
+
+  // Filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter cards
+      const filter = btn.dataset.filter;
+      portfolioCards.forEach(card => {
+        const category = card.dataset.category;
+        if (filter === 'all' || category === filter) {
+          card.style.display = '';
+          setTimeout(() => card.style.opacity = '1', 10);
+        } else {
+          card.style.opacity = '0';
+          setTimeout(() => card.style.display = 'none', 200);
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
