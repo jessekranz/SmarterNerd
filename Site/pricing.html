@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Transparent Web Design & AI Services | SmarterNerd</title>
+<meta name="description" content="Simple, transparent pricing for web design, SEO, and AI services. No hidden fees. Month-to-month or annual. See exactly what you'll pay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared-styles.css">
+<style>
+  /* ===== PRICING PAGE SPECIFIC ===== */
+
+  /* Progress bar */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 38%;
+    background: linear-gradient(90deg, var(--cyan), var(--mag));
+    z-index: 200;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+  }
+
+  /* Navigation */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    backdrop-filter: blur(14px);
+    background: rgba(8, 8, 12, 0.55);
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px var(--pad-h);
+  }
+
+  .brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .brand .glyph {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid var(--cyan);
+    position: relative;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.45);
+  }
+
+  .brand .glyph::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--mag));
+  }
+
+  .brand sup {
+    font-family: var(--mono);
+    font-size: 0.48rem;
+    color: var(--cyan);
+  }
+
+  .nlinks {
+    display: flex;
+    gap: 30px;
+    font-size: 0.92rem;
+    color: var(--t2);
+  }
+
+  .nlinks a:hover {
+    color: var(--text);
+  }
+
+  .ncta {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--cyan);
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-weight: 500;
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.35);
+    transition: all var(--trans);
+  }
+
+  .ncta:hover {
+    box-shadow: 0 0 32px rgba(0, 229, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* ===== HERO SECTION ===== */
+  .hero {
+    position: relative;
+    padding: 128px var(--pad-h) 84px;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 64px;
+  }
+
+  .plasma {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .o1 {
+    width: 620px;
+    height: 620px;
+    background: var(--lime);
+    opacity: 0.18;
+    top: -10%;
+    right: 4%;
+    animation: drift1 22s ease-in-out infinite alternate;
+  }
+
+  .o2 {
+    width: 500px;
+    height: 500px;
+    background: var(--cyan);
+    opacity: 0.16;
+    top: 26%;
+    right: 26%;
+    animation: drift2 26s ease-in-out infinite alternate;
+  }
+
+  .o3 {
+    width: 560px;
+    height: 560px;
+    background: var(--mag);
+    opacity: 0.14;
+    top: 14%;
+    right: -8%;
+    animation: drift3 20s ease-in-out infinite alternate;
+  }
+
+  .hframe {
+    position: absolute;
+    inset: 96px 22px 22px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero .wrap {
+    position: relative;
+    z-index: 5;
+    max-width: var(--wrap);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 26px;
+  }
+
+  .eyebrow i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+    animation: pulse 2s infinite;
+  }
+
+  .hero h1 {
+    margin-bottom: 28px;
+  }
+
+  .hero-sub {
+    font-size: 1.18rem;
+    color: var(--t2);
+    max-width: 580px;
+    margin: 28px auto 34px;
+    line-height: 1.55;
+  }
+
+  .hero-sub b {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ===== BILLING TOGGLE ===== */
+  .billing-toggle-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+  }
+
+  .toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .toggle-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--t2);
+  }
+
+  .toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 32px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all var(--trans);
+  }
+
+  .toggle-switch:hover {
+    border-color: var(--cyan);
+  }
+
+  .toggle-switch.active {
+    background: rgba(0, 229, 255, 0.1);
+    border-color: var(--cyan);
+  }
+
+  .toggle-switch::after {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background: var(--cyan);
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: all var(--trans);
+  }
+
+  .toggle-switch.active::after {
+    left: 30px;
+  }
+
+  .savings-badge {
+    background: linear-gradient(135deg, var(--lime), var(--cyan));
+    color: var(--bg);
+    padding: 8px 14px;
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* ===== PRICING TABS ===== */
+  .pricing-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+
+  .pricing-tab {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--t2);
+    cursor: pointer;
+    transition: all var(--trans);
+  }
+
+  .pricing-tab:hover,
+  .pricing-tab.active {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    background: rgba(0, 229, 255, 0.06);
+  }
+
+  /* ===== PRICING GRIDS ===== */
+  .pricing-section {
+    display: none;
+  }
+
+  .pricing-section.active {
+    display: block;
+  }
+
+  /* Web Design & Development */
+  .web-design-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .price-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--trans);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-6px);
+  }
+
+  .price-card .glow {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.08;
+    bottom: -100px;
+    right: -60px;
+    z-index: 0;
+  }
+
+  .price-card h3 {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 8px;
+  }
+
+  .price-card .subtitle {
+    color: var(--t3);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .price-card .price {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--cyan);
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .price-card .period {
+    color: var(--t3);
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .price-card .features {
+    list-style: none;
+    margin-bottom: 32px;
+    flex-grow: 1;
+    position: relative;
+    z-index: 2;
+  }
+
+  .price-card .features li {
+    color: var(--t2);
+    font-size: 0.9rem;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .price-card .features li::before {
+    content: "✓";
+    color: var(--lime);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .price-card .features li:last-child {
+    border-bottom: none;
+  }
+
+  .price-card .cta {
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+  }
+
+  /* ===== PRICING TRANSPARENCY ===== */
+  .transparency-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .transparency-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .transparency-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all var(--trans);
+  }
+
+  .transparency-card:hover {
+    border-color: var(--lineC);
+    transform: translateY(-3px);
+  }
+
+  .transparency-card h4 {
+    margin-bottom: 12px;
+    color: var(--cyan);
+  }
+
+  .transparency-card p {
+    color: var(--t2);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ===== ROI CALCULATOR ===== */
+  .roi-calculator-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+  }
+
+  .roi-calculator {
+    background: var(--panel);
+    border: 1px solid var(--lineC);
+    border-radius: 20px;
+    padding: 50px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .roi-calculator h3 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .roi-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .roi-input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .roi-input label {
+    color: var(--t3);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .roi-input input,
+  .roi-input select {
+    background: var(--panel2);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 12px 14px;
+    font-family: var(--disp);
+    font-size: 1rem;
+    transition: all var(--trans);
+  }
+
+  .roi-input input:focus,
+  .roi-input select:focus {
+    outline: none;
+    border-color: var(--cyan);
+    background: rgba(0, 229, 255, 0.03);
+  }
+
+  .roi-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .roi-result {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    text-align: center;
+  }
+
+  .roi-result h4 {
+    color: var(--t3);
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .roi-result .value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .roi-result .value.c {
+    color: var(--cyan);
+  }
+
+  .roi-result .value.m {
+    color: var(--mag);
+  }
+
+  .roi-result .value.l {
+    color: var(--lime);
+  }
+
+  .roi-result .period {
+    color: var(--t2);
+    font-size: 0.85rem;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .faq-item {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all var(--trans);
+  }
+
+  .faq-item:hover {
+    border-color: var(--cyan);
+    background: var(--panel2);
+  }
+
+  .faq-item.open {
+    border-color: var(--cyan);
+  }
+
+  .faq-item h4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+    color: var(--text);
+  }
+
+  .faq-item .toggle {
+    font-size: 1.4rem;
+    color: var(--cyan);
+    transition: transform var(--trans);
+  }
+
+  .faq-item.open .toggle {
+    transform: rotate(180deg);
+  }
+
+  .faq-item p {
+    color: var(--t2);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 16px;
+    display: none;
+    animation: slideDown 0.3s ease-out forwards;
+  }
+
+  .faq-item.open p {
+    display: block;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      max-height: 0;
+    }
+    to {
+      opacity: 1;
+      max-height: 500px;
+    }
+  }
+
+  /* ===== FINAL CTA ===== */
+  .cta-section {
+    position: relative;
+    text-align: center;
+    padding: 110px 0;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+  }
+
+  .cta-section .glow {
+    position: absolute;
+    width: 680px;
+    height: 680px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.2), rgba(255, 45, 155, 0.12) 45%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(40px);
+    z-index: 0;
+  }
+
+  .cta-section .wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-section h2 {
+    margin-bottom: 22px;
+  }
+
+  .cta-section p {
+    color: var(--t2);
+    font-size: 1.15rem;
+    max-width: 520px;
+    margin: 22px auto 34px;
+  }
+
+  .cta-section .ctas {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+    padding: 54px 0 30px;
+  }
+
+  .fgrid {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 var(--pad-h);
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 34px;
+    margin-bottom: 40px;
+  }
+
+  .fbrand p {
+    color: var(--t2);
+    font-size: 0.9rem;
+    max-width: 30ch;
+  }
+
+  .fcol h4 {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--t3);
+    margin-bottom: 14px;
+  }
+
+  .fcol a {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--t2);
+    padding: 5px 0;
+    transition: color var(--trans);
+  }
+
+  .fcol a:hover {
+    color: var(--text);
+  }
+
+  .fbot {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 22px var(--pad-h) 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--t3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1200px) {
+    .web-design-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .transparency-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .roi-results {
+      grid-template-columns: 1fr;
+    }
+
+    .roi-form {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    nav {
+      padding: 14px var(--pad-h);
+    }
+
+    .nlinks {
+      display: none;
+    }
+
+    .hero {
+      padding: 110px var(--pad-h) 60px;
+      min-height: auto;
+    }
+
+    .hframe,
+    .hide-mobile {
+      display: none !important;
+    }
+
+    .web-design-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .fgrid {
+      grid-template-columns: 1fr;
+    }
+
+    .fbot {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .pricing-tabs {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 80px var(--pad-h) 40px;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+    }
+
+    .cta-section .ctas {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .roi-calculator {
+      padding: 30px 20px;
+    }
+
+    .toggle-container {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .price-card {
+      padding: 24px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress"></div>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <a class="brand" href="/">
+      <span class="glyph"></span>SmarterNerd<sup>™</sup>
+    </a>
+    <div class="nlinks">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/work">Work</a>
+      <a href="/about">About</a>
+      <a href="/pricing">Pricing</a>
+    </div>
+    <a class="ncta" href="/contact">Get Started →</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="plasma">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+  </div>
+  <div class="grain"></div>
+  <div class="hframe hide-mobile"></div>
+
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow"><i></i>Simple. Transparent. No Surprises.</div>
+      <h1>Pricing that <span class="neon">makes sense</span>.</h1>
+      <p class="hero-sub">No hidden fees. No nickel-and-diming. Month-to-month or annual pricing. Cancel anytime. Below you'll see exactly what services cost and what you get.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BILLING TOGGLE & PRICING TABS -->
+<section class="billing-toggle-section">
+  <div class="wrap">
+    <div class="toggle-container">
+      <span class="toggle-label">Monthly</span>
+      <div class="toggle-switch" id="billingToggle"></div>
+      <span class="toggle-label">Annual</span>
+      <div class="savings-badge">Save 15%</div>
+    </div>
+
+    <div class="pricing-tabs">
+      <button class="pricing-tab active" data-tab="web-design">Web Design & Development</button>
+      <button class="pricing-tab" data-tab="ai-services">AI Services</button>
+      <button class="pricing-tab" data-tab="seo-maps">SEO & Google Maps</button>
+      <button class="pricing-tab" data-tab="add-ons">À La Carte</button>
+    </div>
+
+    <!-- WEB DESIGN & DEVELOPMENT -->
+    <div class="pricing-section active" data-section="web-design">
+      <div class="web-design-grid">
+        <!-- Custom Website Build -->
+        <div class="price-card">
+          <div class="glow glow-cyan"></div>
+          <h3>Custom Website</h3>
+          <p class="subtitle">Perfect for service businesses</p>
+          <div class="price" id="price-custom-web">$2,500</div>
+          <p class="period">One-time project</p>
+          <ul class="features">
+            <li>Custom design (no templates)</li>
+            <li>Fully responsive</li>
+            <li>SEO-optimized</li>
+            <li>WordPress + Kadence</li>
+            <li>3 months hosting included</li>
+            <li>Mobile-first approach</li>
+            <li>SSL certificate</li>
+          </ul>
+          <a href="/contact" class="btn btn-secondary cta">Get Started</a>
+        </div>
+
+        <!-- Website Redesign -->
+        <div class="price-card">
+          <div class="glow glow-mag"></div>
+          <h3>Website Redesign</h3>
+          <p class="subtitle">Upgrade your existing site</p>
+          <div class="price" id="price-redesign">$2,000</div>
+          <p class="period">One-time project</p>
+          <ul class="features">
+            <li>Complete visual overhaul</li>
+            <li>Performance optimization</li>
+            <li>UX improvements</li>
+            <li>Data migration</li>
+            <li>SEO audit & fixes</li>
+            <li>Mobile optimization</li>
+            <li>Speed optimization</li>
+          </ul>
+          <a href="/contact" class="btn btn-secondary cta">Get Started</a>
+        </div>
+
+        <!-- E-Commerce Site -->
+        <div class="price-card">
+          <div class="glow glow-elec"></div>
+          <h3>E-Commerce Build</h3>
+          <p class="subtitle">WooCommerce + Shopify</p>
+          <div class="price" id="price-ecommerce">$3,500</div>
+          <p class="period">One-time project</p>
+          <ul class="features">
+            <li>Store setup & configuration</li>
+            <li>Product catalog setup</li>
+            <li>Payment processing</li>
+            <li>Shipping integration</li>
+            <li>SEO for e-commerce</li>
+            <li>Conversion optimization</li>
+            <li>3 months hosting included</li>
+          </ul>
+          <a href="/contact" class="btn btn-secondary cta">Get Started</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI SERVICES -->
+    <div class="pricing-section" data-section="ai-services">
+      <div class="web-design-grid">
+        <!-- Starter AI -->
+        <div class="price-card">
+          <div class="glow glow-cyan"></div>
+          <h3>Starter AI</h3>
+          <p class="subtitle">Getting started with AI</p>
+          <div class="price" id="price-ai-starter">$399</div>
+          <p class="period">/month (save 15% annually)</p>
+          <ul class="features">
+            <li>1 AI chatbot</li>
+            <li>4 blog posts/month</li>
+            <li>8 social posts/month</li>
+            <li>Basic automation</li>
+            <li>Email support</li>
+            <li>Monthly reporting</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a href="/contact" class="btn btn-primary cta">Start Free Trial</a>
+        </div>
+
+        <!-- Professional AI -->
+        <div class="price-card">
+          <div class="glow glow-mag"></div>
+          <h3>Professional</h3>
+          <p class="subtitle">For growing teams</p>
+          <div class="price" id="price-ai-pro">$899</div>
+          <p class="period">/month (save 15% annually)</p>
+          <ul class="features">
+            <li>2 AI chatbots</li>
+            <li>8 blog posts/month</li>
+            <li>16 social posts/month</li>
+            <li>Advanced automation</li>
+            <li>Email sequences</li>
+            <li>CRM integration</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="/contact" class="btn btn-primary cta">Start Free Trial</a>
+        </div>
+
+        <!-- Enterprise AI -->
+        <div class="price-card">
+          <div class="glow glow-elec"></div>
+          <h3>Enterprise</h3>
+          <p class="subtitle">Full AI powerhouse</p>
+          <div class="price">Custom</div>
+          <p class="period">Based on your needs</p>
+          <ul class="features">
+            <li>Unlimited chatbots</li>
+            <li>12+ blog posts/month</li>
+            <li>Unlimited social posts</li>
+            <li>Custom AI agents</li>
+            <li>Dedicated support</li>
+            <li>VIP quarterly reviews</li>
+            <li>Talk to Jesse</li>
+          </ul>
+          <a href="/contact" class="btn btn-secondary cta">Schedule Call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & GOOGLE MAPS -->
+    <div class="pricing-section" data-section="seo-maps">
+      <div class="web-design-grid">
+        <!-- Local SEO -->
+        <div class="price-card">
+          <div class="glow glow-cyan"></div>
+          <h3>Local SEO</h3>
+          <p class="subtitle">Dominate local search</p>
+          <div class="price" id="price-local-seo">$499</div>
+          <p class="period">/month (save 15% annually)</p>
+          <ul class="features">
+            <li>Google Maps optimization</li>
+            <li>Local keyword rankings</li>
+            <li>Citation building</li>
+            <li>Review management</li>
+            <li>Monthly reporting</li>
+            <li>GBP management</li>
+            <li>Ongoing optimization</li>
+          </ul>
+          <a href="/contact" class="btn btn-primary cta">Start Free Trial</a>
+        </div>
+
+        <!-- Full SEO -->
+        <div class="price-card">
+          <div class="glow glow-mag"></div>
+          <h3>Full SEO + Content</h3>
+          <p class="subtitle">Organic traffic growth</p>
+          <div class="price" id="price-full-seo">$899</div>
+          <p class="period">/month (save 15% annually)</p>
+          <ul class="features">
+            <li>All Local SEO features</li>
+            <li>AI content engine</li>
+            <li>8 blog posts/month</li>
+            <li>Technical SEO audit</li>
+            <li>Link building</li>
+            <li>Competitor analysis</li>
+            <li>Monthly strategy calls</li>
+          </ul>
+          <a href="/contact" class="btn btn-primary cta">Start Free Trial</a>
+        </div>
+
+        <!-- 3D Virtual Tours -->
+        <div class="price-card">
+          <div class="glow glow-elec"></div>
+          <h3>3D Virtual Tours</h3>
+          <p class="subtitle">Matterport tours on Maps</p>
+          <div class="price" id="price-tours">$600</div>
+          <p class="period">One-time project</p>
+          <ul class="features">
+            <li>Professional Matterport tour</li>
+            <li>Google Maps integration</li>
+            <li>High-quality imaging</li>
+            <li>Multi-location support</li>
+            <li>SEO benefits</li>
+            <li>Hosting included</li>
+            <li>Standalone access</li>
+          </ul>
+          <a href="/contact" class="btn btn-secondary cta">Book Tour</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- À LA CARTE -->
+    <div class="pricing-section" data-section="add-ons">
+      <div class="web-design-grid">
+        <!-- AI Image Generation -->
+        <div class="price-card">
+          <div class="glow glow-cyan"></div>
+          <h3>AI Images Pack</h3>
+          <p class="subtitle">Brand-consistent visuals</p>
+          <div class="price" id="price-ai-images">$200</div>
+          <p class="period">Per 20-image pack</p>
+          <ul class="features">
+            <li>20 custom AI images</li>
+            <li>Brand training</li>
+            <li>Commercial license</li>
+            <li>Unlimited edits</li>
+            <li>High resolution</li>
+            <li>Fast delivery</li>
+            <li>Reorder anytime</li>
+          </ul>
+          <a href="/contact" class="btn btn-secondary cta">Order Pack</a>
+        </div>
+
+        <!-- Automation Setup -->
+        <div class="price-card">
+          <div class="glow glow-mag"></div>
+          <h3>Automation Setup</h3>
+          <p class="subtitle">Save hours on busywork</p>
+          <div class="price" id="price-automation">$400</div>
+          <p class="period">One-time setup</p>
+          <ul class="features">
+            <li>Zapier/Make setup</li>
+            <li>Custom workflows</li>
+            <li>Email sequences</li>
+            <li>CRM integration</li>
+            <li>Data pipeline setup</li>
+            <li>Testing & optimization</li>
+            <li>Handoff documentation</li>
+          </ul>
+          <a href="/contact" class="btn btn-secondary cta">Get Started</a>
+        </div>
+
+        <!-- Technical SEO Audit -->
+        <div class="price-card">
+          <div class="glow glow-elec"></div>
+          <h3>SEO Audit + Setup</h3>
+          <p class="subtitle">Fix SEO fundamentals</p>
+          <div class="price" id="price-seo-audit">$300</div>
+          <p class="period">One-time audit</p>
+          <ul class="features">
+            <li>Technical SEO audit</li>
+            <li>Schema markup setup</li>
+            <li>Rank Math configuration</li>
+            <li>Speed optimization</li>
+            <li>Structured data</li>
+            <li>Recommendations</li>
+            <li>Implementation support</li>
+          </ul>
+          <a href="/contact" class="btn btn-secondary cta">Order Audit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TRANSPARENCY -->
+<section class="transparency-section">
+  <div class="wrap">
+    <div class="shead">
+      <span class="kick">Transparent Pricing</span>
+      <h2>What you get. What you don't. <span class="neon">No surprises.</span></h2>
+    </div>
+
+    <div class="transparency-grid">
+      <div class="transparency-card">
+        <h4>✓ Included</h4>
+        <p><strong>Unlimited revisions</strong> on design work. <strong>Monthly reporting</strong> on all metrics. <strong>Direct access</strong> to Jesse. <strong>No hidden fees.</strong> Everything itemized. Cancel recurring services anytime.</p>
+      </div>
+
+      <div class="transparency-card">
+        <h4>✗ Not Included</h4>
+        <p><strong>Domain registration</strong> (we'll help you, ~$15/year). <strong>Hosting after trial</strong> (recommend $10-30/mo). <strong>Third-party tool subscriptions</strong> (Zapier, Make, etc. — you own those). <strong>Rush fees</strong> — we quote turnaround honestly upfront.</p>
+      </div>
+
+      <div class="transparency-card">
+        <h4>Payment & Terms</h4>
+        <p><strong>Recurring services:</strong> Month-to-month or annual (save 15%). <strong>Project-based:</strong> 50% upfront, 50% on completion. <strong>Money-back guarantee:</strong> 30 days. Not happy? Full refund, no questions.</p>
+      </div>
+
+      <div class="transparency-card">
+        <h4>Scaling & Add-Ons</h4>
+        <p><strong>Add hours:</strong> $150/hour for extra support. <strong>Priority support:</strong> +$200/month. <strong>VIP reporting:</strong> +$100/month. <strong>Custom work:</strong> Quote based on scope. Everything à la carte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section class="roi-calculator-section">
+  <div class="wrap">
+    <div class="shead">
+      <span class="kick">Calculate Your ROI</span>
+      <h2>What's your growth <span class="neon">actually worth</span>?</h2>
+    </div>
+
+    <div class="roi-calculator">
+      <h3>See what AI & automation could save you</h3>
+      <div class="roi-form">
+        <div class="roi-input">
+          <label for="chatbot-hours">Hours/Week Handling Chat & Leads</label>
+          <input type="range" id="chatbot-hours" min="0" max="50" value="10" step="1">
+          <output for="chatbot-hours" style="margin-top: 6px; color: var(--cyan); font-weight: 600;"><span id="chatbot-output">10</span> hrs</output>
+        </div>
+        <div class="roi-input">
+          <label for="content-hours">Hours/Week on Content & Social</label>
+          <input type="range" id="content-hours" min="0" max="50" value="8" step="1">
+          <output for="content-hours" style="margin-top: 6px; color: var(--mag); font-weight: 600;"><span id="content-output">8</span> hrs</output>
+        </div>
+        <div class="roi-input">
+          <label for="hourly-rate">Your Team's Avg Rate</label>
+          <select id="hourly-rate">
+            <option value="35">$35/hr</option>
+            <option value="50" selected>$50/hr</option>
+            <option value="75">$75/hr</option>
+            <option value="100">$100/hr</option>
+            <option value="125">$125/hr</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="roi-results">
+        <div class="roi-result">
+          <h4>Hours Freed/Month</h4>
+          <div class="value c"><span id="roi-hours">72</span></div>
+          <div class="period">Worth ~<span style="color: var(--lime); font-weight: 600;">$<span id="roi-value">3,600</span></span></div>
+        </div>
+        <div class="roi-result">
+          <h4>Annual Savings</h4>
+          <div class="value m"><span id="roi-annual">$43,200</span></div>
+          <div class="period">At current rates</div>
+        </div>
+        <div class="roi-result">
+          <h4>ROI on Services</h4>
+          <div class="value l"><span id="roi-payback">1.5</span> months</div>
+          <div class="period">To break even</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wrap">
+    <div class="shead">
+      <span class="kick">Common Questions</span>
+      <h2>Pricing FAQ</h2>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>Do you offer payment plans? <span class="toggle">+</span></h4>
+        <p>Yes. Projects can be split 50/50 (half upfront, half on delivery). Recurring services require month-to-month or annual commitment, but you can cancel anytime. For large projects, we can discuss milestone-based payments.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What if I cancel mid-month? <span class="toggle">+</span></h4>
+        <p>We'll prorate the refund. If you cancel with 15 days left in the month, we refund the prorated amount. No penalties. We'd rather keep you happy than lock you into something you don't need.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do hosting/domain costs scale? <span class="toggle">+</span></h4>
+        <p>Domain & hosting are minimal and fixed: ~$15-30/month total. We include 3 months of hosting with website builds, then you pay for your own. We recommend reliable providers and help with setup.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What if AI service doesn't deliver results? <span class="toggle">+</span></h4>
+        <p>30-day money-back guarantee. If you're not seeing value in the first month, full refund. No questions asked. We're confident our AI chatbots and automation work, but we want you risk-free.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can you work within my budget? <span class="toggle">+</span></h4>
+        <p>Absolutely. Let's talk. We have entry points at every budget level. If you need something custom, we can scope it and quote. Call or email Jesse — he'll find a way forward if there's a mutual fit.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do you have discounts for long-term contracts? <span class="toggle">+</span></h4>
+        <p>Yes. Annual prepay saves 15% on recurring services. Multi-service bundles also get discounts. For example, web design + SEO + AI together can save you 10-20%. Ask during your consultation.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What's included in "priority support"? <span class="toggle">+</span></h4>
+        <p><strong>Priority support (+$200/mo):</strong> 24-hour response guarantee, dedicated Slack channel, monthly strategy calls, and direct line to Jesse. Recommended for time-sensitive campaigns.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can I scale up or down services? <span class="toggle">+</span></h4>
+        <p>Yes. Move from Starter to Professional AI? No problem, we prorate. Need to pause the chatbot for a month? Cancel and restart anytime. We scale with your business, not the other way around.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="glow"></div>
+  <div class="wrap">
+    <span class="kick">Ready to move the needle?</span>
+    <h2 style="margin-top: 16px">Let's discuss which <br><span class="neon">plan fits your goals.</span></h2>
+    <p>Book a free consultation. We'll walk through pricing, ROI, timeline, and what success looks like for your business.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="/contact">Get Started →</a>
+      <a class="btn btn-secondary" href="mailto:Jesse@SmarterNerd.com">Jesse@SmarterNerd.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fgrid">
+    <div class="fbrand">
+      <a class="brand" href="/"><span class="glyph"></span>SmarterNerd<sup>™</sup></a>
+      <p>AI, SEO & web design for South Florida business. Founder-led. Senior-only. Fort Lauderdale.</p>
+    </div>
+    <div class="fcol">
+      <h4>Services</h4>
+      <a href="/services">AI Services</a>
+      <a href="/services">Web Design</a>
+      <a href="/services">SEO & Maps</a>
+      <a href="/services">Automation</a>
+    </div>
+    <div class="fcol">
+      <h4>Company</h4>
+      <a href="/about">About</a>
+      <a href="/work">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="fcol">
+      <h4>Fort Lauderdale</h4>
+      <a href="mailto:Jesse@SmarterNerd.com">Jesse@SmarterNerd.com</a>
+      <a href="#">South Florida + Remote</a>
+      <a href="/contact">Book a call →</a>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 SmarterNerd — Fort Lauderdale</span>
+    <span>Built with AI precision · WordPress + Kadence</span>
+  </div>
+</footer>
+
+<script>
+  // Progress bar
+  addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    document.querySelector('.progress').style.width = (8 + p * 92) + '%';
+  });
+
+  // Billing toggle
+  const toggle = document.getElementById('billingToggle');
+  const prices = {
+    monthly: {
+      'custom-web': '$2,500',
+      'redesign': '$2,000',
+      'ecommerce': '$3,500',
+      'ai-starter': '$399',
+      'ai-pro': '$899',
+      'local-seo': '$499',
+      'full-seo': '$899',
+      'tours': '$600',
+      'ai-images': '$200',
+      'automation': '$400',
+      'seo-audit': '$300'
+    },
+    annual: {
+      'custom-web': '$2,500',
+      'redesign': '$2,000',
+      'ecommerce': '$3,500',
+      'ai-starter': '$4,079/yr',
+      'ai-pro': '$9,179/yr',
+      'local-seo': '$5,089/yr',
+      'full-seo': '$9,179/yr',
+      'tours': '$600',
+      'ai-images': '$200',
+      'automation': '$400',
+      'seo-audit': '$300'
+    }
+  };
+
+  let isAnnual = false;
+  toggle.addEventListener('click', () => {
+    isAnnual = !isAnnual;
+    toggle.classList.toggle('active');
+
+    Object.keys(prices.monthly).forEach(key => {
+      const el = document.getElementById('price-' + key);
+      if (el) {
+        el.textContent = isAnnual ? prices.annual[key] : prices.monthly[key];
+      }
+    });
+  });
+
+  // Pricing tabs
+  const tabs = document.querySelectorAll('.pricing-tab');
+  const sections = document.querySelectorAll('.pricing-section');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.querySelector(`[data-section="${tab.dataset.tab}"]`).classList.add('active');
+    });
+  });
+
+  // ROI Calculator
+  const chatbotHours = document.getElementById('chatbot-hours');
+  const contentHours = document.getElementById('content-hours');
+  const hourlyRate = document.getElementById('hourly-rate');
+  const chatbotOutput = document.getElementById('chatbot-output');
+  const contentOutput = document.getElementById('content-output');
+  const roiHours = document.getElementById('roi-hours');
+  const roiValue = document.getElementById('roi-value');
+  const roiAnnual = document.getElementById('roi-annual');
+  const roiPayback = document.getElementById('roi-payback');
+
+  function updateROI() {
+    const cb = parseInt(chatbotHours.value) || 0;
+    const cnt = parseInt(contentHours.value) || 0;
+    const rate = parseInt(hourlyRate.value) || 50;
+    const totalHours = (cb + cnt) * 4;
+    const totalValue = totalHours * rate;
+    const annualValue = totalValue * 12;
+    const monthlyService = isAnnual ? 899 / 12 : 899;
+    const paybackMonths = (monthlyService / (totalValue || 1)).toFixed(1);
+
+    chatbotOutput.textContent = cb;
+    contentOutput.textContent = cnt;
+    roiHours.textContent = totalHours;
+    roiValue.textContent = totalValue.toLocaleString();
+    roiAnnual.textContent = '$' + annualValue.toLocaleString();
+    roiPayback.textContent = paybackMonths + ' months';
+  }
+
+  chatbotHours.addEventListener('input', updateROI);
+  contentHours.addEventListener('input', updateROI);
+  hourlyRate.addEventListener('change', updateROI);
+  updateROI();
+
+  // FAQ Toggle
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>
