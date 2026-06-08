@@ -42,6 +42,13 @@ a { color: inherit; text-decoration: none; }
 /* No custom header needed - Kadence Free handles the header */
 /* This simplifies the setup and avoids conflicts */
 
+/* Hide Kadence's page title bar on custom pages */
+.page-title-bar,
+.entry-header,
+.wp-block-post-title {
+  display: none !important;
+}
+
 /* ===== PROGRESS BAR ===== */
 .progress {
   position: fixed;
