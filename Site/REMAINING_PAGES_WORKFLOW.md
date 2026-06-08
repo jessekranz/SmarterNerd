@@ -1,28 +1,36 @@
-# Build Remaining 4 Pages — Complete Workflow
+# Build Remaining Pages — Complete Workflow
 
-You're on the final stretch! 4 pages left, then your site is complete.
+You're on the final stretch! Update existing pages + create 1 new = complete site redesign.
 
 ---
 
 ## **Quick Summary:**
 
-For **each page**, you will:
-1. Create a new page in WordPress
-2. Copy the **body HTML** (no header, footer, or styles)
+**For EXISTING pages** (Contact, About, Portfolio):
+1. Edit the existing page
+2. Delete old content
+3. Copy the **body HTML** (no header, footer, or styles)
+4. Paste into a Custom HTML block
+5. Update Rank Math SEO data
+6. Publish (keeps same slug = preserves SEO)
+
+**For NEW pages** (Pricing):
+1. Create a new page
+2. Copy the **body HTML**
 3. Paste into a Custom HTML block
 4. Add Rank Math SEO data
 5. Publish
 
-**Estimated time:** 10-15 min per page = ~1 hour total
+**Estimated time:** 10-15 min per page = ~1 hour total for all 4
 
 ---
 
-## **PAGE 1: CONTACT**
+## **PAGE 1: CONTACT** (EXISTING PAGE - EDIT IT)
 
-### Create the Page
-- **Title:** Contact
-- **Slug:** contact
-- **Template:** Default (not Custom Full Width)
+### Edit the Existing Page
+- Go to **Pages → Contact** (click Edit)
+- Keep the same slug: `/contact/`
+- **This preserves your SEO ranking!**
 
 ### Copy the HTML Body
 **Open:** `contact-body.html` from your `/Site/` folder
@@ -53,12 +61,12 @@ For **each page**, you will:
 
 ---
 
-## **PAGE 2: PRICING**
+## **PAGE 2: PRICING** (NEW PAGE - CREATE IT)
 
-### Create the Page
+### Create a New Page
 - **Title:** Pricing
 - **Slug:** pricing
-- **Template:** Default
+- **Template:** Default (not Custom Full Width)
 
 ### Copy the HTML Body
 **Open:** `pricing-body.html` from your `/Site/` folder
@@ -91,12 +99,12 @@ For **each page**, you will:
 
 ---
 
-## **PAGE 3: ABOUT**
+## **PAGE 3: ABOUT** (EXISTING PAGE - EDIT IT)
 
-### Create the Page
-- **Title:** About
-- **Slug:** about
-- **Template:** Default
+### Edit the Existing Page
+- Go to **Pages → About** (click Edit)
+- Keep the same slug: `/about/`
+- **This preserves your SEO ranking!**
 
 ### Copy the HTML Body
 **Open:** `about-body.html` from your `/Site/` folder
@@ -127,12 +135,12 @@ For **each page**, you will:
 
 ---
 
-## **PAGE 4: WORK**
+## **PAGE 4: PORTFOLIO** (EXISTING PAGE - EDIT IT)
 
-### Create the Page
-- **Title:** Work
-- **Slug:** work
-- **Template:** Default
+### Edit the Existing Page
+- Go to **Pages → Portfolio** (click Edit)
+- Keep the same slug: `/portfolio/`
+- **This preserves your SEO ranking!**
 
 ### Copy the HTML Body
 **Open:** `work-body.html` from your `/Site/` folder
@@ -149,10 +157,10 @@ For **each page**, you will:
 - 3 client testimonials
 - Final CTA
 
-### Add to WordPress
-1. Create page
+### Delete Old Content & Add New
+1. Select all old content and delete it
 2. Add **Custom HTML** block
-3. Paste the body HTML
+3. Paste the new body HTML
 4. Click outside to preview
 
 ### Add Rank Math SEO
@@ -210,12 +218,12 @@ View page to test
 
 ## **All 4 Pages Summary**
 
-| Page | Slug | File | Focus Keyword |
-|------|------|------|---|
-| Contact | /contact/ | contact-body.html | contact Fort Lauderdale web design |
-| Pricing | /pricing/ | pricing-body.html | web design pricing Fort Lauderdale |
-| About | /about/ | about-body.html | Fort Lauderdale web designer |
-| Work | /work/ | work-body.html | web design portfolio Fort Lauderdale |
+| Page | Slug | Status | File | Focus Keyword |
+|------|------|--------|------|---|
+| Contact | /contact/ | EDIT existing | contact-body.html | contact Fort Lauderdale web design |
+| Pricing | /pricing/ | CREATE new | pricing-body.html | web design pricing Fort Lauderdale |
+| About | /about/ | EDIT existing | about-body.html | Fort Lauderdale web designer |
+| Portfolio | /portfolio/ | EDIT existing | work-body.html | web design portfolio Fort Lauderdale |
 
 ---
 
@@ -243,11 +251,13 @@ After each page publishes:
 
 ## **You're Almost Done!**
 
-✅ Services page — LIVE
-⏳ Contact page — Next
-⏳ Pricing page — Next
-⏳ About page — Next
-⏳ Work page — Last
+✅ Services page — LIVE (`/services/`)
+⏳ Contact page — EDIT existing (`/contact/`)
+⏳ Pricing page — CREATE new (`/pricing/`)
+⏳ About page — EDIT existing (`/about/`)
+⏳ Portfolio page — EDIT existing (`/portfolio/`)
+
+**IMPORTANT: Editing existing pages keeps your SEO rankings!**
 
 **1 hour of work and your complete redesigned site is live!** 🚀
 
