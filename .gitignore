@@ -1,0 +1,58 @@
+# Credentials & Secrets
+migration/godaddy-migration-credentials.json
+*.env
+*.env.local
+.env.*.local
+wp-config.php
+wp-config-local.php
+
+# Node
+node_modules/
+package-lock.json
+yarn.lock
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# WordPress
+wp-content/uploads/
+wp-content/backup-*
+wp-content/cache/
+wp-content/updraft/
+wp-content/ai1wm-backups/
+wp-content/plugins/
+wp-content/themes/
+
+# Logs
+*.log
+debug.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Build artifacts
+dist/
+build/
+*.map
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Local development
+local/
+temp/
+
+# Reference materials
+migration/
+mockups/
+references/
+*.png
