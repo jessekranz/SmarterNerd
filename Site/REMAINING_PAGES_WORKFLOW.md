@@ -33,10 +33,10 @@ You're on the final stretch! Update existing pages + create 1 new = complete sit
 - **This preserves your SEO ranking!**
 
 ### Copy the HTML Body
-**Open:** `contact-body.html` from your `/Site/` folder
+**Open:** `contact-body-clean-wp.html` from your `/Site/` folder
 
-**Copy from:** Line 1 (`<div class="progress">`)
-**Copy to:** Last `</section>` (stop before `<style>` tag)
+**What's included:** HTML only (no style or script tags — those are already loaded globally)
+**Copy:** Everything in the file
 
 **What's included:**
 - Progress bar
@@ -69,10 +69,10 @@ You're on the final stretch! Update existing pages + create 1 new = complete sit
 - **Template:** Default (not Custom Full Width)
 
 ### Copy the HTML Body
-**Open:** `pricing-body.html` from your `/Site/` folder
+**Open:** `pricing-body-clean-wp.html` from your `/Site/` folder
 
-**Copy from:** Line 1 (`<div class="progress">`)
-**Copy to:** Last `</section>` (stop before `<style>` tag)
+**What's included:** HTML only (no style or script tags — those are already loaded globally)
+**Copy:** Everything in the file
 
 **What's included:**
 - Progress bar
@@ -107,10 +107,10 @@ You're on the final stretch! Update existing pages + create 1 new = complete sit
 - **This preserves your SEO ranking!**
 
 ### Copy the HTML Body
-**Open:** `about-body.html` from your `/Site/` folder
+**Open:** `about-body-clean-wp.html` from your `/Site/` folder
 
-**Copy from:** Line 1 (`<div class="progress">`)
-**Copy to:** Last `</section>` (stop before `<style>` tag)
+**What's included:** HTML only (no style or script tags — those are already loaded globally)
+**Copy:** Everything in the file
 
 **What's included:**
 - Progress bar
@@ -143,10 +143,10 @@ You're on the final stretch! Update existing pages + create 1 new = complete sit
 - **This preserves your SEO ranking!**
 
 ### Copy the HTML Body
-**Open:** `work-body.html` from your `/Site/` folder
+**Open:** `portfolio-body-clean-wp.html` from your `/Site/` folder
 
-**Copy from:** Line 1 (`<div class="progress">`)
-**Copy to:** Last `</section>` (stop before `<style>` tag)
+**What's included:** HTML only (no style or script tags — those are already loaded globally)
+**Copy:** Everything in the file
 
 **What's included:**
 - Progress bar
@@ -183,9 +183,8 @@ Template: Default
 
 ### 2️⃣ Copy HTML Body
 ```
-Open file: [From above - contact-body.html, etc.]
-Select from: <div class="progress">
-Select to: Last </section> (STOP before <style>)
+Open file: [From above - contact-body-clean-wp.html, etc.]
+Select: Everything in the file (it's already clean!)
 Copy to clipboard
 ```
 
@@ -220,22 +219,26 @@ View page to test
 
 | Page | Slug | Status | File | Focus Keyword |
 |------|------|--------|------|---|
-| Contact | /contact/ | EDIT existing | contact-body.html | contact Fort Lauderdale web design |
-| Pricing | /pricing/ | CREATE new | pricing-body.html | web design pricing Fort Lauderdale |
-| About | /about/ | EDIT existing | about-body.html | Fort Lauderdale web designer |
-| Portfolio | /portfolio/ | EDIT existing | work-body.html | web design portfolio Fort Lauderdale |
+| Contact | /contact/ | EDIT existing | contact-body-clean-wp.html | contact Fort Lauderdale web design |
+| Pricing | /pricing/ | CREATE new | pricing-body-clean-wp.html | web design pricing Fort Lauderdale |
+| About | /about/ | EDIT existing | about-body-clean-wp.html | Fort Lauderdale web designer |
+| Portfolio | /portfolio/ | EDIT existing | portfolio-body-clean-wp.html | web design portfolio Fort Lauderdale |
 
 ---
 
 ## **Files You Need**
 
-All files are in your `/Site/` folder:
-- ✅ `contact-body.html`
-- ✅ `pricing-body.html`
-- ✅ `about-body.html`
-- ✅ `work-body.html`
+All files are in your `/Site/` folder (use the `-wp.html` versions):
+- ✅ `contact-body-clean-wp.html` — Use this one!
+- ✅ `pricing-body-clean-wp.html` — Use this one!
+- ✅ `about-body-clean-wp.html` — Use this one!
+- ✅ `portfolio-body-clean-wp.html` — Use this one!
 
-All CSS is already loaded (neonspec-styles.css) — no additional styling needed.
+**Why the -wp versions?**
+- No `<style>` or `<script>` tags (WordPress doesn't like them in Custom HTML blocks)
+- Just pure HTML content
+- CSS is already loaded globally (neonspec-styles.css)
+- JavaScript (progress bar, accordions) is optional and can be added via Code Snippets plugin later
 
 ---
 
@@ -266,9 +269,9 @@ After each page publishes:
 ## **Questions?**
 
 If you get stuck on any page:
-1. Check the file name spelling
-2. Make sure you copied from `<div class="progress">` to last `</section>`
-3. Make sure you're using a Custom HTML block
-4. Make sure you're not pasting `<style>` or `<script>` tags
+1. Use the **-wp.html files** (not the -clean.html files)
+2. Make sure you're pasting into a **Custom HTML block**
+3. Copy the **entire file content** (it's already cleaned)
+4. If you get "not a valid JSON response" error → you're using the wrong file (use -wp.html)
 
 **Go for it!** Let me know when you're done! 💪
