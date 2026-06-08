@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Get Started With SmarterNerd | Fort Lauderdale</title>
+<meta name="description" content="Free consultation with Jesse. No sales pitch. Honest conversation about your goals and how we can help grow your South Florida business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared-styles.css">
+<style>
+  /* ===== CONTACT PAGE SPECIFIC ===== */
+
+  /* Progress bar */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 38%;
+    background: linear-gradient(90deg, var(--cyan), var(--mag));
+    z-index: 200;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+  }
+
+  /* Navigation */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    backdrop-filter: blur(14px);
+    background: rgba(8, 8, 12, 0.55);
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px var(--pad-h);
+  }
+
+  .brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .brand .glyph {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid var(--cyan);
+    position: relative;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.45);
+  }
+
+  .brand .glyph::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--mag));
+  }
+
+  .brand sup {
+    font-family: var(--mono);
+    font-size: 0.48rem;
+    color: var(--cyan);
+  }
+
+  .nlinks {
+    display: flex;
+    gap: 30px;
+    font-size: 0.92rem;
+    color: var(--t2);
+  }
+
+  .nlinks a:hover {
+    color: var(--text);
+  }
+
+  .ncta {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--cyan);
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-weight: 500;
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.35);
+    transition: all var(--trans);
+  }
+
+  .ncta:hover {
+    box-shadow: 0 0 32px rgba(0, 229, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* ===== HERO SECTION ===== */
+  .hero {
+    position: relative;
+    padding: 128px var(--pad-h) 84px;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 64px;
+  }
+
+  .plasma {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .o1 {
+    width: 620px;
+    height: 620px;
+    background: var(--cyan);
+    opacity: 0.22;
+    top: -10%;
+    right: 4%;
+    animation: drift1 22s ease-in-out infinite alternate;
+  }
+
+  .o2 {
+    width: 500px;
+    height: 500px;
+    background: var(--mag);
+    opacity: 0.18;
+    top: 26%;
+    right: 26%;
+    animation: drift2 26s ease-in-out infinite alternate;
+  }
+
+  .o3 {
+    width: 560px;
+    height: 560px;
+    background: var(--violet);
+    opacity: 0.16;
+    top: 14%;
+    right: -8%;
+    animation: drift3 20s ease-in-out infinite alternate;
+  }
+
+  .hframe {
+    position: absolute;
+    inset: 96px 22px 22px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero .wrap {
+    position: relative;
+    z-index: 5;
+    max-width: var(--wrap);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 26px;
+  }
+
+  .eyebrow i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+    animation: pulse 2s infinite;
+  }
+
+  .hero h1 {
+    margin-bottom: 28px;
+  }
+
+  .hero-sub {
+    font-size: 1.18rem;
+    color: var(--t2);
+    max-width: 580px;
+    margin: 28px auto 34px;
+    line-height: 1.55;
+  }
+
+  .hero-sub b {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ===== CONTACT MAIN ===== */
+  .contact-main {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+  }
+
+  /* Contact Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group label {
+    color: var(--t3);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 14px 16px;
+    font-family: var(--disp);
+    font-size: 1rem;
+    transition: all var(--trans);
+    resize: vertical;
+    min-height: 44px;
+  }
+
+  .form-group textarea {
+    min-height: 140px;
+    font-size: 0.95rem;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--cyan);
+    background: var(--panel2);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.1);
+  }
+
+  .form-group.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .form-group.checkbox input {
+    width: 18px;
+    height: 18px;
+    min-height: auto;
+    cursor: pointer;
+  }
+
+  .form-group.checkbox label {
+    margin: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    font-family: var(--disp);
+    font-size: 0.9rem;
+    text-transform: capitalize;
+  }
+
+  .form-submit {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  /* Contact Info */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .contact-info h3 {
+    margin-bottom: 8px;
+  }
+
+  .contact-item {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all var(--trans);
+  }
+
+  .contact-item:hover {
+    border-color: var(--cyan);
+    background: var(--panel2);
+    transform: translateY(-2px);
+  }
+
+  .contact-item .label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--t3);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .contact-item .value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cyan);
+    display: inline-block;
+    transition: all var(--trans);
+  }
+
+  .contact-item a {
+    color: var(--cyan);
+    text-decoration: none;
+  }
+
+  .contact-item a:hover {
+    text-decoration: underline;
+  }
+
+  .contact-item p {
+    color: var(--t2);
+    font-size: 0.9rem;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* ===== SERVICE SHORTCUTS ===== */
+  .shortcuts-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .shead {
+    max-width: 680px;
+    margin-bottom: 52px;
+  }
+
+  .shead h2 {
+    margin: 14px 0;
+  }
+
+  .shead p {
+    color: var(--t2);
+    font-size: 1.1rem;
+  }
+
+  .shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .shortcut-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: all var(--trans);
+  }
+
+  .shortcut-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-4px);
+  }
+
+  .shortcut-card .icon {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+  }
+
+  .shortcut-card h4 {
+    margin-bottom: 8px;
+  }
+
+  .shortcut-card p {
+    color: var(--t2);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .shortcut-card .link {
+    display: inline-block;
+    color: var(--cyan);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--cyan);
+    padding-bottom: 2px;
+    transition: all var(--trans);
+  }
+
+  .shortcut-card .link:hover {
+    color: var(--mag);
+    border-color: var(--mag);
+  }
+
+  /* ===== FAQ ===== */
+  .faq-section {
+    position: relative;
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .faq-item {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all var(--trans);
+  }
+
+  .faq-item:hover {
+    border-color: var(--cyan);
+    background: var(--panel2);
+  }
+
+  .faq-item.open {
+    border-color: var(--cyan);
+  }
+
+  .faq-item h4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+    color: var(--text);
+  }
+
+  .faq-item .toggle {
+    font-size: 1.4rem;
+    color: var(--cyan);
+    transition: transform var(--trans);
+  }
+
+  .faq-item.open .toggle {
+    transform: rotate(180deg);
+  }
+
+  .faq-item p {
+    color: var(--t2);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 16px;
+    display: none;
+    animation: slideDown 0.3s ease-out forwards;
+  }
+
+  .faq-item.open p {
+    display: block;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      max-height: 0;
+    }
+    to {
+      opacity: 1;
+      max-height: 500px;
+    }
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+    padding: 54px 0 30px;
+  }
+
+  .fgrid {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 var(--pad-h);
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 34px;
+    margin-bottom: 40px;
+  }
+
+  .fbrand p {
+    color: var(--t2);
+    font-size: 0.9rem;
+    max-width: 30ch;
+  }
+
+  .fcol h4 {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--t3);
+    margin-bottom: 14px;
+  }
+
+  .fcol a {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--t2);
+    padding: 5px 0;
+    transition: color var(--trans);
+  }
+
+  .fcol a:hover {
+    color: var(--text);
+  }
+
+  .fbot {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 22px var(--pad-h) 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--t3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1200px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .shortcuts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    nav {
+      padding: 14px var(--pad-h);
+    }
+
+    .nlinks {
+      display: none;
+    }
+
+    .hero {
+      padding: 110px var(--pad-h) 60px;
+      min-height: auto;
+    }
+
+    .hframe,
+    .hide-mobile {
+      display: none !important;
+    }
+
+    .shortcuts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .fgrid {
+      grid-template-columns: 1fr;
+    }
+
+    .fbot {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 80px var(--pad-h) 40px;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+    }
+
+    .contact-info {
+      gap: 16px;
+    }
+
+    .contact-item {
+      padding: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress"></div>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <a class="brand" href="/">
+      <span class="glyph"></span>SmarterNerd<sup>™</sup>
+    </a>
+    <div class="nlinks">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/work">Work</a>
+      <a href="/about">About</a>
+      <a href="/pricing">Pricing</a>
+    </div>
+    <a class="ncta" href="/contact">Get Started →</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="plasma">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+  </div>
+  <div class="grain"></div>
+  <div class="hframe hide-mobile"></div>
+
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow"><i></i>Let's Talk</div>
+      <h1>Free consultation with <span class="neon">Jesse</span>.</h1>
+      <p class="hero-sub">No sales pitch. No gatekeeping. Just honest conversation about your goals, your challenges, and how we can help. Fill out the form below or email directly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT MAIN -->
+<section class="contact-main">
+  <div class="wrap">
+    <div class="contact-grid">
+      <!-- Contact Form -->
+      <form class="contact-form" id="contact-form">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+
+        <div class="form-group">
+          <label for="company">Business Name *</label>
+          <input type="text" id="company" name="company" required>
+        </div>
+
+        <div class="form-group">
+          <label for="service">What service interests you? *</label>
+          <select id="service" name="service" required>
+            <option value="">— Select an option —</option>
+            <option value="ai-services">AI Services (Chatbots, Automation)</option>
+            <option value="web-design">Web Design & Development</option>
+            <option value="seo">SEO & Google Maps</option>
+            <option value="bundle">Complete Bundle (All Services)</option>
+            <option value="other">Other / Consultation</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Monthly budget range (optional)</label>
+          <select id="budget" name="budget">
+            <option value="">— Not sure yet —</option>
+            <option value="under-1k">Under $1,000</option>
+            <option value="1-5k">$1,000 - $5,000</option>
+            <option value="5-10k">$5,000 - $10,000</option>
+            <option value="over-10k">$10,000+</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell us about your project *</label>
+          <textarea id="message" name="message" placeholder="What are your goals? What's blocking you? What timeline are you working with?" required></textarea>
+        </div>
+
+        <div class="form-group checkbox">
+          <input type="checkbox" id="agree" name="agree" required>
+          <label for="agree">I agree to be contacted about my project</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Send Message →</button>
+        <p style="font-size: 0.75rem; color: var(--t3); text-align: center; margin-top: 8px;">We'll respond within 24 hours. No spam. No surprises.</p>
+      </form>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div>
+          <h3>Contact Details</h3>
+          <p style="color: var(--t2); font-size: 0.95rem;">Get in touch directly or book a call instantly:</p>
+        </div>
+
+        <div class="contact-item">
+          <span class="label">Email</span>
+          <a href="mailto:Jesse@SmarterNerd.com" class="value">Jesse@SmarterNerd.com</a>
+          <p>Fast response guaranteed. We reply within 24 hours, usually sooner.</p>
+        </div>
+
+        <div class="contact-item">
+          <span class="label">Location</span>
+          <div class="value">Fort Lauderdale, FL</div>
+          <p>Based in South Florida. Serving local + remote clients across the US.</p>
+        </div>
+
+        <div class="contact-item">
+          <span class="label">Hours</span>
+          <div class="value">Mon–Fri, 9 AM–6 PM EST</div>
+          <p>Founder-led. Direct access to Jesse. No outsourced support.</p>
+        </div>
+
+        <div class="contact-item">
+          <span class="label">Quick Call</span>
+          <p style="margin-top: 0;">Book a 15-minute call directly below. No waiting, no emails back and forth.</p>
+          <a href="https://calendly.com" target="_blank" class="link">Schedule via Calendly →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE SHORTCUTS -->
+<section class="shortcuts-section">
+  <div class="wrap">
+    <div class="shead">
+      <span class="kick">Not sure where to start?</span>
+      <h2>Jump to the service <span class="neon">you need</span>.</h2>
+    </div>
+
+    <div class="shortcuts-grid">
+      <div class="shortcut-card">
+        <div class="icon">🤖</div>
+        <h4>Need AI Services?</h4>
+        <p>Chatbots, automation, content engines. See pricing and capabilities.</p>
+        <a href="/services" class="link">View AI Plans →</a>
+      </div>
+
+      <div class="shortcut-card">
+        <div class="icon">🌐</div>
+        <h4>Website + SEO?</h4>
+        <p>Web design, Google rankings, local SEO. Complete digital presence.</p>
+        <a href="/services" class="link">See Services →</a>
+      </div>
+
+      <div class="shortcut-card">
+        <div class="icon">💼</div>
+        <h4>Explore Pricing</h4>
+        <p>Transparent pricing. No surprises. ROI calculator. 30-day guarantee.</p>
+        <a href="/pricing" class="link">View Pricing →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wrap">
+    <div class="shead">
+      <span class="kick">Questions?</span>
+      <h2>Contact & Consultation <span class="neon">FAQ</span></h2>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>How long until I hear back? <span class="toggle">+</span></h4>
+        <p>Within 24 hours, usually faster. Jesse personally reviews every inquiry. If you need a quicker response, send an email or schedule a call directly via Calendly.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do you work with my industry? <span class="toggle">+</span></h4>
+        <p>We work across legal, healthcare, e-commerce, retail, services, and more. If you're a South Florida business that needs web, SEO, or AI — we can help. Let's talk about your specific situation.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can you fix my current website? <span class="toggle">+</span></h4>
+        <p>Yes. We do redesigns, performance audits, SEO overhauls, and migrations. Send us details about what you need, and we'll review and quote. Some work is quick, some requires deeper rebuilds.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What's the first step? <span class="toggle">+</span></h4>
+        <p><strong>1)</strong> Fill out the form or email Jesse directly. <strong>2)</strong> He reviews your situation and reaches out with initial thoughts. <strong>3)</strong> Schedule a call to discuss strategy and timeline. <strong>4)</strong> Get a custom proposal.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do you offer retainers? <span class="toggle">+</span></h4>
+        <p>Yes. We offer monthly retainers for AI services, SEO, and ongoing support. Most retainers start at $400+/month depending on scope. You can add or remove services, and cancel anytime.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What if I just want a consultation? <span class="toggle">+</span></h4>
+        <p>That's free. Book a 15-minute call. Jesse will ask about your goals, challenges, and opportunities. You'll get honest feedback on what's possible and what it might cost. No pressure, no sales pitch.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do you do custom projects? <span class="toggle">+</span></h4>
+        <p>Absolutely. If you need something outside our standard offerings, we scope it and quote. Send details and we'll discuss feasibility, timeline, and cost.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How does the free consultation work? <span class="toggle">+</span></h4>
+        <p>Book a 15-30 minute call directly via Calendly (link in the contact box). Or email Jesse to set up a time. He'll ask questions, listen to your situation, and share preliminary thoughts on strategy and options. Zero obligations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fgrid">
+    <div class="fbrand">
+      <a class="brand" href="/"><span class="glyph"></span>SmarterNerd<sup>™</sup></a>
+      <p>AI, SEO & web design for South Florida business. Founder-led. Senior-only. Fort Lauderdale.</p>
+    </div>
+    <div class="fcol">
+      <h4>Services</h4>
+      <a href="/services">AI Services</a>
+      <a href="/services">Web Design</a>
+      <a href="/services">SEO & Maps</a>
+      <a href="/services">Automation</a>
+    </div>
+    <div class="fcol">
+      <h4>Company</h4>
+      <a href="/about">About</a>
+      <a href="/work">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="fcol">
+      <h4>Fort Lauderdale</h4>
+      <a href="mailto:Jesse@SmarterNerd.com">Jesse@SmarterNerd.com</a>
+      <a href="#">South Florida + Remote</a>
+      <a href="https://calendly.com">Book a call →</a>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 SmarterNerd — Fort Lauderdale</span>
+    <span>Built with AI precision · WordPress + Kadence</span>
+  </div>
+</footer>
+
+<script>
+  // Progress bar
+  addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    document.querySelector('.progress').style.width = (8 + p * 92) + '%';
+  });
+
+  // Contact form
+  const contactForm = document.getElementById('contact-form');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      company: document.getElementById('company').value,
+      service: document.getElementById('service').value,
+      budget: document.getElementById('budget').value,
+      message: document.getElementById('message').value
+    };
+
+    // Build mailto link
+    const subject = `New Contact Request from ${formData.name}`;
+    const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Company: ${formData.company}
+Service Interest: ${formData.service}
+Budget Range: ${formData.budget || 'Not specified'}
+
+Message:
+${formData.message}
+    `.trim();
+
+    window.location.href = `mailto:Jesse@SmarterNerd.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+
+  // FAQ Toggle
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>
