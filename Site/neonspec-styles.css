@@ -38,111 +38,9 @@ a { color: inherit; text-decoration: none; }
 @keyframes pulse { 50% { opacity: 0.4; } }
 @keyframes float { 50% { transform: translateY(-14px); } }
 
-/* ===== HIDE KADENCE DEFAULT HEADER ===== */
-.site-header,
-.wp-block-template-part,
-.kadence-header,
-[class*="header"],
-.site-header-wrapper,
-.wp-site-blocks > * > .wp-block-template-part {
-  display: none !important;
-}
-
-/* But keep our custom header */
-header {
-  display: block !important;
-}
-
-/* ===== CUSTOM HEADER ===== */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  backdrop-filter: blur(14px);
-  background: rgba(8, 8, 12, 0.55);
-  border-bottom: 1px solid var(--line);
-}
-
-nav {
-  max-width: var(--wrap);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px var(--pad-h);
-}
-
-.brand {
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: -0.01em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.brand .glyph {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1.2px solid var(--cyan);
-  position: relative;
-  box-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
-  flex-shrink: 0;
-}
-
-.brand .glyph::after {
-  content: "";
-  position: absolute;
-  inset: 5px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--cyan), var(--mag));
-}
-
-.brand sup {
-  font-family: var(--mono);
-  font-size: 0.35rem;
-  color: var(--cyan);
-  position: relative;
-  top: -2px;
-}
-
-.nlinks {
-  display: flex;
-  gap: 28px;
-  font-size: 0.85rem;
-  color: var(--t2);
-}
-
-.nlinks a {
-  transition: color var(--trans);
-}
-
-.nlinks a:hover {
-  color: var(--cyan);
-}
-
-.ncta {
-  font-family: var(--mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--bg);
-  background: var(--cyan);
-  padding: 8px 16px;
-  border-radius: 100px;
-  font-weight: 500;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
-  transition: all var(--trans);
-  white-space: nowrap;
-}
-
-.ncta:hover {
-  box-shadow: 0 0 28px rgba(0, 229, 255, 0.5);
-  transform: translateY(-2px);
-}
+/* ===== USING KADENCE DEFAULT HEADER ===== */
+/* No custom header needed - Kadence Free handles the header */
+/* This simplifies the setup and avoids conflicts */
 
 /* ===== PROGRESS BAR ===== */
 .progress {
@@ -165,7 +63,7 @@ nav {
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-top: 56px;
+  margin-top: 0;
 }
 
 .plasma { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
@@ -357,9 +255,7 @@ footer {
 }
 
 @media (max-width: 900px) {
-  nav { padding: 14px var(--pad-h); }
-  .nlinks { display: none; }
-  .hero { padding: 110px var(--pad-h) 60px; min-height: auto; }
+  .hero { padding: 100px var(--pad-h) 60px; min-height: auto; }
   .hframe, .hide-mobile { display: none !important; }
   .services-grid { grid-template-columns: 1fr; }
   .how-grid { grid-template-columns: 1fr; }
