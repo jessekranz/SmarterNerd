@@ -1,0 +1,108 @@
+<!-- SMARTERNERD HEADER TEMPLATE FOR KADENCE THEME -->
+<!-- Add this to your Kadence theme custom header or use as reference for your theme's header.php -->
+
+<header class="sn-header">
+  <nav class="sn-nav">
+    <a class="sn-brand" href="/">
+      <span class="sn-glyph"></span>
+      SmarterNerd<sup>™</sup>
+    </a>
+    <div class="sn-nlinks">
+      <a href="/services/">Services</a>
+      <a href="/work">Work</a>
+      <a href="/about">About</a>
+      <a href="/pricing">Pricing</a>
+    </div>
+    <a class="sn-ncta" href="#cta">Free growth plan →</a>
+  </nav>
+</header>
+
+<style>
+  .sn-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(8, 8, 12, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sn-nav {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+
+  .sn-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .sn-glyph {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--mag) 100%);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .sn-nlinks {
+    display: flex;
+    gap: 32px;
+  }
+
+  .sn-nlinks a {
+    color: var(--t2);
+    text-decoration: none;
+    transition: color var(--trans);
+  }
+
+  .sn-nlinks a:hover {
+    color: var(--cyan);
+  }
+
+  .sn-ncta {
+    background: var(--cyan);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    transition: all var(--trans);
+  }
+
+  .sn-ncta:hover {
+    background: var(--mag);
+    color: #fff;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .sn-nav {
+      padding: 12px 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .sn-nlinks {
+      display: none;
+    }
+
+    .sn-ncta {
+      order: -1;
+    }
+  }
+</style>
